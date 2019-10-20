@@ -13,17 +13,27 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let homeViewController = HomeViewController()
+        let homeViewController = UINavigationController(rootViewController: HomeViewController())
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: .none, tag: 0)
-        let recipesViewController = RecipesViewController()
+        homeViewController.navigationBar.topItem?.title = "Home"
+        
+        let recipesViewController = UINavigationController(rootViewController: RecipesViewController())
         recipesViewController.tabBarItem = UITabBarItem(title: "Recipes", image: .none, tag: 1)
+        recipesViewController.navigationBar.topItem?.title = "Recipes"
+        
         let plusViewController = PlusViewController()
         plusViewController.tabBarItem = UITabBarItem(title: "+", image: .none, tag: 2)
-        let shoppingListViewController = ShoppingListViewController()
+        
+        let shoppingListViewController = UINavigationController(rootViewController: ShoppingListViewController())
         shoppingListViewController.tabBarItem = UITabBarItem(title: "Shopping list", image: .none, tag: 3)
-        let profileViewController = ProfileViewController()
+        shoppingListViewController.navigationBar.topItem?.title = "Shopping list"
+        
+        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
         profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: .none, tag: 4)
+        profileViewController.navigationBar.topItem?.title = "Profile"
         
         viewControllers = [homeViewController, recipesViewController, plusViewController, shoppingListViewController, profileViewController]
+        
+       
     }
 }
