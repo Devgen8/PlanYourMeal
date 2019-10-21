@@ -22,6 +22,7 @@ struct Recipe: Decodable {
     var image: String?
     var url: String?
     var calories: Float?
+    var totalWeight: Float?
     var ingredients: [Ingredient]?
 }
 
@@ -29,4 +30,5 @@ struct Ingredient: Decodable {
     var text: String?
     var quantity: Float?
     var measure: String?
+    var food: String?
 }

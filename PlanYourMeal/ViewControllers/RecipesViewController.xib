@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipesViewController" customModule="PlanYourMeal" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="0vk-VL-bME" id="HaR-tJ-7ss"/>
+                <outlet property="loadingIndicator" destination="Lka-Vp-1Fp" id="Xo9-dS-KUE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,13 +33,20 @@
                         <outlet property="delegate" destination="-1" id="Qej-GO-1W7"/>
                     </connections>
                 </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Lka-Vp-1Fp">
+                    <rect key="frame" x="197" y="270" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0vk-VL-bME" secondAttribute="bottom" id="Ad4-nr-nNd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lka-Vp-1Fp" secondAttribute="trailing" constant="197" id="Cv5-4z-jOz"/>
+                <constraint firstItem="Lka-Vp-1Fp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="197" id="RTy-25-0zf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0vk-VL-bME" secondAttribute="trailing" id="aBL-2o-mXc"/>
                 <constraint firstItem="0vk-VL-bME" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bo1-MA-l6e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Lka-Vp-1Fp" secondAttribute="bottom" constant="572" id="mnt-NJ-odJ"/>
                 <constraint firstItem="0vk-VL-bME" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="p22-8N-dMm"/>
+                <constraint firstItem="Lka-Vp-1Fp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="226" id="xdE-KG-IJk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="125"/>
