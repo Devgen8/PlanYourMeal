@@ -26,6 +26,13 @@
 		244331C9235D867100330BA1 /* RecipeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331C7235D867100330BA1 /* RecipeDetailViewController.xib */; };
 		244331D0235D971400330BA1 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331CE235D971400330BA1 /* IngredientTableViewCell.swift */; };
 		244331D1235D971400330BA1 /* IngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331CF235D971400330BA1 /* IngredientTableViewCell.xib */; };
+		244331D52360345F00330BA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331D32360345F00330BA1 /* LoginViewController.swift */; };
+		244331D92360398700330BA1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331D72360398700330BA1 /* SignUpViewController.swift */; };
+		244331DA2360398700330BA1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331D82360398700330BA1 /* SignUpViewController.xib */; };
+		244331DD23603C2A00330BA1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331DB23603C2A00330BA1 /* SignInViewController.swift */; };
+		244331DE23603C2A00330BA1 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331DC23603C2A00330BA1 /* SignInViewController.xib */; };
+		244331E023604C1800330BA1 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331DF23604C1800330BA1 /* Design.swift */; };
+		244331E5236181D500330BA1 /* FoodPack1_12_Videvo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 244331E4236181D500330BA1 /* FoodPack1_12_Videvo.mov */; };
 		2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF37234DAF4D0098C021 /* HomeViewController.swift */; };
 		2467FF3C234DEC6B0098C021 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3B234DEC6B0098C021 /* PlusViewController.swift */; };
 		2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */; };
@@ -80,6 +87,13 @@
 		244331C7235D867100330BA1 /* RecipeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailViewController.xib; sourceTree = "<group>"; };
 		244331CE235D971400330BA1 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		244331CF235D971400330BA1 /* IngredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientTableViewCell.xib; sourceTree = "<group>"; };
+		244331D32360345F00330BA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		244331D72360398700330BA1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		244331D82360398700330BA1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		244331DB23603C2A00330BA1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		244331DC23603C2A00330BA1 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		244331DF23604C1800330BA1 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		244331E4236181D500330BA1 /* FoodPack1_12_Videvo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = FoodPack1_12_Videvo.mov; sourceTree = "<group>"; };
 		2467FF37234DAF4D0098C021 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2467FF3B234DEC6B0098C021 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +174,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		244331D22360342E00330BA1 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				244331D32360345F00330BA1 /* LoginViewController.swift */,
+				244331D72360398700330BA1 /* SignUpViewController.swift */,
+				244331D82360398700330BA1 /* SignUpViewController.xib */,
+				244331DB23603C2A00330BA1 /* SignInViewController.swift */,
+				244331DC23603C2A00330BA1 /* SignInViewController.xib */,
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
+		244331E12361784700330BA1 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				244331E4236181D500330BA1 /* FoodPack1_12_Videvo.mov */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		2467FF41234DECDF0098C021 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +242,9 @@
 				2467FF4823504D190098C021 /* GoogleService-Info.plist */,
 				24A0E255234C634600B02DF2 /* AppDelegate.swift */,
 				24A0E257234C634600B02DF2 /* SceneDelegate.swift */,
+				244331DF23604C1800330BA1 /* Design.swift */,
+				244331E12361784700330BA1 /* Video */,
+				244331D22360342E00330BA1 /* Authentification */,
 				244331B72358437B00330BA1 /* Model */,
 				244331B62358436400330BA1 /* Cells */,
 				244331A823574FFC00330BA1 /* Main.storyboard */,
@@ -370,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244331DE23603C2A00330BA1 /* SignInViewController.xib in Resources */,
 				244331AF235752E100330BA1 /* ProfileViewController.xib in Resources */,
 				244331C9235D867100330BA1 /* RecipeDetailViewController.xib in Resources */,
 				244331AD2357522500330BA1 /* RecipesViewController.xib in Resources */,
@@ -380,7 +418,9 @@
 				2467FF4923504D190098C021 /* GoogleService-Info.plist in Resources */,
 				24A0E262234C634B00B02DF2 /* Assets.xcassets in Resources */,
 				244331B12357530500330BA1 /* ShoppingListViewController.xib in Resources */,
+				244331DA2360398700330BA1 /* SignUpViewController.xib in Resources */,
 				244331B52357534A00330BA1 /* HomeViewController.xib in Resources */,
+				244331E5236181D500330BA1 /* FoodPack1_12_Videvo.mov in Resources */,
 				244331BB235843D800330BA1 /* ShoppingListTableViewCell.xib in Resources */,
 				244331D1235D971400330BA1 /* IngredientTableViewCell.xib in Resources */,
 			);
@@ -516,13 +556,17 @@
 				2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */,
 				244331D0235D971400330BA1 /* IngredientTableViewCell.swift in Sources */,
 				244331BA235843D800330BA1 /* ShoppingListTableViewCell.swift in Sources */,
+				244331D92360398700330BA1 /* SignUpViewController.swift in Sources */,
 				24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */,
 				2467FF3C234DEC6B0098C021 /* PlusViewController.swift in Sources */,
+				244331E023604C1800330BA1 /* Design.swift in Sources */,
+				244331DD23603C2A00330BA1 /* SignInViewController.swift in Sources */,
 				2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */,
 				2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */,
 				24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */,
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
+				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
 				24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */,
 				244331C8235D867100330BA1 /* RecipeDetailViewController.swift in Sources */,
 				244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */,
