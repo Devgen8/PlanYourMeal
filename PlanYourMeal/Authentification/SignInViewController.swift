@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Pods_PlanYourMeal
 
 class SignInViewController: UIViewController {
 
@@ -43,8 +44,11 @@ class SignInViewController: UIViewController {
                 self.errorLabel.text = err?.localizedDescription
                 self.errorLabel.alpha = 1
             } else {
-                self.view.window?.rootViewController = TabBarViewController()
+                //self.view.window?.rootViewController = TabBarViewController()
+                let vc = UserGoalViewController()
+                self.view.window?.rootViewController = vc
                 self.view.window?.makeKeyAndVisible()
+                
             }
         }
     }

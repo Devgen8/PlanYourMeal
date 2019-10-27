@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
     }
     
     func setUpVideo() {
-        let bundlePath = Bundle.main.path(forResource: "FoodPack1_12_Videvo", ofType: "mov")
+        let bundlePath = Bundle.main.path(forResource: "IMG_2299", ofType: "MOV")
         
         guard bundlePath != nil else { return }
         
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
         
-        videoPlayer?.playImmediately(atRate: 0.3)
+        videoPlayer?.playImmediately(atRate: 0.6)
         
         videoPlayer?.actionAtItemEnd = .none
         

@@ -20,6 +20,8 @@ class Design {
         textField.borderStyle = .none
         
         textField.layer.addSublayer(bottomLine)
+        
+        textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder ?? "Text", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
     }
     
     static func styleFilledButton(_ button: UIButton) {
@@ -30,13 +32,8 @@ class Design {
     
     static func styleHollowButton(_ button: UIButton) {
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.black
-    }
-    
-    static func isPasswordValid(_ password: String) -> Bool{
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[0-9]){8,}$")
-        return passwordTest.evaluate(with: password)
+        button.tintColor = UIColor.white
     }
 }

@@ -32,7 +32,9 @@
 		244331DD23603C2A00330BA1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331DB23603C2A00330BA1 /* SignInViewController.swift */; };
 		244331DE23603C2A00330BA1 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331DC23603C2A00330BA1 /* SignInViewController.xib */; };
 		244331E023604C1800330BA1 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331DF23604C1800330BA1 /* Design.swift */; };
-		244331E5236181D500330BA1 /* FoodPack1_12_Videvo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 244331E4236181D500330BA1 /* FoodPack1_12_Videvo.mov */; };
+		244331EA2361DEE100330BA1 /* UserGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244331E82361DEE100330BA1 /* UserGoalViewController.m */; };
+		244331EB2361DEE100330BA1 /* UserGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331E92361DEE100330BA1 /* UserGoalViewController.xib */; };
+		244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 244331EE23620ADB00330BA1 /* IMG_2299.MOV */; };
 		2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF37234DAF4D0098C021 /* HomeViewController.swift */; };
 		2467FF3C234DEC6B0098C021 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3B234DEC6B0098C021 /* PlusViewController.swift */; };
 		2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */; };
@@ -93,7 +95,11 @@
 		244331DB23603C2A00330BA1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		244331DC23603C2A00330BA1 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		244331DF23604C1800330BA1 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
-		244331E4236181D500330BA1 /* FoodPack1_12_Videvo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = FoodPack1_12_Videvo.mov; sourceTree = "<group>"; };
+		244331E62361DEE000330BA1 /* PlanYourMeal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanYourMeal-Bridging-Header.h"; sourceTree = "<group>"; };
+		244331E72361DEE100330BA1 /* UserGoalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserGoalViewController.h; sourceTree = "<group>"; };
+		244331E82361DEE100330BA1 /* UserGoalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserGoalViewController.m; sourceTree = "<group>"; };
+		244331E92361DEE100330BA1 /* UserGoalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserGoalViewController.xib; sourceTree = "<group>"; };
+		244331EE23620ADB00330BA1 /* IMG_2299.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_2299.MOV; sourceTree = "<group>"; };
 		2467FF37234DAF4D0098C021 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2467FF3B234DEC6B0098C021 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +188,10 @@
 				244331D82360398700330BA1 /* SignUpViewController.xib */,
 				244331DB23603C2A00330BA1 /* SignInViewController.swift */,
 				244331DC23603C2A00330BA1 /* SignInViewController.xib */,
+				244331E72361DEE100330BA1 /* UserGoalViewController.h */,
+				244331E82361DEE100330BA1 /* UserGoalViewController.m */,
+				244331E92361DEE100330BA1 /* UserGoalViewController.xib */,
+				244331E62361DEE000330BA1 /* PlanYourMeal-Bridging-Header.h */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -189,7 +199,7 @@
 		244331E12361784700330BA1 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				244331E4236181D500330BA1 /* FoodPack1_12_Videvo.mov */,
+				244331EE23620ADB00330BA1 /* IMG_2299.MOV */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -371,6 +381,7 @@
 				TargetAttributes = {
 					24A0E251234C634500B02DF2 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1110;
 					};
 					24A0E26A234C634B00B02DF2 = {
 						CreatedOnToolsVersion = 11.0;
@@ -415,12 +426,13 @@
 				244331B32357532E00330BA1 /* PlusViewController.xib in Resources */,
 				244331A923574FFC00330BA1 /* Main.storyboard in Resources */,
 				24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */,
+				244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */,
 				2467FF4923504D190098C021 /* GoogleService-Info.plist in Resources */,
 				24A0E262234C634B00B02DF2 /* Assets.xcassets in Resources */,
 				244331B12357530500330BA1 /* ShoppingListViewController.xib in Resources */,
 				244331DA2360398700330BA1 /* SignUpViewController.xib in Resources */,
 				244331B52357534A00330BA1 /* HomeViewController.xib in Resources */,
-				244331E5236181D500330BA1 /* FoodPack1_12_Videvo.mov in Resources */,
+				244331EB2361DEE100330BA1 /* UserGoalViewController.xib in Resources */,
 				244331BB235843D800330BA1 /* ShoppingListTableViewCell.xib in Resources */,
 				244331D1235D971400330BA1 /* IngredientTableViewCell.xib in Resources */,
 			);
@@ -550,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244331EA2361DEE100330BA1 /* UserGoalViewController.m in Sources */,
 				244331C3235C392C00330BA1 /* NetworkDataFetcher.swift in Sources */,
 				244331C1235C387A00330BA1 /* NetworkReader.swift in Sources */,
 				244331BE23585D2B00330BA1 /* RecipeCollectionViewCell.swift in Sources */,
@@ -735,6 +748,7 @@
 			baseConfigurationReference = B7F4AEB5CA3F925DA78FD8AC /* Pods-PlanYourMeal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZH644H3JU;
 				INFOPLIST_FILE = PlanYourMeal/Info.plist;
@@ -744,6 +758,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PlanYourMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlanYourMeal/Authentification/PlanYourMeal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -754,6 +770,7 @@
 			baseConfigurationReference = CF1AD880B1B2EE2852F1590B /* Pods-PlanYourMeal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZH644H3JU;
 				INFOPLIST_FILE = PlanYourMeal/Info.plist;
@@ -763,6 +780,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PlanYourMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlanYourMeal/Authentification/PlanYourMeal-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

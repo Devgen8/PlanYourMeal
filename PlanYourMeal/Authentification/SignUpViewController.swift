@@ -51,12 +51,6 @@ class SignUpViewController: UIViewController {
             return "Please fill in all fields."
         }
         
-        //let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-//        if Design.isPasswordValid(cleanedPassword) == false {
-//            return "Please make sure that your password is at list 8 characters, contains a number and a capital letter"
-//        }
-        
         return nil
     }
     
@@ -78,11 +72,16 @@ class SignUpViewController: UIViewController {
                 self.showError("\(err?.localizedDescription)")
             } else {
                 let db = Firestore.firestore()
-                db.collection("users").addDocument(data: ["name":name, "age":age, "uid":result!.user.uid]) {(error) in
+                db.collection("users").document("\(result!.user.uid)").setData(["name":name, "age":age, "email":email, "uid":result!.user.uid]) {(error) in
                     if error != nil {
-                        self.showError("There are some promlems with your internet connection. Try again later")
-                    }
+                    self.showError("There are some promlems with your internet connection. Try again later")
                 }
+            }
+//                db.collection("users").addDocument(data: ["name":name, "age":age, "email":email, "uid":result!.user.uid]) {(error) in
+//                    if error != nil {
+//                        self.showError("There are some promlems with your internet connection. Try again later")
+//                    }
+//                }
             }
             }
         }
