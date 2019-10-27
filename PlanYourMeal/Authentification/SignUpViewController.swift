@@ -75,17 +75,12 @@ class SignUpViewController: UIViewController {
                 db.collection("users").document("\(result!.user.uid)").setData(["name":name, "age":age, "email":email, "uid":result!.user.uid]) {(error) in
                     if error != nil {
                     self.showError("There are some promlems with your internet connection. Try again later")
+                    }
                 }
-            }
-//                db.collection("users").addDocument(data: ["name":name, "age":age, "email":email, "uid":result!.user.uid]) {(error) in
-//                    if error != nil {
-//                        self.showError("There are some promlems with your internet connection. Try again later")
-//                    }
-//                }
             }
             }
         }
-        view.window?.rootViewController = TabBarViewController()
+        self.view.window?.rootViewController = UserGoalViewController()
         view.window?.makeKeyAndVisible()
     }
     
