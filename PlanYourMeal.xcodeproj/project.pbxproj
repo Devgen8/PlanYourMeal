@@ -35,6 +35,10 @@
 		244331EA2361DEE100330BA1 /* UserGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244331E82361DEE100330BA1 /* UserGoalViewController.m */; };
 		244331EB2361DEE100330BA1 /* UserGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331E92361DEE100330BA1 /* UserGoalViewController.xib */; };
 		244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 244331EE23620ADB00330BA1 /* IMG_2299.MOV */; };
+		244331F32365532B00330BA1 /* UserDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244331F12365532B00330BA1 /* UserDataViewController.m */; };
+		244331F42365532B00330BA1 /* UserDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331F22365532B00330BA1 /* UserDataViewController.xib */; };
+		244331F82365636D00330BA1 /* AllergensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244331F62365636D00330BA1 /* AllergensViewController.m */; };
+		244331F92365636D00330BA1 /* AllergensViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331F72365636D00330BA1 /* AllergensViewController.xib */; };
 		2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF37234DAF4D0098C021 /* HomeViewController.swift */; };
 		2467FF3C234DEC6B0098C021 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3B234DEC6B0098C021 /* PlusViewController.swift */; };
 		2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */; };
@@ -100,6 +104,12 @@
 		244331E82361DEE100330BA1 /* UserGoalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserGoalViewController.m; sourceTree = "<group>"; };
 		244331E92361DEE100330BA1 /* UserGoalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserGoalViewController.xib; sourceTree = "<group>"; };
 		244331EE23620ADB00330BA1 /* IMG_2299.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_2299.MOV; sourceTree = "<group>"; };
+		244331F02365532A00330BA1 /* UserDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataViewController.h; sourceTree = "<group>"; };
+		244331F12365532B00330BA1 /* UserDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataViewController.m; sourceTree = "<group>"; };
+		244331F22365532B00330BA1 /* UserDataViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataViewController.xib; sourceTree = "<group>"; };
+		244331F52365636D00330BA1 /* AllergensViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllergensViewController.h; sourceTree = "<group>"; };
+		244331F62365636D00330BA1 /* AllergensViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllergensViewController.m; sourceTree = "<group>"; };
+		244331F72365636D00330BA1 /* AllergensViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergensViewController.xib; sourceTree = "<group>"; };
 		2467FF37234DAF4D0098C021 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2467FF3B234DEC6B0098C021 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +202,12 @@
 				244331E82361DEE100330BA1 /* UserGoalViewController.m */,
 				244331E92361DEE100330BA1 /* UserGoalViewController.xib */,
 				244331E62361DEE000330BA1 /* PlanYourMeal-Bridging-Header.h */,
+				244331F02365532A00330BA1 /* UserDataViewController.h */,
+				244331F12365532B00330BA1 /* UserDataViewController.m */,
+				244331F22365532B00330BA1 /* UserDataViewController.xib */,
+				244331F52365636D00330BA1 /* AllergensViewController.h */,
+				244331F62365636D00330BA1 /* AllergensViewController.m */,
+				244331F72365636D00330BA1 /* AllergensViewController.xib */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -424,6 +440,7 @@
 				244331AD2357522500330BA1 /* RecipesViewController.xib in Resources */,
 				244331BF23585D2B00330BA1 /* RecipeCollectionViewCell.xib in Resources */,
 				244331B32357532E00330BA1 /* PlusViewController.xib in Resources */,
+				244331F92365636D00330BA1 /* AllergensViewController.xib in Resources */,
 				244331A923574FFC00330BA1 /* Main.storyboard in Resources */,
 				24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */,
 				244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */,
@@ -433,6 +450,7 @@
 				244331DA2360398700330BA1 /* SignUpViewController.xib in Resources */,
 				244331B52357534A00330BA1 /* HomeViewController.xib in Resources */,
 				244331EB2361DEE100330BA1 /* UserGoalViewController.xib in Resources */,
+				244331F42365532B00330BA1 /* UserDataViewController.xib in Resources */,
 				244331BB235843D800330BA1 /* ShoppingListTableViewCell.xib in Resources */,
 				244331D1235D971400330BA1 /* IngredientTableViewCell.xib in Resources */,
 			);
@@ -579,7 +597,9 @@
 				24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */,
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
+				244331F32365532B00330BA1 /* UserDataViewController.m in Sources */,
 				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
+				244331F82365636D00330BA1 /* AllergensViewController.m in Sources */,
 				24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */,
 				244331C8235D867100330BA1 /* RecipeDetailViewController.swift in Sources */,
 				244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */,
@@ -750,6 +770,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6ZH644H3JU;
 				INFOPLIST_FILE = PlanYourMeal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -772,6 +793,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6ZH644H3JU;
 				INFOPLIST_FILE = PlanYourMeal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

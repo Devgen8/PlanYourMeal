@@ -7,6 +7,7 @@
 //
 
 #import "UserGoalViewController.h"
+#import "UserDataViewController.h"
 @import FirebaseAuth;
 @import Firebase;
 @import FirebaseFirestore;
@@ -81,5 +82,6 @@
         NSLog(@"Document successfully written!");
       }
     }];
+    [self presentViewController:[[UserDataViewController alloc] init] animated:YES completion:nil];
 }
 @end
