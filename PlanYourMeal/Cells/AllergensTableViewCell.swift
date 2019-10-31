@@ -16,6 +16,8 @@ class AllergensTableViewCell: UITableViewCell {
     
     static var userAllergens = [String]()
     
+    static  var usersDietType : String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,9 +31,26 @@ class AllergensTableViewCell: UITableViewCell {
     
     @IBAction func switchDidChange(_ sender: UISwitch) {
         if sender.isOn {
-            AllergensTableViewCell.userAllergens = AllergensTableViewCell.userAllergens.filter({$0 != nameOfAllergen.text})
+            AllergensTableViewCell.userAllergens = AllergensTableViewCell.userAllergens.filter({
+                $0 != nameOfAllergen.text
+                || $0 != "pecatarian"
+                || $0 != "vegan"
+                || $0 != "vegetarian"})
+            
+            for index in Diet.dietType.indices {
+                if nameOfAllergen.text! == Diet.dietType[index] {
+                    AllergensTableViewCell.usersDietType = Diet.dietType[index]
+                }
+            }
         } else {
-            AllergensTableViewCell.userAllergens += [nameOfAllergen.text!]
+            if (nameOfAllergen.text! != "pecatarian" ||
+                nameOfAllergen.text! != "vegan" ||
+                nameOfAllergen.text! != "vegetarian") {
+                AllergensTableViewCell.userAllergens += [nameOfAllergen.text!]
+            }
+            if nameOfAllergen.text! == AllergensTableViewCell.usersDietType {
+                AllergensTableViewCell.usersDietType = nil
+            }
         }
     }
 }
