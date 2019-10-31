@@ -7,8 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllergensViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllergensViewController" customModule="PlanYourMeal" customModuleProvider="target">
             <connections>
+                <outlet property="allergensTableView" destination="1Nw-DT-Ylf" id="Pnz-t5-QKb"/>
+                <outlet property="readyToGoButton" destination="ZNd-F2-vIy" id="dft-lT-xED"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,21 +19,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkJ-gA-NG8">
-                    <rect key="frame" x="165.5" y="433" width="83" height="30"/>
-                    <state key="normal" title="Finish setup"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Nw-DT-Ylf">
+                    <rect key="frame" x="0.0" y="44" width="414" height="735"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNd-F2-vIy">
+                    <rect key="frame" x="40" y="797" width="334" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="BUQ-1D-88z"/>
+                    </constraints>
+                    <state key="normal" title="Ready to go!"/>
                     <connections>
-                        <action selector="finishTapped:" destination="-1" eventType="touchUpInside" id="bgG-MD-zbs"/>
+                        <action selector="readyTapped:" destination="-1" eventType="touchUpInside" id="AXH-d7-cUW"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="kkJ-gA-NG8" firstAttribute="centerY" secondItem="Q5M-cg-NOt" secondAttribute="centerY" constant="-5" id="DyV-hg-v3b"/>
-                <constraint firstItem="kkJ-gA-NG8" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="EJG-oi-ZwA"/>
+                <constraint firstItem="ZNd-F2-vIy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="c9Y-B6-vx9"/>
+                <constraint firstItem="1Nw-DT-Ylf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cQg-Dx-1Qe"/>
+                <constraint firstItem="ZNd-F2-vIy" firstAttribute="top" secondItem="1Nw-DT-Ylf" secondAttribute="bottom" constant="18" id="ch1-rR-lc0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZNd-F2-vIy" secondAttribute="bottom" constant="15" id="dA7-2h-gb5"/>
+                <constraint firstItem="1Nw-DT-Ylf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hb6-1H-69i"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Nw-DT-Ylf" secondAttribute="trailing" id="t7e-aE-6mv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZNd-F2-vIy" secondAttribute="trailing" constant="40" id="wGw-0O-VbT"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="139" y="108"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </view>
     </objects>
 </document>

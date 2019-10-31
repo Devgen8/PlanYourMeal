@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserDataViewController">
             <connections>
+                <outlet property="errorLabel" destination="5CY-L6-vTL" id="eZK-ym-jIS"/>
                 <outlet property="genderChooser" destination="75T-Ac-eqf" id="hsJ-hD-bKV"/>
                 <outlet property="heightTextField" destination="3N6-U5-Um3" id="mRf-6W-Kka"/>
                 <outlet property="nextButton" destination="zMu-h8-9PX" id="4ao-ug-ZHc"/>
@@ -34,19 +35,21 @@
                                 <segment title="Female"/>
                             </segments>
                         </segmentedControl>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3N6-U5-Um3">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your height, cm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3N6-U5-Um3">
                             <rect key="frame" x="0.0" y="60" width="334" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="alM-Dp-dYe"/>
                             </constraints>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTc-u1-j8P">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your weight, kg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTc-u1-j8P">
                             <rect key="frame" x="0.0" y="120" width="334" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="WKY-rI-pdb"/>
                             </constraints>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -66,13 +69,23 @@
                         <action selector="nextTapped:" destination="-1" eventType="touchUpInside" id="GnW-Hq-c1m"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CY-L6-vTL">
+                    <rect key="frame" x="40" y="332" width="334" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="NWQ-aH-0Cm" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="867-3M-4D0"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="5CY-L6-vTL" secondAttribute="trailing" constant="40" id="WqT-VN-RsJ"/>
                 <constraint firstItem="zMu-h8-9PX" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="150" id="auS-Jo-VvJ"/>
+                <constraint firstItem="5CY-L6-vTL" firstAttribute="top" secondItem="zMu-h8-9PX" secondAttribute="bottom" constant="8" id="diD-Rm-5sh"/>
                 <constraint firstItem="NWQ-aH-0Cm" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="mPM-qT-6Fe"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="zMu-h8-9PX" secondAttribute="trailing" constant="150" id="ntO-rR-Ijg"/>
+                <constraint firstItem="5CY-L6-vTL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="qpz-p7-T7A"/>
+                <constraint firstItem="5CY-L6-vTL" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="wsL-Yz-T3e"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="NWQ-aH-0Cm" secondAttribute="trailing" constant="40" id="yTY-J3-2YT"/>
                 <constraint firstItem="zMu-h8-9PX" firstAttribute="top" secondItem="NWQ-aH-0Cm" secondAttribute="bottom" constant="20" id="yyw-yB-fx4"/>
             </constraints>

@@ -69,7 +69,7 @@ class SignUpViewController: UIViewController {
             
            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
             if err != nil {
-                self.showError("\(err?.localizedDescription)")
+                self.showError("\(err?.localizedDescription ?? "Error")")
             } else {
                 let db = Firestore.firestore()
                 db.collection("users").document("\(result!.user.uid)").setData(["name":name, "age":age, "email":email, "uid":result!.user.uid]) {(error) in

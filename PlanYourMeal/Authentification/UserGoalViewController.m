@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+
 @property int goal;
 
 @property FIRFirestore *db;
@@ -26,8 +28,9 @@
 @implementation UserGoalViewController
 
 - (void)viewDidLoad {
-    _db = [FIRFirestore firestore];
     [super viewDidLoad];
+    _db = [FIRFirestore firestore];
+    _goal = -1;
     for(UIButton* button in _goalButtons) {
         [self designGoalButton:button];
     }
@@ -71,6 +74,11 @@
     _goal = 2;
 }
 - (IBAction)nextTapped:(UIButton *)sender {
+    if(_goal == -1) {
+        _errorLabel.alpha = 1;
+        _errorLabel.text = @"Please choose your goal";
+        return;
+    }
     NSDictionary *goalValue = @{@0:@"Lose weight", @1:@"Be healthy", @2:@"Gain weight"};
     NSString *pathToDoc = [NSString stringWithFormat:@"/%@/%@/%@",@"users", [FIRAuth auth].currentUser.uid, @"Additional info"];
     [[[_db collectionWithPath:pathToDoc] documentWithPath:@"Goal"] setData:@{
