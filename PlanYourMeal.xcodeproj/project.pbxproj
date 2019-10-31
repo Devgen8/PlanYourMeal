@@ -48,6 +48,7 @@
 		2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3F234DECC90098C021 /* ProfileViewController.swift */; };
 		2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF42234E60540098C021 /* TabBarViewController.swift */; };
 		2467FF4923504D190098C021 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2467FF4823504D190098C021 /* GoogleService-Info.plist */; };
+		247FF3D3236AEBDD0098911F /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3D2236AEBDD0098911F /* Diet.swift */; };
 		24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E255234C634600B02DF2 /* AppDelegate.swift */; };
 		24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E257234C634600B02DF2 /* SceneDelegate.swift */; };
 		24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E25E234C634600B02DF2 /* PlanYourMeal.xcdatamodeld */; };
@@ -121,6 +122,7 @@
 		2467FF3F234DECC90098C021 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2467FF42234E60540098C021 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2467FF4823504D190098C021 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		247FF3D2236AEBDD0098911F /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 		24A0E252234C634600B02DF2 /* PlanYourMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanYourMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A0E255234C634600B02DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24A0E257234C634600B02DF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,8 @@
 				244331C0235C387A00330BA1 /* NetworkReader.swift */,
 				244331C2235C392C00330BA1 /* NetworkDataFetcher.swift */,
 				244331C4235C3CA200330BA1 /* SearchResponse.swift */,
+				244331FE2365EFFA00330BA1 /* Allergens.swift */,
+				247FF3D2236AEBDD0098911F /* Diet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,7 +218,6 @@
 				244331F22365532B00330BA1 /* UserDataViewController.xib */,
 				244331FA2365EBD900330BA1 /* AllergensViewController.swift */,
 				244331FB2365EBD900330BA1 /* AllergensViewController.xib */,
-				244331FE2365EFFA00330BA1 /* Allergens.swift */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */,
 				24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */,
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
+				247FF3D3236AEBDD0098911F /* Diet.swift in Sources */,
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
 				244331F32365532B00330BA1 /* UserDataViewController.m in Sources */,
 				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
