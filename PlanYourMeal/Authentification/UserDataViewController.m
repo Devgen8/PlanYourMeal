@@ -8,7 +8,7 @@
 
 #import "UserDataViewController.h"
 #import "UserGoalViewController.h"
-#import "AllergensViewController.h"
+#import "PlanYourMeal-Swift.h"
 @import FirebaseFirestore;
 @import FirebaseAuth;
 
@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *heightTextField;
 @property (weak, nonatomic) IBOutlet UITextField *weightTextField;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property FIRFirestore *db;
 @end
 
@@ -46,8 +47,30 @@
     textField.borderStyle = NO;
     
     [textField.layer addSublayer:bottomLine];
+    
+    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName:UIColor.grayColor}];
 }
+
+- (NSString *)validateFields {
+    if ([_heightTextField.text  isEqual: @""] || [_weightTextField.text  isEqual: @""]) {
+        return @"Please fill in all fields";
+    }
+    if ([_heightTextField.text intValue] < 10 || [_heightTextField.text intValue] > 230) {
+        return @"Please change your height";
+    }
+    if ([_weightTextField.text intValue] < 10 || [_weightTextField.text intValue] > 300) {
+        return @"Please change your weight";
+    }
+    return @"";
+}
+
 - (IBAction)nextTapped:(UIButton *)sender {
+    NSString *answer = [self validateFields];
+    if (![answer  isEqual: @""]) {
+        _errorLabel.text = answer;
+        _errorLabel.alpha = 1;
+        return;
+    }
     NSString *gender = _genderChooser.selectedSegmentIndex ? @"Female" : @"Male";
     NSString *pathToDoc = [NSString stringWithFormat:@"/%@/%@/%@",@"users", [FIRAuth auth].currentUser.uid, @"Additional info"];
     [[[_db collectionWithPath:pathToDoc] documentWithPath:@"Body type"] setData:@{

@@ -37,8 +37,11 @@
 		244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 244331EE23620ADB00330BA1 /* IMG_2299.MOV */; };
 		244331F32365532B00330BA1 /* UserDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244331F12365532B00330BA1 /* UserDataViewController.m */; };
 		244331F42365532B00330BA1 /* UserDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331F22365532B00330BA1 /* UserDataViewController.xib */; };
-		244331F82365636D00330BA1 /* AllergensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244331F62365636D00330BA1 /* AllergensViewController.m */; };
-		244331F92365636D00330BA1 /* AllergensViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331F72365636D00330BA1 /* AllergensViewController.xib */; };
+		244331FC2365EBD900330BA1 /* AllergensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331FA2365EBD900330BA1 /* AllergensViewController.swift */; };
+		244331FD2365EBD900330BA1 /* AllergensViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331FB2365EBD900330BA1 /* AllergensViewController.xib */; };
+		244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331FE2365EFFA00330BA1 /* Allergens.swift */; };
+		244332022365F1CF00330BA1 /* AllergensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244332002365F1CF00330BA1 /* AllergensTableViewCell.swift */; };
+		244332032365F1CF00330BA1 /* AllergensTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244332012365F1CF00330BA1 /* AllergensTableViewCell.xib */; };
 		2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF37234DAF4D0098C021 /* HomeViewController.swift */; };
 		2467FF3C234DEC6B0098C021 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3B234DEC6B0098C021 /* PlusViewController.swift */; };
 		2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */; };
@@ -107,9 +110,11 @@
 		244331F02365532A00330BA1 /* UserDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataViewController.h; sourceTree = "<group>"; };
 		244331F12365532B00330BA1 /* UserDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataViewController.m; sourceTree = "<group>"; };
 		244331F22365532B00330BA1 /* UserDataViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataViewController.xib; sourceTree = "<group>"; };
-		244331F52365636D00330BA1 /* AllergensViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllergensViewController.h; sourceTree = "<group>"; };
-		244331F62365636D00330BA1 /* AllergensViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllergensViewController.m; sourceTree = "<group>"; };
-		244331F72365636D00330BA1 /* AllergensViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergensViewController.xib; sourceTree = "<group>"; };
+		244331FA2365EBD900330BA1 /* AllergensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergensViewController.swift; sourceTree = "<group>"; };
+		244331FB2365EBD900330BA1 /* AllergensViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergensViewController.xib; sourceTree = "<group>"; };
+		244331FE2365EFFA00330BA1 /* Allergens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergens.swift; sourceTree = "<group>"; };
+		244332002365F1CF00330BA1 /* AllergensTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergensTableViewCell.swift; sourceTree = "<group>"; };
+		244332012365F1CF00330BA1 /* AllergensTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergensTableViewCell.xib; sourceTree = "<group>"; };
 		2467FF37234DAF4D0098C021 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2467FF3B234DEC6B0098C021 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +181,8 @@
 				244331CF235D971400330BA1 /* IngredientTableViewCell.xib */,
 				244331B8235843D800330BA1 /* ShoppingListTableViewCell.swift */,
 				244331B9235843D800330BA1 /* ShoppingListTableViewCell.xib */,
+				244332002365F1CF00330BA1 /* AllergensTableViewCell.swift */,
+				244332012365F1CF00330BA1 /* AllergensTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -205,9 +212,9 @@
 				244331F02365532A00330BA1 /* UserDataViewController.h */,
 				244331F12365532B00330BA1 /* UserDataViewController.m */,
 				244331F22365532B00330BA1 /* UserDataViewController.xib */,
-				244331F52365636D00330BA1 /* AllergensViewController.h */,
-				244331F62365636D00330BA1 /* AllergensViewController.m */,
-				244331F72365636D00330BA1 /* AllergensViewController.xib */,
+				244331FA2365EBD900330BA1 /* AllergensViewController.swift */,
+				244331FB2365EBD900330BA1 /* AllergensViewController.xib */,
+				244331FE2365EFFA00330BA1 /* Allergens.swift */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -440,11 +447,12 @@
 				244331AD2357522500330BA1 /* RecipesViewController.xib in Resources */,
 				244331BF23585D2B00330BA1 /* RecipeCollectionViewCell.xib in Resources */,
 				244331B32357532E00330BA1 /* PlusViewController.xib in Resources */,
-				244331F92365636D00330BA1 /* AllergensViewController.xib in Resources */,
+				244331FD2365EBD900330BA1 /* AllergensViewController.xib in Resources */,
 				244331A923574FFC00330BA1 /* Main.storyboard in Resources */,
 				24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */,
 				244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */,
 				2467FF4923504D190098C021 /* GoogleService-Info.plist in Resources */,
+				244332032365F1CF00330BA1 /* AllergensTableViewCell.xib in Resources */,
 				24A0E262234C634B00B02DF2 /* Assets.xcassets in Resources */,
 				244331B12357530500330BA1 /* ShoppingListViewController.xib in Resources */,
 				244331DA2360398700330BA1 /* SignUpViewController.xib in Resources */,
@@ -590,16 +598,18 @@
 				244331D92360398700330BA1 /* SignUpViewController.swift in Sources */,
 				24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */,
 				2467FF3C234DEC6B0098C021 /* PlusViewController.swift in Sources */,
+				244331FC2365EBD900330BA1 /* AllergensViewController.swift in Sources */,
 				244331E023604C1800330BA1 /* Design.swift in Sources */,
+				244332022365F1CF00330BA1 /* AllergensTableViewCell.swift in Sources */,
 				244331DD23603C2A00330BA1 /* SignInViewController.swift in Sources */,
 				2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */,
 				2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */,
+				244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */,
 				24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */,
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
 				244331F32365532B00330BA1 /* UserDataViewController.m in Sources */,
 				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
-				244331F82365636D00330BA1 /* AllergensViewController.m in Sources */,
 				24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */,
 				244331C8235D867100330BA1 /* RecipeDetailViewController.swift in Sources */,
 				244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */,

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserGoalViewController">
             <connections>
+                <outlet property="errorLabel" destination="OXr-ag-E7S" id="wUw-MK-6md"/>
                 <outlet property="nextButton" destination="fwB-Gi-8Vj" id="fH2-Uw-eDL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="goalButtons" destination="vwT-6e-B0Z" id="SsM-5K-Zit"/>
@@ -79,14 +80,24 @@
                         <action selector="nextTapped:" destination="-1" eventType="touchUpInside" id="lc4-vn-KP5"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXr-ag-E7S">
+                    <rect key="frame" x="40" y="634" width="334" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="OXr-ag-E7S" secondAttribute="trailing" constant="40" id="1wo-r9-Vis"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fwB-Gi-8Vj" secondAttribute="trailing" constant="150" id="2g7-zj-Ted"/>
                 <constraint firstItem="abI-85-jdg" firstAttribute="centerY" secondItem="Q5M-cg-NOt" secondAttribute="centerY" id="4e6-Qu-4Z6"/>
+                <constraint firstItem="OXr-ag-E7S" firstAttribute="top" secondItem="fwB-Gi-8Vj" secondAttribute="bottom" constant="8" id="C9c-PN-0p2"/>
                 <constraint firstItem="fwB-Gi-8Vj" firstAttribute="top" secondItem="abI-85-jdg" secondAttribute="bottom" constant="8" id="KuD-OP-Edv"/>
                 <constraint firstItem="fwB-Gi-8Vj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="150" id="Mtv-6c-gLZ"/>
+                <constraint firstItem="OXr-ag-E7S" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="N5e-JF-Emo"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="abI-85-jdg" secondAttribute="trailing" constant="40" id="Vny-j3-1Nr"/>
+                <constraint firstItem="OXr-ag-E7S" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="gLf-SC-5ma"/>
                 <constraint firstItem="abI-85-jdg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="sJe-nE-GWs"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
