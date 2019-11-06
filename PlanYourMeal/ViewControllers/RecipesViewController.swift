@@ -8,39 +8,40 @@
 
 import UIKit
 
-class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class RecipesViewController: UIViewController {
     
     let networkDataFetcher = NetworkDataFetcher()
     var searchResponse: SearchResponse? = nil
     private var timer: Timer?
     let searchController = UISearchController(searchResultsController: nil)
+    private var loadingOperation = [IndexPath: DataLoadOperation]()
+    private var loadingQueue = OperationQueue()
+    private var cachedImages : [IndexPath: UIImage]?
+    let defaultPhoto = "https://www.google.com/search?biw=1440&bih=821&tbm=isch&sa=1&ei=KpqsXYD9IMHnmwXmxr7wCw&q=food&oq=food&gs_l=img.3..0i67j0j0i67l3j0l3j0i67l2.11046.12432..12745...0.0..1.364.716.7j3-1......0....1..gws-wiz-img.....0..0i131.qRMKa9uP2Mc&ved=0ahUKEwiAuo6br6vlAhXB86YKHWajD74Q4dUDCAc&uact=5#imgrc=DOALplamMwZj5M:"
     
     @IBOutlet weak var collectionView: UICollectionView!
     var arrayOfStrings = [String]()
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.prefetchDataSource = self
+        
         loadingIndicator.hidesWhenStopped = true
-        self.view.addSubview(loadingIndicator)
         
         setupSearchBar()
         
         let nibCell = UINib(nibName: "RecipeCollectionViewCell", bundle: nil)
         collectionView.register(nibCell, forCellWithReuseIdentifier: "RecipeCollectionViewCell")
         
-        let itemSize = UIScreen.main.bounds.width/2 - 2
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: itemSize, height: itemSize)
-        layout.minimumInteritemSpacing = 2
-        layout.minimumLineSpacing = 2
-        
-        collectionView.collectionViewLayout = layout
+        //cells layout setting
+        collectionView.collectionViewLayout = Design.getCellsLayout()
         
         collectionView.reloadData()
     }
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     private func setupSearchBar() {
         navigationItem.searchController = searchController
@@ -49,6 +50,39 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         searchController.obscuresBackgroundDuringPresentation = false
     }
     
+    func loadImage(at index: Int) -> DataLoadOperation? {
+        if (searchResponse?.hits?.indices.contains(index))! {
+            return DataLoadOperation(searchResponse?.hits?[index].recipe!.image ?? defaultPhoto)
+        }
+        return nil
+    }
+}
+
+//MARK: Prefetching
+extension RecipesViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        print("\(indexPaths)")
+        for indexPath in indexPaths {
+            if let _ = loadingOperation[indexPath] { return }
+            if let dataLoader = loadImage(at: indexPath.row) {
+                loadingQueue.addOperation(dataLoader)
+                loadingOperation[indexPath] = dataLoader
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if let dataLoader = loadingOperation[indexPath] {
+                dataLoader.cancel()
+                loadingOperation.removeValue(forKey: indexPath)
+            }
+        }
+    }
+}
+
+//MARK: CollectionViewDataSource
+extension RecipesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResponse?.hits?.count ?? 0
     }
@@ -57,37 +91,60 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCollectionViewCell", for: indexPath) as! RecipeCollectionViewCell
         let recipe = searchResponse?.hits?[indexPath.row]
         cell.nameOfrecipe.text = recipe?.recipe?.label
-        cell.image.image = preparePhoto(at: indexPath.row)
         loadingIndicator.stopAnimating()
         loadingIndicator.isHidden = true
+        cell.tag = indexPath.row;
+        cell.updateAppearanceFor(self.cachedImages?[indexPath])
         return cell
     }
+}
+
+//MARK: CollectionViewDelegate
+extension RecipesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipeDetailViewController = RecipeDetailViewController()
         recipeDetailViewController.recipeFromCollectionView = searchResponse?.hits?[indexPath.row].recipe
-        recipeDetailViewController.image = preparePhoto(at: indexPath.row)
+        recipeDetailViewController.image = self.cachedImages?[indexPath]
         self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
     }
     
-    func preparePhoto(at position: Int) -> UIImage? {
-        var image: UIImage?
-        if let imageUrl = URL(string: searchResponse?.hits?[position].recipe?.image ?? "https://www.google.com/search?biw=1440&bih=821&tbm=isch&sa=1&ei=KpqsXYD9IMHnmwXmxr7wCw&q=food&oq=food&gs_l=img.3..0i67j0j0i67l3j0l3j0i67l2.11046.12432..12745...0.0..1.364.716.7j3-1......0....1..gws-wiz-img.....0..0i131.qRMKa9uP2Mc&ved=0ahUKEwiAuo6br6vlAhXB86YKHWajD74Q4dUDCAc&uact=5#imgrc=DOALplamMwZj5M:") {
-            do {
-                let data = try Data(contentsOf: imageUrl)
-                image = UIImage(data: data)
-            } catch let error {
-                print("Error: \(error.localizedDescription)")
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? RecipeCollectionViewCell else { return }
+
+        let updateCellClosure: (UIImage?) -> () = { [unowned self] (image) in
+            if cell.tag == indexPath.row {
+                cell.updateAppearanceFor(image)
+            }
+            self.loadingOperation.removeValue(forKey: indexPath)
+            self.cachedImages?[indexPath] = image
+        }
+
+        if let dataLoader = loadingOperation[indexPath] {
+            if let image = dataLoader.image {
+                cell.updateAppearanceFor(image)
+                loadingOperation.removeValue(forKey: indexPath)
+            } else {
+                dataLoader.loadingCompletionHandler = updateCellClosure
+            }
+        } else {
+            if let dataLoader = loadImage(at: indexPath.row) {
+                dataLoader.loadingCompletionHandler = updateCellClosure
+                loadingQueue.addOperation(dataLoader)
+                loadingOperation[indexPath] = dataLoader
             }
         }
-        return image
     }
 }
 
+//MARK: Search Bar Delegate
 extension RecipesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        cachedImages = nil
+        cachedImages = [IndexPath: UIImage]()
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
+        self.collectionView.isHidden = true
         let urlString = "https://api.edamam.com/search?q=\(searchText)&app_id=$8970fa60&app_key=$6cc2c40707ad312d2be3037bc7c3e7a7"
         
         timer?.invalidate()
@@ -95,11 +152,16 @@ extension RecipesViewController: UISearchBarDelegate {
             self.networkDataFetcher.fetchRecipes(urlString: urlString) { (searchResponse) in
                 guard let searchResponse = searchResponse else { return }
                 self.searchResponse = searchResponse
+                self.collectionView.isHidden = true
+                self.loadingIndicator.isHidden = false
+                self.loadingIndicator.startAnimating()
                 self.collectionView.reloadData()
+                self.collectionView.isHidden = false
             }
         })
-        loadingIndicator.isHidden = false
-        loadingIndicator.startAnimating()
-        if searchText == "" { loadingIndicator.stopAnimating() }
+        if searchText == "" {
+            loadingIndicator.stopAnimating()
+            collectionView.isHidden = true
+        }
     }
 }

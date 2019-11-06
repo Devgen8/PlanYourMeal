@@ -36,4 +36,14 @@ class Design {
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.white
     }
+    
+    static func getCellsLayout() -> UICollectionViewFlowLayout {
+        let itemSize = UIScreen.main.bounds.width/2 - 2
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 2
+        return layout
+    }
 }
