@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BD5-Jl-pa7">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
@@ -30,6 +30,7 @@
                 <constraint firstItem="BD5-Jl-pa7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="RoY-cU-zPB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="BD5-Jl-pa7" secondAttribute="bottom" id="ToN-Qz-Swl"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="125"/>
         </view>

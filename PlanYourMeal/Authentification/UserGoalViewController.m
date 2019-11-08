@@ -8,6 +8,7 @@
 
 #import "UserGoalViewController.h"
 #import "UserDataViewController.h"
+#import "PlanYourMeal-Swift.h"
 @import FirebaseAuth;
 @import Firebase;
 @import FirebaseFirestore;
@@ -35,6 +36,28 @@
         [self designGoalButton:button];
     }
     [self designNextButton:_nextButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if((ProfileViewController *)self.presentingViewController) {
+        NSString *pathToDoc = [NSString stringWithFormat:@"/%@/%@/%@",@"users", [FIRAuth auth].currentUser.uid, @"Additional info"];
+        FIRDocumentReference *docRef =
+            [[self.db collectionWithPath:pathToDoc] documentWithPath:@"Goal"];
+        [docRef getDocumentWithCompletion:^(FIRDocumentSnapshot *snapshot, NSError *error) {
+            if (!snapshot.exists) {
+                NSLog(@"Document does not exist");
+                return;
+            }
+            NSString *readGoal = snapshot.data[@"goal"];
+            if ([readGoal isEqual:@"Lose weight"]) {
+                [self loseWeightTapped: self->_goalButtons[0]];
+            } else if ([readGoal isEqual:@"Be healthy"]) {
+                [self beHealthyTapped: self->_goalButtons[1]];
+            } else if ([readGoal isEqual:@"Gain weight"]) {
+                [self gainWeightTapped: self->_goalButtons[2]];
+            }
+        }];
+    }
 }
 
 - (void)designGoalButton:(UIButton *)button {
@@ -90,6 +113,10 @@
         NSLog(@"Document successfully written!");
       }
     }];
-    [self presentViewController:[[UserDataViewController alloc] init] animated:YES completion:nil];
+    if((ProfileViewController *)self.presentingViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self presentViewController:[[UserDataViewController alloc] init] animated:YES completion:nil];
+    }
 }
 @end

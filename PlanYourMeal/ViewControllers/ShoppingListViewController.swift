@@ -22,7 +22,11 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         listTableView.dataSource = self
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Do any additional setup after loading the view.
         for i in 0...30 {
             let cell = cellData(ingredient: "\(i)", amount: "\(30 - i)")

@@ -17,10 +17,44 @@ import FirebaseFirestore
     
     @IBOutlet weak var readyToGoButton: UIButton!
     
+    var usersAllergensInfo : [String]?
+    
+    var dietType : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         allergensTableView.dataSource = self
         Design.styleFilledButton(readyToGoButton)
+        let cast = presentingViewController as? UserDataViewController
+        if cast == nil {
+            readyToGoButton.setTitle("OK", for: .normal)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let cast = presentingViewController as? UserDataViewController
+        if cast == nil {
+            let db = Firestore.firestore()
+            DispatchQueue.main.async {
+                let uid = Auth.auth().currentUser?.uid ?? ""
+                db.collection("/users/\(uid)/Additional info").document("Allergens").getDocument { [unowned self] (snapshot, error) in
+                    if error != nil {
+                        print("Error reading data: \(error?.localizedDescription ?? "Error")")
+                    } else {
+                        self.usersAllergensInfo = snapshot?.data()?["allergens"] as? [String]
+                    }
+                }
+                db.collection("/users/\(uid)/Additional info").document("Diet").getDocument { [unowned self] (snapshot, error) in
+                    guard (error == nil) else {
+                        print("Error reading data: \(error?.localizedDescription ?? "Error")")
+                        return
+                    }
+                    if let dietType = snapshot?.data()?["dietType"] as? String {
+                        self.dietType = dietType
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func readyTapped(_ sender: UIButton) {
@@ -37,8 +71,12 @@ import FirebaseFirestore
                 }
             }
         }
-        view.window?.rootViewController = TabBarViewController()
-        view.window?.makeKeyAndVisible()
+        if let _ = presentingViewController as? UserDataViewController {
+            view.window?.rootViewController = TabBarViewController()
+            view.window?.makeKeyAndVisible()
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -66,11 +104,26 @@ extension AllergensViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("AllergensTableViewCell", owner: self, options: nil)?.first as! AllergensTableViewCell
         
-        cell.nameOfAllergen.text = indexPath.section == 0 ? Diet.dietType[indexPath.row] : Allergens.allergens[indexPath.row]
-        if (cell.nameOfAllergen.text == "pecatarian" ||
-            cell.nameOfAllergen.text == "vegan" ||
-            cell.nameOfAllergen.text == "vegetarian") {
-            cell.allergenSwitcher.isOn = false
+        if usersAllergensInfo != nil {
+            usersAllergensInfo! += [(dietType ?? "")]
+        }
+        
+        let textForCell = indexPath.section == 0 ? Diet.dietType[indexPath.row] : Allergens.allergens[indexPath.row]
+        cell.nameOfAllergen.text = textForCell
+        
+        let cast = presentingViewController as? UserDataViewController
+        if cast == nil {
+            if usersAllergensInfo?.contains(textForCell) ?? [""].contains(textForCell) {
+                cell.allergenSwitcher.isOn = indexPath.section == 0 ? true : false
+            } else {
+                cell.allergenSwitcher.isOn = indexPath.section == 0 ? false : true
+            }
+        } else {
+            if (cell.nameOfAllergen.text == "pecatarian" ||
+                cell.nameOfAllergen.text == "vegan" ||
+                cell.nameOfAllergen.text == "vegetarian") {
+                cell.allergenSwitcher.isOn = false
+            }
         }
         
         return cell

@@ -50,6 +50,8 @@
 		2467FF4923504D190098C021 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2467FF4823504D190098C021 /* GoogleService-Info.plist */; };
 		247FF3D3236AEBDD0098911F /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3D2236AEBDD0098911F /* Diet.swift */; };
 		247FF3D523700FC90098911F /* DataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3D423700FC80098911F /* DataLoadOperation.swift */; };
+		247FF3DE2372A7120098911F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */; };
+		247FF3DF2372A7120098911F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */; };
 		24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E255234C634600B02DF2 /* AppDelegate.swift */; };
 		24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E257234C634600B02DF2 /* SceneDelegate.swift */; };
 		24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E25E234C634600B02DF2 /* PlanYourMeal.xcdatamodeld */; };
@@ -125,6 +127,8 @@
 		2467FF4823504D190098C021 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		247FF3D2236AEBDD0098911F /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 		247FF3D423700FC80098911F /* DataLoadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadOperation.swift; sourceTree = "<group>"; };
+		247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		24A0E252234C634600B02DF2 /* PlanYourMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanYourMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A0E255234C634600B02DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24A0E257234C634600B02DF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				244331BC23585D2B00330BA1 /* RecipeCollectionViewCell.swift */,
 				244331BD23585D2B00330BA1 /* RecipeCollectionViewCell.xib */,
 				244331CE235D971400330BA1 /* IngredientTableViewCell.swift */,
+				247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */,
+				247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */,
 				244331CF235D971400330BA1 /* IngredientTableViewCell.xib */,
 				244331B8235843D800330BA1 /* ShoppingListTableViewCell.swift */,
 				244331B9235843D800330BA1 /* ShoppingListTableViewCell.xib */,
@@ -447,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247FF3DF2372A7120098911F /* SettingsTableViewCell.xib in Resources */,
 				244331DE23603C2A00330BA1 /* SignInViewController.xib in Resources */,
 				244331AF235752E100330BA1 /* ProfileViewController.xib in Resources */,
 				244331C9235D867100330BA1 /* RecipeDetailViewController.xib in Resources */,
@@ -612,6 +619,7 @@
 				2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */,
 				244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */,
 				24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */,
+				247FF3DE2372A7120098911F /* SettingsTableViewCell.swift in Sources */,
 				247FF3D523700FC90098911F /* DataLoadOperation.swift in Sources */,
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
 				247FF3D3236AEBDD0098911F /* Diet.swift in Sources */,
