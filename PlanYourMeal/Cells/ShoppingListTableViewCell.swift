@@ -14,11 +14,6 @@ class ShoppingListTableViewCell: UITableViewCell {
     @IBOutlet weak var amount: UILabel!
     @IBAction func touchedButton(_ sender: UIButton) {
         sender.setTitle((sender.titleLabel?.text == "✔️" ? "❌" : "✔️"), for: .normal)
-//        if sender.titleLabel?.text == "✔️" {
-//            sender.setTitle("❌", for: .normal)
-//        } else {
-//            sender.setTitle("✔️", for: .normal)
-//        }
     }
     override func awakeFromNib() {
         super.awakeFromNib()

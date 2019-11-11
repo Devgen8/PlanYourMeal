@@ -72,7 +72,10 @@ class SignUpViewController: UIViewController {
                 self.showError("\(err?.localizedDescription ?? "Error")")
             } else {
                 let db = Firestore.firestore()
-                db.collection("users").document("\(result!.user.uid)").setData(["name":name, "age":age, "email":email, "uid":result!.user.uid]) {(error) in
+                db.collection("users").document("\(result!.user.uid)").setData(["name":name,
+                                                                                "age":age,
+                                                                                "email":email,
+                                                                                "uid":result!.user.uid]) {(error) in
                     if error != nil {
                     self.showError("There are some promlems with your internet connection. Try again later")
                     }

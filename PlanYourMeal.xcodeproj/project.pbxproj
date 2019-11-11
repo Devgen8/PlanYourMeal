@@ -47,11 +47,11 @@
 		2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */; };
 		2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF3F234DECC90098C021 /* ProfileViewController.swift */; };
 		2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467FF42234E60540098C021 /* TabBarViewController.swift */; };
-		2467FF4923504D190098C021 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2467FF4823504D190098C021 /* GoogleService-Info.plist */; };
 		247FF3D3236AEBDD0098911F /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3D2236AEBDD0098911F /* Diet.swift */; };
 		247FF3D523700FC90098911F /* DataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3D423700FC80098911F /* DataLoadOperation.swift */; };
 		247FF3DE2372A7120098911F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */; };
 		247FF3DF2372A7120098911F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */; };
+		24876C42237A0C6800F2ACEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */; };
 		24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E255234C634600B02DF2 /* AppDelegate.swift */; };
 		24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E257234C634600B02DF2 /* SceneDelegate.swift */; };
 		24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E25E234C634600B02DF2 /* PlanYourMeal.xcdatamodeld */; };
@@ -124,11 +124,11 @@
 		2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		2467FF3F234DECC90098C021 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2467FF42234E60540098C021 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		2467FF4823504D190098C021 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		247FF3D2236AEBDD0098911F /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 		247FF3D423700FC80098911F /* DataLoadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadOperation.swift; sourceTree = "<group>"; };
 		247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24A0E252234C634600B02DF2 /* PlanYourMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanYourMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A0E255234C634600B02DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24A0E257234C634600B02DF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 		24A0E254234C634600B02DF2 /* PlanYourMeal */ = {
 			isa = PBXGroup;
 			children = (
-				2467FF4823504D190098C021 /* GoogleService-Info.plist */,
+				24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */,
 				24A0E255234C634600B02DF2 /* AppDelegate.swift */,
 				24A0E257234C634600B02DF2 /* SceneDelegate.swift */,
 				244331DF23604C1800330BA1 /* Design.swift */,
@@ -464,7 +464,6 @@
 				244331A923574FFC00330BA1 /* Main.storyboard in Resources */,
 				24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */,
 				244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */,
-				2467FF4923504D190098C021 /* GoogleService-Info.plist in Resources */,
 				244332032365F1CF00330BA1 /* AllergensTableViewCell.xib in Resources */,
 				24A0E262234C634B00B02DF2 /* Assets.xcassets in Resources */,
 				244331B12357530500330BA1 /* ShoppingListViewController.xib in Resources */,
@@ -474,6 +473,7 @@
 				244331F42365532B00330BA1 /* UserDataViewController.xib in Resources */,
 				244331BB235843D800330BA1 /* ShoppingListTableViewCell.xib in Resources */,
 				244331D1235D971400330BA1 /* IngredientTableViewCell.xib in Resources */,
+				24876C42237A0C6800F2ACEA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
