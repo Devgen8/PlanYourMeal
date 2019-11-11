@@ -14,9 +14,25 @@
             filePath = "PlanYourMeal/Authentification/UserGoalViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-nextTapped:"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-gainWeightTapped:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2559DF13-2192-4588-B60D-0CA549706E31"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanYourMeal/Authentification/AllergensViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "readyTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
