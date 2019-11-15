@@ -36,17 +36,17 @@ class SignInViewController: UIViewController {
         
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        Password.userPassword = password
         
-        Auth.auth().signIn(withEmail: email, password: password) { (result, err) in
-            
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, err) in
+            guard let `self` = self else { return }
             if err != nil {
                 self.errorLabel.text = err?.localizedDescription
                 self.errorLabel.alpha = 1
             } else {
-                //self.view.window?.rootViewController = TabBarViewController()
-                self.view.window?.rootViewController = TabBarViewController()
-                self.view.window?.makeKeyAndVisible()
-                
+                let newVC = TabBarViewController()
+                newVC.modalPresentationStyle = .fullScreen
+                self.present(newVC, animated: true, completion: nil)
             }
         }
     }

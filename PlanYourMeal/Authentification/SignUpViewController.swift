@@ -66,8 +66,10 @@ class SignUpViewController: UIViewController {
             let age = ageTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            Password.userPassword = password
             
-           Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+           Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, err) in
+            guard let `self` = self else { return }
             if err != nil {
                 self.showError("\(err?.localizedDescription ?? "Error")")
             } else {
@@ -77,14 +79,15 @@ class SignUpViewController: UIViewController {
                                                                                 "email":email,
                                                                                 "uid":result!.user.uid]) {(error) in
                     if error != nil {
-                    self.showError("There are some promlems with your internet connection. Try again later")
+                    self.showError("There are some problems with your internet connection. Try again later")
                     }
                 }
             }
             }
         }
-        self.view.window?.rootViewController = UserGoalViewController()
-        view.window?.makeKeyAndVisible()
+        let newVC = UserGoalViewController()
+        newVC.modalPresentationStyle = .fullScreen
+        present(newVC, animated: true, completion: nil)
     }
     
     func showError(_ message: String) {

@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         setUpVideo()
+        
     }
     
     func setUpOutlets() {
