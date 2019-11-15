@@ -25,9 +25,9 @@ class ProfileViewController: UIViewController {
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
         
-        settingsTableView.backgroundColor = .green
+        settingsTableView.backgroundColor = .systemGreen
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = .green
+        navigationController?.navigationBar.backgroundColor = .systemGreen
     }
     
     
@@ -36,10 +36,23 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0: present(UserGoalViewController(), animated: true, completion: nil)
-        case 1: present(AllergensViewController(), animated: true, completion: nil)
-        default: return
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+                case 0: present(UserGoalViewController(), animated: true, completion: nil)
+                case 1: present(AllergensViewController(), animated: true, completion: nil)
+                default:
+                    return
+            }
+        case 1:
+            switch indexPath.row {
+            case 0: present(AccountSettingsViewController(), animated: true, completion: nil)
+            case 1: present(NotificationSettingsViewController(), animated: true, completion: nil)
+            default:
+                return
+            }
+        default:
+            return
         }
     }
 }

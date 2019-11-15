@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1CE2D8875838FDA0ABCF76A2 /* Pods_PlanYourMealTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1FC49079FDE108F4745934 /* Pods_PlanYourMealTests.framework */; };
+		2421EAA3237ABD03009C5C7F /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421EAA1237ABD03009C5C7F /* AccountSettingsViewController.swift */; };
+		2421EAA4237ABD03009C5C7F /* AccountSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2421EAA2237ABD03009C5C7F /* AccountSettingsViewController.xib */; };
+		2421EAA7237AC05C009C5C7F /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */; };
+		2421EAA8237AC05C009C5C7F /* NotificationSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */; };
+		2421EAAA237C8D48009C5C7F /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421EAA9237C8D48009C5C7F /* Password.swift */; };
+		242604E8237DDE6600277B70 /* PopupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */; };
+		242604E9237DDE6600277B70 /* PopupPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */; };
+		242604EB237E7D6600277B70 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604EA237E7D6600277B70 /* User.swift */; };
+		242604EE237E91A100277B70 /* PopupConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604EC237E91A100277B70 /* PopupConfirmViewController.swift */; };
+		242604EF237E91A100277B70 /* PopupConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 242604ED237E91A100277B70 /* PopupConfirmViewController.xib */; };
+		242604F1237F366A00277B70 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604F0237F366900277B70 /* AlertService.swift */; };
 		244331A923574FFC00330BA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244331A823574FFC00330BA1 /* Main.storyboard */; };
 		244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331AA2357522500330BA1 /* RecipesViewController.swift */; };
 		244331AD2357522500330BA1 /* RecipesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331AB2357522500330BA1 /* RecipesViewController.xib */; };
@@ -82,6 +93,17 @@
 
 /* Begin PBXFileReference section */
 		0AC8E9D2503C5F015FE56B47 /* Pods-PlanYourMeal-PlanYourMealUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlanYourMeal-PlanYourMealUITests.release.xcconfig"; path = "Target Support Files/Pods-PlanYourMeal-PlanYourMealUITests/Pods-PlanYourMeal-PlanYourMealUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2421EAA1237ABD03009C5C7F /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		2421EAA2237ABD03009C5C7F /* AccountSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSettingsViewController.xib; sourceTree = "<group>"; };
+		2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSettingsViewController.xib; sourceTree = "<group>"; };
+		2421EAA9237C8D48009C5C7F /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPasswordViewController.swift; sourceTree = "<group>"; };
+		242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupPasswordViewController.xib; sourceTree = "<group>"; };
+		242604EA237E7D6600277B70 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		242604EC237E91A100277B70 /* PopupConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupConfirmViewController.swift; sourceTree = "<group>"; };
+		242604ED237E91A100277B70 /* PopupConfirmViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupConfirmViewController.xib; sourceTree = "<group>"; };
+		242604F0237F366900277B70 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		244331A823574FFC00330BA1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		244331AA2357522500330BA1 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		244331AB2357522500330BA1 /* RecipesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesViewController.xib; sourceTree = "<group>"; };
@@ -203,8 +225,11 @@
 				244331C0235C387A00330BA1 /* NetworkReader.swift */,
 				244331C2235C392C00330BA1 /* NetworkDataFetcher.swift */,
 				244331C4235C3CA200330BA1 /* SearchResponse.swift */,
+				2421EAA9237C8D48009C5C7F /* Password.swift */,
 				247FF3D423700FC80098911F /* DataLoadOperation.swift */,
 				244331FE2365EFFA00330BA1 /* Allergens.swift */,
+				242604F0237F366900277B70 /* AlertService.swift */,
+				242604EA237E7D6600277B70 /* User.swift */,
 				247FF3D2236AEBDD0098911F /* Diet.swift */,
 			);
 			path = Model;
@@ -255,6 +280,14 @@
 				244331B02357530500330BA1 /* ShoppingListViewController.xib */,
 				2467FF3F234DECC90098C021 /* ProfileViewController.swift */,
 				244331AE235752E100330BA1 /* ProfileViewController.xib */,
+				2421EAA1237ABD03009C5C7F /* AccountSettingsViewController.swift */,
+				2421EAA2237ABD03009C5C7F /* AccountSettingsViewController.xib */,
+				242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */,
+				242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */,
+				242604EC237E91A100277B70 /* PopupConfirmViewController.swift */,
+				242604ED237E91A100277B70 /* PopupConfirmViewController.xib */,
+				2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */,
+				2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -459,11 +492,15 @@
 				244331C9235D867100330BA1 /* RecipeDetailViewController.xib in Resources */,
 				244331AD2357522500330BA1 /* RecipesViewController.xib in Resources */,
 				244331BF23585D2B00330BA1 /* RecipeCollectionViewCell.xib in Resources */,
+				242604E9237DDE6600277B70 /* PopupPasswordViewController.xib in Resources */,
 				244331B32357532E00330BA1 /* PlusViewController.xib in Resources */,
 				244331FD2365EBD900330BA1 /* AllergensViewController.xib in Resources */,
+				242604EF237E91A100277B70 /* PopupConfirmViewController.xib in Resources */,
 				244331A923574FFC00330BA1 /* Main.storyboard in Resources */,
 				24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */,
+				2421EAA8237AC05C009C5C7F /* NotificationSettingsViewController.xib in Resources */,
 				244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */,
+				2421EAA4237ABD03009C5C7F /* AccountSettingsViewController.xib in Resources */,
 				244332032365F1CF00330BA1 /* AllergensTableViewCell.xib in Resources */,
 				24A0E262234C634B00B02DF2 /* Assets.xcassets in Resources */,
 				244331B12357530500330BA1 /* ShoppingListViewController.xib in Resources */,
@@ -603,10 +640,14 @@
 			files = (
 				244331EA2361DEE100330BA1 /* UserGoalViewController.m in Sources */,
 				244331C3235C392C00330BA1 /* NetworkDataFetcher.swift in Sources */,
+				2421EAAA237C8D48009C5C7F /* Password.swift in Sources */,
 				244331C1235C387A00330BA1 /* NetworkReader.swift in Sources */,
 				244331BE23585D2B00330BA1 /* RecipeCollectionViewCell.swift in Sources */,
 				2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */,
+				242604EE237E91A100277B70 /* PopupConfirmViewController.swift in Sources */,
+				242604E8237DDE6600277B70 /* PopupPasswordViewController.swift in Sources */,
 				244331D0235D971400330BA1 /* IngredientTableViewCell.swift in Sources */,
+				242604F1237F366A00277B70 /* AlertService.swift in Sources */,
 				244331BA235843D800330BA1 /* ShoppingListTableViewCell.swift in Sources */,
 				244331D92360398700330BA1 /* SignUpViewController.swift in Sources */,
 				24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */,
@@ -615,6 +656,7 @@
 				244331E023604C1800330BA1 /* Design.swift in Sources */,
 				244332022365F1CF00330BA1 /* AllergensTableViewCell.swift in Sources */,
 				244331DD23603C2A00330BA1 /* SignInViewController.swift in Sources */,
+				2421EAA3237ABD03009C5C7F /* AccountSettingsViewController.swift in Sources */,
 				2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */,
 				2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */,
 				244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */,
@@ -626,9 +668,11 @@
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
 				244331F32365532B00330BA1 /* UserDataViewController.m in Sources */,
 				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
+				2421EAA7237AC05C009C5C7F /* NotificationSettingsViewController.swift in Sources */,
 				24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */,
 				244331C8235D867100330BA1 /* RecipeDetailViewController.swift in Sources */,
 				244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */,
+				242604EB237E7D6600277B70 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

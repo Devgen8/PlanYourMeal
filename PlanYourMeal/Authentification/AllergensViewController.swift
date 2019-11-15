@@ -72,8 +72,9 @@ import FirebaseFirestore
             }
         }
         if let _ = presentingViewController as? UserDataViewController {
-            view.window?.rootViewController = TabBarViewController()
-            view.window?.makeKeyAndVisible()
+            let newVC = TabBarViewController()
+            newVC.modalPresentationStyle = .fullScreen
+            present(newVC, animated: true, completion: nil)
         } else {
             dismiss(animated: true, completion: nil)
         }
