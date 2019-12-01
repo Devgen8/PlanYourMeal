@@ -145,7 +145,7 @@ extension RecipesViewController: UISearchBarDelegate {
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
         self.collectionView.isHidden = true
-        let urlString = "https://api.edamam.com/search?q=\(searchText)&app_id=$8970fa60&app_key=$6cc2c40707ad312d2be3037bc7c3e7a7"
+        let urlString = "https://api.edamam.com/search?q=\(searchText)&app_id=a5d31602&app_key=77acb77520745ac6c97ca539e8b612cb"
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in

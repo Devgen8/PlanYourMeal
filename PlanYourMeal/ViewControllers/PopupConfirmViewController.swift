@@ -34,13 +34,13 @@ class PopupConfirmViewController: UIViewController {
     @IBAction func deleteTapped(_ sender: UIButton) {
         Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).delete { (error) in
             guard error == nil else {
-                print("Error with deleting users data: ", error?.localizedDescription)
+                print("Error with deleting users data: ", error?.localizedDescription ?? "")
                 return
             }
         }
         Auth.auth().currentUser?.delete(completion: { (error) in
             guard error == nil else {
-                print("Error with deleting account: ", error?.localizedDescription)
+                print("Error with deleting account: ", error?.localizedDescription ?? "")
                 return
             }
         })

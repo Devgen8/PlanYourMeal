@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -30,6 +31,14 @@ class LoginViewController: UIViewController {
         
         setUpVideo()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            let newVC = TabBarViewController()
+            newVC.modalPresentationStyle = .fullScreen
+            present(newVC, animated: true, completion: nil)
+        }
     }
     
     func setUpOutlets() {
