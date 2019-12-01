@@ -113,7 +113,7 @@
         NSLog(@"Document successfully written!");
       }
     }];
-    if((ProfileViewController *)self.presentingViewController) {
+    if ([self.presentingViewController isKindOfClass:[UITabBarController class]]) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [self presentViewController:[[UserDataViewController alloc] init] animated:YES completion:nil];

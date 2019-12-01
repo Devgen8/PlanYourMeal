@@ -40,7 +40,7 @@ class AccountSettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         db.collection("users").document(currentUser!.uid).getDocument { [unowned self] (snapshot, error) in
             guard error == nil else {
-                print("Error reading data: \(error?.localizedDescription)")
+                print("Error reading data: \(error?.localizedDescription ?? "nil")")
                 return
             }
             self.emailTextField.text = self.currentUser?.email

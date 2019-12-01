@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            guard error == nil else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            if granted {
+                NotificationService.notifyUser(about: "breakfast", at: 9)
+                NotificationService.notifyUser(about: "launch", at: 14)
+                NotificationService.notifyUser(about: "snack", at: 17)
+                NotificationService.notifyUser(about: "dinner", at: 20)
+                NotificationService.notifyUser(about: "sleep", at: 23)
+            }
+        }
         
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()

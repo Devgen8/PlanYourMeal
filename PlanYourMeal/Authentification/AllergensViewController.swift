@@ -28,14 +28,15 @@ import FirebaseFirestore
         let cast = presentingViewController as? UserDataViewController
         if cast == nil {
             readyToGoButton.setTitle("OK", for: .normal)
+            readAllergensData()
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    func readAllergensData() {
         let cast = presentingViewController as? UserDataViewController
         if cast == nil {
             let db = Firestore.firestore()
-            DispatchQueue.main.async {
+            //DispatchQueue.main.async {
                 let uid = Auth.auth().currentUser?.uid ?? ""
                 db.collection("/users/\(uid)/Additional info").document("Allergens").getDocument { [unowned self] (snapshot, error) in
                     if error != nil {
@@ -53,7 +54,7 @@ import FirebaseFirestore
                         self.dietType = dietType
                     }
                 }
-            }
+            //}
         }
     }
     
@@ -111,6 +112,8 @@ extension AllergensViewController: UITableViewDelegate, UITableViewDataSource {
         
         let textForCell = indexPath.section == 0 ? Diet.dietType[indexPath.row] : Allergens.allergens[indexPath.row]
         cell.nameOfAllergen.text = textForCell
+        
+        print("Index \(indexPath.row) - \(cell.allergenSwitcher.isOn)")
         
         let cast = presentingViewController as? UserDataViewController
         if cast == nil {
