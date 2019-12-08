@@ -34,6 +34,9 @@ import UIKit
         
         viewControllers = [homeViewController, recipesViewController, plusViewController, shoppingListViewController, profileViewController]
         
-       
+        let backgroundImage = UIImage()
+        backgroundImage.withTintColor(.clear)
+        
+        tabBar.backgroundImage = backgroundImage
     }
 }

@@ -20,8 +20,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var glassView: UIView!
     @IBOutlet weak var addWaterButton: UIButton!
     @IBOutlet weak var tickImageView: UIImageView!
+    @IBOutlet weak var mealsContentView: UIView!
     
     var water: UIView?
+    var currentViewControllerIndex = 0
+    var todayDate = Date()
     
     var userWaterGlasses: Int? {
         willSet {
@@ -34,17 +37,52 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         
         setUpUsersImage()
-        
         getUsersImage()
-        
         getUsersInfo()
-        
         drawGlass()
-        
+        configurePageViewController()
         userWaterGlasses = 0
         userWaterGoal = 8
         
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        dailyCaloriesLabel.text = "0/2650"
+        
         tickImageView.alpha = 0
+    }
+    
+    func configurePageViewController() {
+        let mealsViewController = MealsPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        mealsViewController.delegate = self
+        mealsViewController.dataSource = self
+        
+        addChild(mealsViewController)
+        mealsViewController.didMove(toParent: self)
+        
+        mealsContentView.addSubview(mealsViewController.view)
+        
+        mealsViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let views: [String : Any] = ["pageView" : mealsViewController.view]
+        
+        mealsContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|",
+                                                                       options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                                                                       metrics: nil,
+                                                                       views: views))
+        
+        mealsContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|",
+        options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+        metrics: nil,
+        views: views))
+        
+        
+        
+        guard let startingViewController = mealPageViewControllerAt(index: currentViewControllerIndex) else {
+            return
+        }
+        
+        mealsViewController.setViewControllers([startingViewController], direction: .forward, animated: true)
     }
     
     func drawGlass() {
@@ -55,15 +93,15 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         shape.strokeColor = UIColor.white.cgColor
         shape.fillColor = #colorLiteral(red: 0.6996294856, green: 0.930578053, blue: 0.9303538799, alpha: 1)
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: 50, y: 15))
-        path.addLine(to: CGPoint(x: 50, y: 100))
-        path.addLine(to: CGPoint(x: 80, y: 100))
-        path.addLine(to: CGPoint(x: 80, y: 15))
+        path.move(to: CGPoint(x: 45, y: 15))
+        path.addLine(to: CGPoint(x: 45, y: 100))
+        path.addLine(to: CGPoint(x: 75, y: 100))
+        path.addLine(to: CGPoint(x: 75, y: 15))
         shape.path = path.cgPath
-        let bottom = UIView(frame: CGRect(x: 49, y: 100, width: 32, height: 5))
+        let bottom = UIView(frame: CGRect(x: 44, y: 100, width: 33, height: 5))
         glassView.addSubview(bottom)
         bottom.backgroundColor = UIColor.white
-        water = UIView(frame: CGRect(x: 50, y: 100, width: 30, height: 0))
+        water = UIView(frame: CGRect(x: 45, y: 100, width: 30, height: 0))
         water?.backgroundColor = UIColor.blue
         glassView.addSubview(water!)
     }
@@ -96,7 +134,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     
     func getUsersImage() {
         if let userId = Auth.auth().currentUser?.uid {
-            Storage.storage().reference().child("\(userId)").getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            Storage.storage().reference().child("\(userId)").getData(maxSize: 1 * 2048 * 2048) { (data, error) in
                 guard error == nil else {
                     print(error?.localizedDescription ?? "Error: can not get user image")
                     return
@@ -140,10 +178,17 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
             }, completion: nil)
             UIView.animate(withDuration: 3, delay: 3, options: [], animations: {
                 self.tickImageView.alpha += 1
-                self.tickImageView.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+                self.tickImageView.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
                 self.tickImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }, completion: nil)
         }
+    }
+    
+    func mealPageViewControllerAt(index: Int) -> DayDiaryViewController? {
+        let dayDiaryViewController = DayDiaryViewController()
+        dayDiaryViewController.positionInPages = index
+        
+        return dayDiaryViewController
     }
 }
 
@@ -171,4 +216,56 @@ extension HomeViewController: UIImagePickerControllerDelegate {
         
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension HomeViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return currentViewControllerIndex
+    }
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return 3
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        let dayDiaryViewController = viewController as? DayDiaryViewController
+        
+        guard var currentIndex = dayDiaryViewController?.positionInPages else {
+            return nil
+        }
+        
+        if currentIndex == 0 {
+            return nil
+        }
+        
+        currentIndex -= 1
+        
+        currentViewControllerIndex = currentIndex
+        
+        return mealPageViewControllerAt(index: currentIndex)
+        
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        let dayDiaryViewController = viewController as? DayDiaryViewController
+        
+        guard var currentIndex = dayDiaryViewController?.positionInPages else {
+            return nil
+        }
+        
+        if currentIndex == 3 {
+            return nil
+        }
+        
+        
+        
+        currentIndex += 1
+        
+        currentViewControllerIndex = currentIndex
+        
+        return mealPageViewControllerAt(index: currentIndex)
+    }
+    
+    
 }

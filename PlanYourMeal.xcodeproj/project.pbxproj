@@ -67,6 +67,10 @@
 		247FF3DE2372A7120098911F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */; };
 		247FF3DF2372A7120098911F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */; };
 		24876C42237A0C6800F2ACEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */; };
+		249380492393F4FC001E8C9A /* MealsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249380472393F4FB001E8C9A /* MealsPageViewController.swift */; };
+		2493804A2393F4FC001E8C9A /* MealsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249380482393F4FB001E8C9A /* MealsPageViewController.xib */; };
+		2493804D2393FB4E001E8C9A /* DayDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */; };
+		2493804E2393FB4E001E8C9A /* DayDiaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */; };
 		24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E255234C634600B02DF2 /* AppDelegate.swift */; };
 		24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E257234C634600B02DF2 /* SceneDelegate.swift */; };
 		24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E25E234C634600B02DF2 /* PlanYourMeal.xcdatamodeld */; };
@@ -74,6 +78,15 @@
 		24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A0E263234C634B00B02DF2 /* LaunchScreen.storyboard */; };
 		24A0E270234C634B00B02DF2 /* PlanYourMealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E26F234C634B00B02DF2 /* PlanYourMealTests.swift */; };
 		24A0E27B234C634B00B02DF2 /* PlanYourMealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E27A234C634B00B02DF2 /* PlanYourMealUITests.swift */; };
+		24AD0763239B937300E87E6F /* PickMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0761239B937200E87E6F /* PickMealViewController.swift */; };
+		24AD0764239B937300E87E6F /* PickMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD0762239B937200E87E6F /* PickMealViewController.xib */; };
+		24AD0767239B964700E87E6F /* PickMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */; };
+		24AD0768239B964700E87E6F /* PickMealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD0766239B964700E87E6F /* PickMealTableViewCell.xib */; };
+		24AD076A239BA96000E87E6F /* CustomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0769239BA95F00E87E6F /* CustomProtocols.swift */; };
+		24F2A3512394154600F8606D /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2A34F2394154600F8606D /* MealTableViewCell.swift */; };
+		24F2A3522394154600F8606D /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F2A3502394154600F8606D /* MealTableViewCell.xib */; };
+		24F2A3552394DE8C00F8606D /* AddingMealTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2A3532394DE8B00F8606D /* AddingMealTypeViewController.swift */; };
+		24F2A3562394DE8C00F8606D /* AddingMealTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F2A3542394DE8C00F8606D /* AddingMealTypeViewController.xib */; };
 		D116CDD08E9810DC2472EEB3 /* Pods_PlanYourMeal_PlanYourMealUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD94CBD1F7FA7F95374CDB2 /* Pods_PlanYourMeal_PlanYourMealUITests.framework */; };
 		E9B9ACE04DEFDF93089B76A5 /* Pods_PlanYourMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8670A283E360A2AEB8B64A7 /* Pods_PlanYourMeal.framework */; };
 /* End PBXBuildFile section */
@@ -159,6 +172,10 @@
 		247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		249380472393F4FB001E8C9A /* MealsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsPageViewController.swift; sourceTree = "<group>"; };
+		249380482393F4FB001E8C9A /* MealsPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealsPageViewController.xib; sourceTree = "<group>"; };
+		2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDiaryViewController.swift; sourceTree = "<group>"; };
+		2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayDiaryViewController.xib; sourceTree = "<group>"; };
 		24A0E252234C634600B02DF2 /* PlanYourMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanYourMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A0E255234C634600B02DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24A0E257234C634600B02DF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +189,15 @@
 		24A0E276234C634B00B02DF2 /* PlanYourMealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanYourMealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A0E27A234C634B00B02DF2 /* PlanYourMealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanYourMealUITests.swift; sourceTree = "<group>"; };
 		24A0E27C234C634B00B02DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24AD0761239B937200E87E6F /* PickMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMealViewController.swift; sourceTree = "<group>"; };
+		24AD0762239B937200E87E6F /* PickMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickMealViewController.xib; sourceTree = "<group>"; };
+		24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMealTableViewCell.swift; sourceTree = "<group>"; };
+		24AD0766239B964700E87E6F /* PickMealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickMealTableViewCell.xib; sourceTree = "<group>"; };
+		24AD0769239BA95F00E87E6F /* CustomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocols.swift; sourceTree = "<group>"; };
+		24F2A34F2394154600F8606D /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		24F2A3502394154600F8606D /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
+		24F2A3532394DE8B00F8606D /* AddingMealTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingMealTypeViewController.swift; sourceTree = "<group>"; };
+		24F2A3542394DE8C00F8606D /* AddingMealTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddingMealTypeViewController.xib; sourceTree = "<group>"; };
 		45912CC093D228ACBE1047BA /* Pods-PlanYourMeal-PlanYourMealUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlanYourMeal-PlanYourMealUITests.debug.xcconfig"; path = "Target Support Files/Pods-PlanYourMeal-PlanYourMealUITests/Pods-PlanYourMeal-PlanYourMealUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B05B3B873F40EF3926D4C49 /* Pods-PlanYourMealTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlanYourMealTests.release.xcconfig"; path = "Target Support Files/Pods-PlanYourMealTests/Pods-PlanYourMealTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B1FC49079FDE108F4745934 /* Pods_PlanYourMealTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlanYourMealTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				244331BC23585D2B00330BA1 /* RecipeCollectionViewCell.swift */,
+				24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */,
+				24AD0766239B964700E87E6F /* PickMealTableViewCell.xib */,
 				244331BD23585D2B00330BA1 /* RecipeCollectionViewCell.xib */,
 				244331CE235D971400330BA1 /* IngredientTableViewCell.swift */,
 				247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */,
@@ -225,6 +253,8 @@
 				244331B9235843D800330BA1 /* ShoppingListTableViewCell.xib */,
 				244332002365F1CF00330BA1 /* AllergensTableViewCell.swift */,
 				244332012365F1CF00330BA1 /* AllergensTableViewCell.xib */,
+				24F2A34F2394154600F8606D /* MealTableViewCell.swift */,
+				24F2A3502394154600F8606D /* MealTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -243,6 +273,7 @@
 				247FF3D2236AEBDD0098911F /* Diet.swift */,
 				242604F623808B9200277B70 /* TimeVariants.swift */,
 				242604F82381522600277B70 /* NotificationService.swift */,
+				24AD0769239BA95F00E87E6F /* CustomProtocols.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +313,14 @@
 				2467FF42234E60540098C021 /* TabBarViewController.swift */,
 				2467FF37234DAF4D0098C021 /* HomeViewController.swift */,
 				242604FD23853CDA00277B70 /* HomeViewController.xib */,
+				249380472393F4FB001E8C9A /* MealsPageViewController.swift */,
+				249380482393F4FB001E8C9A /* MealsPageViewController.xib */,
+				2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */,
+				2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */,
+				24AD0761239B937200E87E6F /* PickMealViewController.swift */,
+				24AD0762239B937200E87E6F /* PickMealViewController.xib */,
+				24F2A3532394DE8B00F8606D /* AddingMealTypeViewController.swift */,
+				24F2A3542394DE8C00F8606D /* AddingMealTypeViewController.xib */,
 				244331C6235D867100330BA1 /* RecipeDetailViewController.swift */,
 				244331C7235D867100330BA1 /* RecipeDetailViewController.xib */,
 				244331AA2357522500330BA1 /* RecipesViewController.swift */,
@@ -498,7 +537,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F2A3562394DE8C00F8606D /* AddingMealTypeViewController.xib in Resources */,
 				247FF3DF2372A7120098911F /* SettingsTableViewCell.xib in Resources */,
+				24AD0764239B937300E87E6F /* PickMealViewController.xib in Resources */,
+				24F2A3522394154600F8606D /* MealTableViewCell.xib in Resources */,
 				244331DE23603C2A00330BA1 /* SignInViewController.xib in Resources */,
 				244331AF235752E100330BA1 /* ProfileViewController.xib in Resources */,
 				244331C9235D867100330BA1 /* RecipeDetailViewController.xib in Resources */,
@@ -507,12 +549,15 @@
 				242604E9237DDE6600277B70 /* PopupPasswordViewController.xib in Resources */,
 				244331B32357532E00330BA1 /* PlusViewController.xib in Resources */,
 				244331FD2365EBD900330BA1 /* AllergensViewController.xib in Resources */,
+				2493804E2393FB4E001E8C9A /* DayDiaryViewController.xib in Resources */,
 				242604EF237E91A100277B70 /* PopupConfirmViewController.xib in Resources */,
 				244331A923574FFC00330BA1 /* Main.storyboard in Resources */,
 				24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */,
 				2421EAA8237AC05C009C5C7F /* NotificationSettingsViewController.xib in Resources */,
 				244331EF23620ADB00330BA1 /* IMG_2299.MOV in Resources */,
 				2421EAA4237ABD03009C5C7F /* AccountSettingsViewController.xib in Resources */,
+				24AD0768239B964700E87E6F /* PickMealTableViewCell.xib in Resources */,
+				2493804A2393F4FC001E8C9A /* MealsPageViewController.xib in Resources */,
 				242604FE23853CDA00277B70 /* HomeViewController.xib in Resources */,
 				244332032365F1CF00330BA1 /* AllergensTableViewCell.xib in Resources */,
 				24A0E262234C634B00B02DF2 /* Assets.xcassets in Resources */,
@@ -658,12 +703,14 @@
 				244331C1235C387A00330BA1 /* NetworkReader.swift in Sources */,
 				244331BE23585D2B00330BA1 /* RecipeCollectionViewCell.swift in Sources */,
 				2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */,
+				24AD0763239B937300E87E6F /* PickMealViewController.swift in Sources */,
 				242604EE237E91A100277B70 /* PopupConfirmViewController.swift in Sources */,
 				242604E8237DDE6600277B70 /* PopupPasswordViewController.swift in Sources */,
 				244331D0235D971400330BA1 /* IngredientTableViewCell.swift in Sources */,
 				242604F1237F366A00277B70 /* AlertService.swift in Sources */,
 				244331BA235843D800330BA1 /* ShoppingListTableViewCell.swift in Sources */,
 				244331D92360398700330BA1 /* SignUpViewController.swift in Sources */,
+				2493804D2393FB4E001E8C9A /* DayDiaryViewController.swift in Sources */,
 				24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */,
 				2467FF3C234DEC6B0098C021 /* PlusViewController.swift in Sources */,
 				244331FC2365EBD900330BA1 /* AllergensViewController.swift in Sources */,
@@ -673,17 +720,22 @@
 				2421EAA3237ABD03009C5C7F /* AccountSettingsViewController.swift in Sources */,
 				2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */,
 				2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */,
+				24F2A3512394154600F8606D /* MealTableViewCell.swift in Sources */,
+				249380492393F4FC001E8C9A /* MealsPageViewController.swift in Sources */,
 				244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */,
 				24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */,
 				247FF3DE2372A7120098911F /* SettingsTableViewCell.swift in Sources */,
 				247FF3D523700FC90098911F /* DataLoadOperation.swift in Sources */,
+				24AD076A239BA96000E87E6F /* CustomProtocols.swift in Sources */,
 				242604F92381522700277B70 /* NotificationService.swift in Sources */,
+				24AD0767239B964700E87E6F /* PickMealTableViewCell.swift in Sources */,
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
 				247FF3D3236AEBDD0098911F /* Diet.swift in Sources */,
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
 				244331F32365532B00330BA1 /* UserDataViewController.m in Sources */,
 				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
 				2421EAA7237AC05C009C5C7F /* NotificationSettingsViewController.swift in Sources */,
+				24F2A3552394DE8C00F8606D /* AddingMealTypeViewController.swift in Sources */,
 				24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */,
 				244331C8235D867100330BA1 /* RecipeDetailViewController.swift in Sources */,
 				242604F723808B9200277B70 /* TimeVariants.swift in Sources */,

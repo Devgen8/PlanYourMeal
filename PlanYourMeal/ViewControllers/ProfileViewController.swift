@@ -25,9 +25,8 @@ class ProfileViewController: UIViewController {
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
         
-        settingsTableView.backgroundColor = .systemGreen
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = .systemGreen
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     

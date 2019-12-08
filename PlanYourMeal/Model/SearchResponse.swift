@@ -28,7 +28,11 @@ struct Recipe: Decodable {
 
 struct Ingredient: Decodable {
     var text: String?
-    var quantity: Float?
-    var measure: String?
-    var food: String?
+    var weight: Float?
+}
+
+struct MealDataModel {
+    var name: String?
+    var calories: Float?
+    var image: String?
 }
