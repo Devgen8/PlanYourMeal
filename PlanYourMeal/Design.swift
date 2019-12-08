@@ -25,9 +25,10 @@ class Design {
     }
     
     static func styleFilledButton(_ button: UIButton) {
-        button.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        button.backgroundColor = UIColor.systemGreen
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.white
+        //UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
     }
     
     static func styleHollowButton(_ button: UIButton) {

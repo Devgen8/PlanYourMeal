@@ -46,7 +46,8 @@ class RecipesViewController: UIViewController {
     private func setupSearchBar() {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self as UISearchBarDelegate
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         searchController.obscuresBackgroundDuringPresentation = false
     }
     

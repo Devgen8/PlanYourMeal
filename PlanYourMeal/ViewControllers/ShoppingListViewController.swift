@@ -25,7 +25,8 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         
         listTableView.dataSource = self
         
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         // Do any additional setup after loading the view.
         for i in 0...30 {

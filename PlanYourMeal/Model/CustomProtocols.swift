@@ -1,0 +1,21 @@
+//
+//  CustomProtocols.swift
+//  PlanYourMeal
+//
+//  Created by мак on 07/12/2019.
+//  Copyright © 2019 мак. All rights reserved.
+//
+
+import Foundation
+
+protocol DataReloaderDelegate {
+    func reloadInfo()
+}
+
+protocol RecipeOpenerDelegate {
+    func addMeal(_ recipe: Recipe?)
+}
+
+protocol AddingNewMealDelegate {
+    func getInfoForNewMeal(image: UIImage, calories: String, name: String)
+}

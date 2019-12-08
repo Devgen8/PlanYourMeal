@@ -47,9 +47,9 @@ extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("IngredientTableViewCell", owner: self, options: nil)?.first as! IngredientTableViewCell
         
-        cell.nameOfIngredient.text = recipeFromCollectionView?.ingredients?[indexPath.row].food
-        cell.quantity.text = "\(recipeFromCollectionView?.ingredients?[indexPath.row].quantity ?? 1)"
-        cell.measure.text = recipeFromCollectionView?.ingredients?[indexPath.row].measure
+        cell.nameOfIngredient.text = recipeFromCollectionView?.ingredients?[indexPath.row].text
+        cell.quantity.text = "\(Int(recipeFromCollectionView?.ingredients?[indexPath.row].weight ?? 1))"
+        cell.measure.text = "g"
         return cell
     }
 }
