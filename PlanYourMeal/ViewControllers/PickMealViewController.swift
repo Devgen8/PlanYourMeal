@@ -100,12 +100,23 @@ extension PickMealViewController: RecipeOpenerDelegate {
             if mealType != nil {
                 mealTypeWithOutIndex = mealType!.components(separatedBy: CharacterSet.decimalDigits).joined()
             }
+            var ingredientNames = [String]()
+            var ingredientWeights = [Float]()
+            if let userIngredients = recipe?.ingredients {
+                for ingredient in userIngredients {
+                    ingredientNames.append(ingredient.text ?? "")
+                    ingredientWeights.append(ingredient.weight ?? 0)
+                }
+            }
             if let userId = Auth.auth().currentUser?.uid {
-                Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday ?? "Monday").collection("MealTypes").document(mealType ?? "Lunch").updateData([
+                Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday ?? "Monday").collection("MealTypes").document(mealType ?? "Lunch").setData([
                     "image":recipe!.image!,
                     "name":recipe!.label!,
                     "calories":recipe!.calories!,
-                    "mealType":mealTypeWithOutIndex])
+                    "mealType":mealTypeWithOutIndex,
+                    "ingredientNames":ingredientNames,
+                    "ingredientWeights":ingredientWeights,
+                    "documentName":mealType ?? "Lunch"])
             }
         }
         delegate?.reloadInfo()

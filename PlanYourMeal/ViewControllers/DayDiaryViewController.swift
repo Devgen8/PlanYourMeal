@@ -16,13 +16,14 @@ class DayDiaryViewController: UIViewController {
     var cellIdentifier = "MealTableViewCell"
     var mealTypes = ["Breakfast", "Lunch", "Dinner", "Snack"]
     var defaultMealPhotos = [#imageLiteral(resourceName: "Breakfast"), #imageLiteral(resourceName: "Lunch"), #imageLiteral(resourceName: "Dinner-1"), #imageLiteral(resourceName: "Snack")]
-    var recomendedCalories = ["350-450", "450-550", "400-500", "0"]
+    var recomendedCalories = ["1000-2000", "1000-2000", "1000-2000", "0"]
     var calendar = Calendar.current
     var todayDate = Date()
     var weekday = ""
     var meals = [Int:MealDataModel]()
     var chosenMealPhotos = [Int:UIImage]()
     var imageURLs = [Int:String]()
+    let networkDataFetcher = NetworkDataFetcher()
     @IBOutlet weak var newMealButton: UIButton!
     @IBOutlet weak var calendarLabel: UILabel!
     @IBOutlet weak var mealsTableView: UITableView!
@@ -51,9 +52,64 @@ class DayDiaryViewController: UIViewController {
         present(destinationViewController, animated: true, completion: nil)
     }
     
+    @IBAction func autoPickFoodTapped(_ sender: UIButton) {
+        var indexOfMeal = 0
+        for mealType in mealTypes {
+            print(mealType)
+            let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "v"]
+            let randomLetter = letters[Int.random(in: 0..<letters.count)]
+            let urlString = "https://api.edamam.com/search?q=\(randomLetter)&app_id=a5d31602&app_key=77acb77520745ac6c97ca539e8b612cb&calories=\(recomendedCalories[indexOfMeal])"
+            networkDataFetcher.fetchRecipes(urlString: urlString) { [weak self] (searchResponse) in
+                var pickedMeal = MealDataModel()
+                guard searchResponse != nil else {
+                    return
+                }
+                if let numberOfRecipes = searchResponse?.hits?.count, numberOfRecipes != 0 {
+                    let randomNumber = Int.random(in: 0..<numberOfRecipes)
+                    let randomRecipe = searchResponse?.hits?[randomNumber].recipe
+                    if let recipe = randomRecipe {
+                        if let userId = Auth.auth().currentUser?.uid {
+                            var ingredientNames = [String]()
+                            var ingredientWeights = [Float]()
+                            var ingredientStatus = [Bool]()
+                            for ingredient in (recipe.ingredients ?? [Ingredient()]) {
+                                ingredientNames.append(ingredient.text ?? "")
+                                ingredientWeights.append(ingredient.weight ?? 0)
+                                ingredientStatus.append(false)
+                            }
+                            Firestore.firestore().collection("users").document(userId).collection("Meals").document(self?.weekday ?? "").collection("MealTypes").document("\(mealType)").setData([
+                            "calories":recipe.calories ?? 0,
+                            "image":recipe.image ?? "",
+                            "ingredientNames":ingredientNames,
+                            "ingredientWeights":ingredientWeights,
+                            "ingredientStatus":ingredientStatus,
+                            "name":recipe.label ?? "",
+                            "mealType":mealType])
+                            if (indexOfMeal + 1) == self?.mealTypes.count {
+                                self?.makeRequestForMeals()
+                            }
+                        }
+//                        pickedMeal.calories = recipe.calories
+//                        pickedMeal.image = recipe.image
+//                        pickedMeal.name = recipe.label
+                    }
+//                    self?.meals[indexOfMeal] = pickedMeal
+//                    if let photo = pickedMeal.image {
+//                        self?.downloadImageFromURL(URL(string: photo), at: indexOfMeal)
+//                    } else {
+//                        self?.chosenMealPhotos[indexOfMeal] = self?.defaultMealPhotos[indexOfMeal]
+//                    }
+                }
+                indexOfMeal += 1
+                //self?.mealsTableView.reloadData()
+            }
+        }
+    }
+    
     func makeRequestForMeals() {
         meals = [Int:MealDataModel]()
         if let userId = Auth.auth().currentUser?.uid {
+            print(userId)
             Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).collection("MealTypes").getDocuments { [weak self] (snapshot, error) in
                 if error != nil {
                     print(error?.localizedDescription ?? "Error: can not read meals info")
@@ -61,6 +117,7 @@ class DayDiaryViewController: UIViewController {
                     var indexOfMeal = 0
                     guard snapshot != nil else { return }
                     for document in snapshot!.documents {
+                        print("EEEEEEE\(snapshot?.count)")
                         var meal = MealDataModel()
                         if document.data()["mealType"] as? String == self?.mealTypes[indexOfMeal] {
                             meal.name = document.data()["name"] as? String
@@ -69,16 +126,17 @@ class DayDiaryViewController: UIViewController {
                         }
                         self?.meals[indexOfMeal] = meal
                         if let photo = meal.image {
-                            self?.imageURLs[indexOfMeal] = photo
-                            self?.mealsTableView.reloadData()
+                            self?.downloadImageFromURL(URL(string: photo), at: indexOfMeal)
+                            //self?.imageURLs[indexOfMeal] = photo
+                            //self?.mealsTableView.reloadData()
                         } else {
                             self?.chosenMealPhotos[indexOfMeal] = self?.defaultMealPhotos[indexOfMeal]
                         }
-                        self?.mealsTableView.reloadData()
+                        //self?.mealsTableView.reloadData()
                         indexOfMeal += 1
                     }
                     self?.mealsTableView.reloadData()
-                    self?.downloadMealImages()
+                    //self?.downloadMealImages()
                 }
             }
         }
@@ -92,6 +150,9 @@ class DayDiaryViewController: UIViewController {
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil
                 else { return }
+            DispatchQueue.main.async {
+                self?.mealsTableView.reloadData()
+            }
                 self?.chosenMealPhotos[index] = UIImage(data: data)
         }.resume()
     }
@@ -122,7 +183,7 @@ extension DayDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if let mealCalories = meals[indexPath.row]?.calories {
-            cell.caloriesLabel.text = "\(Int(mealCalories))"
+            cell.caloriesLabel.text = "\(Int(mealCalories)) kcal"
         } else {
             cell.caloriesLabel.text = "Recomended: \(recomendedCalories[indexPath.row]) kcal"
         }
@@ -151,6 +212,34 @@ extension DayDiaryViewController: AddingNewMealDelegate {
         recomendedCalories += [calories]
         defaultMealPhotos += [image]
         mealsTableView.reloadData()
+    }
+    
+    func updateDBMealTypes(with mealName: String) {
+        if let userId = Auth.auth().currentUser?.uid {
+            Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).setData([
+                "mealTypes":mealTypes,
+                "recomendedCalories":recomendedCalories])
+            
+            Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).collection("MealTypes").getDocuments { [weak self] (snapshot, error) in
+                guard error == nil else {
+                    print(error?.localizedDescription ?? "Error: can not read data about meal types")
+                    return
+                }
+                var mealTypeNumber: Int?
+                if let docs = snapshot {
+                    var lastDocument: QueryDocumentSnapshot?
+                    for document in docs.documents {
+                        lastDocument = document
+                    }
+                    let letters = Array<Character>(lastDocument?.data()["documentName"] as? String ?? "")
+                    let firstNumberOfMealType = String(letters[0])
+                    mealTypeNumber = Int(firstNumberOfMealType)
+                }
+                let documentName = "\(mealTypeNumber ?? 0)\(mealName)"
+                
+                Firestore.firestore().collection("users").document(userId).collection("Meals").document(self?.weekday ?? "").collection("MealTypes").document(documentName).setData(["documentName":documentName])
+            }
+        }
     }
 }
 

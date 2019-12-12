@@ -19,3 +19,7 @@ protocol RecipeOpenerDelegate {
 protocol AddingNewMealDelegate {
     func getInfoForNewMeal(image: UIImage, calories: String, name: String)
 }
+
+protocol IngredientStatusDelegate {
+    func changeIngredientStatus(for item: ShoppingListItem, section: Int, row: Int)
+}

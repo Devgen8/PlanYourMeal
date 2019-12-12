@@ -20,10 +20,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-U1-tsA">
-                    <rect key="frame" x="0.0" y="89" width="414" height="508"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-U1-tsA">
+                    <rect key="frame" x="0.0" y="89" width="414" height="410"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="410" id="61G-D8-C9w"/>
+                    </constraints>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7D-Vx-PBx">
@@ -34,15 +36,37 @@
                         <action selector="newMealTapped:" destination="-1" eventType="touchUpInside" id="hGs-Vo-Eyw"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrD-Kq-1IX">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrD-Kq-1IX">
                     <rect key="frame" x="118" y="60" width="141" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="mfo-aP-GmJ"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1A-70-TEZ">
+                    <rect key="frame" x="146.5" y="504" width="121" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="Iz7-de-sgd"/>
+                    </constraints>
+                    <state key="normal" title="Auto food picking"/>
+                    <connections>
+                        <action selector="autoPickFoodTapped:" destination="-1" eventType="touchUpInside" id="sLG-qX-4e0"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="C1A-70-TEZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bcx-54-UTd"/>
+                <constraint firstItem="eNs-U1-tsA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ktp-he-JI7"/>
+                <constraint firstItem="UrD-Kq-1IX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="118" id="Lua-xM-mBz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UrD-Kq-1IX" secondAttribute="trailing" constant="155" id="TX6-0u-ODu"/>
+                <constraint firstItem="C1A-70-TEZ" firstAttribute="top" secondItem="eNs-U1-tsA" secondAttribute="bottom" constant="5" id="XWC-i5-iD6"/>
+                <constraint firstItem="eNs-U1-tsA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Yq9-sQ-NfI"/>
+                <constraint firstItem="UrD-Kq-1IX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="cdY-oP-QRx"/>
+                <constraint firstItem="eNs-U1-tsA" firstAttribute="top" secondItem="UrD-Kq-1IX" secondAttribute="bottom" constant="8" id="zB1-9x-Jme"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </view>
