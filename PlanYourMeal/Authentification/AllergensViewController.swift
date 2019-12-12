@@ -58,6 +58,19 @@ import FirebaseFirestore
         }
     }
     
+    func createMealSchedule() {
+        if let userId = Auth.auth().currentUser?.uid {
+            let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+            let mealTypes = ["Breakfast", "Lunch", "Dinner", "Snack"]
+            for weekday in weekdays {
+                Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).setData(["mealTypes":mealTypes])
+                for mealType in mealTypes {
+                    Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).collection("MealTypes").document(mealType).setData(["mealType":mealType])
+                }
+            }
+        }
+    }
+    
     @IBAction func readyTapped(_ sender: UIButton) {
         let db = Firestore.firestore()
         db.collection("/users/\(Auth.auth().currentUser!.uid)/Additional info").document("Allergens").setData(["allergens":AllergensTableViewCell.userAllergens]) {(error) in
@@ -73,6 +86,7 @@ import FirebaseFirestore
             }
         }
         if let _ = presentingViewController as? UserDataViewController {
+            createMealSchedule()
             let newVC = TabBarViewController()
             newVC.modalPresentationStyle = .fullScreen
             present(newVC, animated: true, completion: nil)

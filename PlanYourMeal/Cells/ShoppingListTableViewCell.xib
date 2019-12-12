@@ -16,36 +16,55 @@
                 <rect key="frame" x="0.0" y="0.0" width="322" height="45"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wi-LX-pUe">
-                        <rect key="frame" x="25" y="7" width="30" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="❌"/>
-                        <connections>
-                            <action selector="touchedButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="T7b-Y7-3N9"/>
-                        </connections>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-8Z-thz">
-                        <rect key="frame" x="126" y="12" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-8Z-thz">
+                        <rect key="frame" x="3" y="0.0" width="221" height="45"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZe-QK-bVp">
-                        <rect key="frame" x="247" y="12" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aF-T7-zld">
+                        <rect key="frame" x="282" y="5" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8aF-T7-zld" secondAttribute="height" multiplier="1:1" id="cOA-Dz-fTt"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="cancel"/>
+                        <connections>
+                            <action selector="checkTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aVg-my-Qsq"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZe-QK-bVp">
+                        <rect key="frame" x="227" y="0.0" width="50" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="E2t-db-4Zt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="DZe-QK-bVp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GI5-rJ-ol4"/>
+                    <constraint firstItem="DZe-QK-bVp" firstAttribute="leading" secondItem="2jV-8Z-thz" secondAttribute="trailing" constant="3" id="IX0-qw-n1M"/>
+                    <constraint firstItem="2jV-8Z-thz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="L8k-pK-XtT"/>
+                    <constraint firstAttribute="bottom" secondItem="DZe-QK-bVp" secondAttribute="bottom" id="LEZ-H9-fVl"/>
+                    <constraint firstItem="2jV-8Z-thz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="ZNV-iA-Zwj"/>
+                    <constraint firstAttribute="trailing" secondItem="8aF-T7-zld" secondAttribute="trailing" constant="5" id="apU-f9-JRJ"/>
+                    <constraint firstAttribute="bottom" secondItem="8aF-T7-zld" secondAttribute="bottom" constant="5" id="cjf-Ll-xYe"/>
+                    <constraint firstItem="8aF-T7-zld" firstAttribute="leading" secondItem="DZe-QK-bVp" secondAttribute="trailing" constant="5" id="dNC-Z4-X6L"/>
+                    <constraint firstItem="8aF-T7-zld" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ieM-jB-9R8"/>
+                    <constraint firstAttribute="bottom" secondItem="2jV-8Z-thz" secondAttribute="bottom" id="vIS-lu-htR"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="amount" destination="DZe-QK-bVp" id="EJn-GN-fq3"/>
+                <outlet property="checkButton" destination="8aF-T7-zld" id="M73-ic-b8g"/>
                 <outlet property="ingredient" destination="2jV-8Z-thz" id="byO-P7-uVk"/>
             </connections>
             <point key="canvasLocation" x="191.30434782608697" y="114.17410714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cancel" width="256" height="256"/>
+    </resources>
 </document>

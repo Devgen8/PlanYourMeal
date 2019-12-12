@@ -124,7 +124,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func setUpUsersImage() {
-        userImageView.layer.cornerRadius = 45
+        userImageView.layer.cornerRadius = 180
         userImageView.layer.borderWidth = 0.1
         userImageView.layer.borderColor = UIColor.white.cgColor
         userImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handlePickingPhoto)))
@@ -254,7 +254,7 @@ extension HomeViewController: UIPageViewControllerDelegate, UIPageViewController
             return nil
         }
         
-        if currentIndex == 3 {
+        if currentIndex == 6 {
             return nil
         }
         

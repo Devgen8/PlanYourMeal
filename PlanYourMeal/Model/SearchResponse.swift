@@ -36,3 +36,9 @@ struct MealDataModel {
     var calories: Float?
     var image: String?
 }
+
+struct ShoppingListItem {
+    var name: String?
+    var weight: Float?
+    var bought = false
+}
