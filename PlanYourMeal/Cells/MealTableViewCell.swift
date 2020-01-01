@@ -15,6 +15,10 @@ class MealTableViewCell: UITableViewCell {
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var mealImageView: UIImageView!
     
+    var recipe: MealDataModel?
+    var cellIndex: Int?
+    var delegate: TapReciverDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,4 +37,9 @@ class MealTableViewCell: UITableViewCell {
         decorationView.layer.shadowOpacity = 0.7
     }
     
+    @IBAction func addMealTapped(_ sender: UIButton) {
+        if let index = cellIndex {
+            delegate?.handleTap(for: index)
+        }
+    }
 }

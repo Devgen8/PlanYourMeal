@@ -33,8 +33,11 @@ struct Ingredient: Decodable {
 
 struct MealDataModel {
     var name: String?
+    var ingredientNames = [String]()
+    var ingredientWeights = [Float]()
     var calories: Float?
     var image: String?
+    var url: String?
 }
 
 struct ShoppingListItem {

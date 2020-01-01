@@ -9,5 +9,5 @@
 import Foundation
 
 class Allergens {
-    static var allergens = ["alcohol", "celery", "crustacean", "dairy", "egg", "fish", "lupine", "mustard", "oil", "peanut", "pork", "red meat", "sesame", "soy", "tree nut", "wheat"]
+    static var allergens = ["sugar-conscious", "peanut-free", "tree-nut-free", "alcohol-free"]
 }

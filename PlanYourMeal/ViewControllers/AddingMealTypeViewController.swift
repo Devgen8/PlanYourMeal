@@ -49,7 +49,7 @@ class AddingMealTypeViewController: UIViewController {
     
     @IBAction func addTapped(_ sender: UIButton) {
         if caloriesTextField.text != "", mealTypeNameTextField.text != "" {
-            delegate?.getInfoForNewMeal(image: mealTypeImage.image ?? #imageLiteral(resourceName: "AddPhoto"), calories: mealTypeNameTextField.text ?? "0", name: mealTypeNameTextField.text ?? "New meal")
+            delegate?.getInfoForNewMeal(image: mealTypeImage.image ?? #imageLiteral(resourceName: "Lunch"), calories: mealTypeNameTextField.text ?? "0", name: mealTypeNameTextField.text ?? "New meal")
             dismiss(animated: true, completion: nil)
         } else {
             errorLabel.isHidden = false

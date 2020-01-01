@@ -105,7 +105,7 @@ extension RecipesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipeDetailViewController = RecipeDetailViewController()
-        recipeDetailViewController.recipeFromCollectionView = searchResponse?.hits?[indexPath.row].recipe
+        //recipeDetailViewController.recipeFromCollectionView = searchResponse?.hits?[indexPath.row].recipe
         recipeDetailViewController.image = self.cachedImages?[indexPath]
         self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
     }
@@ -146,7 +146,8 @@ extension RecipesViewController: UISearchBarDelegate {
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
         self.collectionView.isHidden = true
-        let urlString = "https://api.edamam.com/search?q=\(searchText)&app_id=a5d31602&app_key=77acb77520745ac6c97ca539e8b612cb"
+        let editedString = searchText.replacingOccurrences(of: " ", with: "%20")
+        let urlString = getUserRelatedUrlString(with: editedString)
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
@@ -164,5 +165,22 @@ extension RecipesViewController: UISearchBarDelegate {
             loadingIndicator.stopAnimating()
             collectionView.isHidden = true
         }
+    }
+    
+    func getUserRelatedUrlString(with editedString: String) -> String {
+        var healthParameters: [String]?
+        var healthParametersJoined: String?
+        if let diet = User.dietType {
+            healthParameters = [diet]
+        }
+        if let allergens = User.allergensInfo {
+            healthParameters = healthParameters != nil ? healthParameters ?? [] + allergens : allergens
+        }
+        healthParametersJoined = healthParameters?.joined(separator: "&health=")
+        if let joinedString = healthParametersJoined{
+            healthParametersJoined = "&health=" + joinedString
+        }
+        let urlString = "https://api.edamam.com/search?q=\(editedString)&app_id=a5d31602&app_key=77acb77520745ac6c97ca539e8b612cb\(healthParametersJoined ?? "&diet=balanced")"
+        return urlString
     }
 }

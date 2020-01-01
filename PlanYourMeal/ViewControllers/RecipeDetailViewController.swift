@@ -18,22 +18,22 @@ class RecipeDetailViewController: UIViewController {
     
     @IBOutlet weak var ingredintsTableView: UITableView!
     
-    var recipeFromCollectionView: Recipe?
+    var recipeFromParent: MealDataModel?
     
     var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ingredintsTableView.dataSource = self
-        recipeName.text = recipeFromCollectionView?.label
+        recipeName.text = recipeFromParent?.name
         recipePhoto.image = image
-        let firstNumber = (recipeFromCollectionView?.calories)!
-        let secondNumber = (recipeFromCollectionView?.totalWeight)!
-        caloriesLabel.text = "Calories: \(Int(firstNumber/secondNumber * 100))"
+        if let calories = recipeFromParent?.calories {
+            caloriesLabel.text = "Calories: \(calories)"
+        }
     }
     
     @IBAction func recipeButtonClicked(_ sender: UIButton) {
-        UIApplication.shared.open(URL(string: recipeFromCollectionView?.url ?? "")!,
+        UIApplication.shared.open(URL(string: recipeFromParent?.url ?? "")!,
                                   options: [:],
                                   completionHandler: nil)
     }
@@ -41,15 +41,16 @@ class RecipeDetailViewController: UIViewController {
 
 extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeFromCollectionView?.ingredients?.count ?? 1
+        return recipeFromParent?.ingredientNames.count ?? 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("IngredientTableViewCell", owner: self, options: nil)?.first as! IngredientTableViewCell
         
-        cell.nameOfIngredient.text = recipeFromCollectionView?.ingredients?[indexPath.row].text
-        cell.quantity.text = "\(Int(recipeFromCollectionView?.ingredients?[indexPath.row].weight ?? 1))"
+        cell.nameOfIngredient.text = recipeFromParent?.ingredientNames[indexPath.row]
+        cell.quantity.text = "\(Int(recipeFromParent?.ingredientWeights[indexPath.row] ?? 1))"
         cell.measure.text = "g"
+        
         return cell
     }
 }

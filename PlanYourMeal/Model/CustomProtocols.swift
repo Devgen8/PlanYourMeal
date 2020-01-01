@@ -23,3 +23,11 @@ protocol AddingNewMealDelegate {
 protocol IngredientStatusDelegate {
     func changeIngredientStatus(for item: ShoppingListItem, section: Int, row: Int)
 }
+
+protocol AllergensInfoChangerDelegate {
+    func updateInfo(of allergen: String, to state: Bool)
+}
+
+protocol TapReciverDelegate {
+    func handleTap(for index: Int)
+}

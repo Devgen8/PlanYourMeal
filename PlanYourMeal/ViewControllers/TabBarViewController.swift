@@ -14,29 +14,28 @@ import UIKit
         super.viewDidLoad()
         
         let homeViewController = UINavigationController(rootViewController: HomeViewController())
-        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: .none, tag: 0)
+        homeViewController.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "house").withRenderingMode(.alwaysOriginal), tag: 0)
         homeViewController.navigationBar.topItem?.title = "Home"
         
         let recipesViewController = UINavigationController(rootViewController: RecipesViewController())
-        recipesViewController.tabBarItem = UITabBarItem(title: "Recipes", image: .none, tag: 1)
+        recipesViewController.tabBarItem = UITabBarItem(title: "", image:  #imageLiteral(resourceName: "recipe").withRenderingMode(.alwaysOriginal), tag: 1)
         recipesViewController.navigationBar.topItem?.title = "Recipes"
         
-        let plusViewController = PlusViewController()
-        plusViewController.tabBarItem = UITabBarItem(title: "+", image: .none, tag: 2)
         
         let shoppingListViewController = UINavigationController(rootViewController: ShoppingListViewController())
-        shoppingListViewController.tabBarItem = UITabBarItem(title: "Shopping list", image: .none, tag: 3)
+        shoppingListViewController.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "checklist").withRenderingMode(.alwaysOriginal), tag: 3)
         shoppingListViewController.navigationBar.topItem?.title = "Shopping list"
         
         let profileViewController = UINavigationController(rootViewController: ProfileViewController())
-        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: .none, tag: 4)
+        profileViewController.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user").withRenderingMode(.alwaysOriginal), tag: 4)
         profileViewController.navigationBar.topItem?.title = "Profile"
         
-        viewControllers = [homeViewController, recipesViewController, plusViewController, shoppingListViewController, profileViewController]
+        viewControllers = [homeViewController, recipesViewController, shoppingListViewController, profileViewController]
         
-        let backgroundImage = UIImage()
-        backgroundImage.withTintColor(.clear)
+//        let backgroundImage = UIImage()
+//        backgroundImage.withTintColor(.secondarySystemBackground)
         
-        tabBar.backgroundImage = backgroundImage
+        //tabBar.backgroundImage = backgroundImage
+        tabBar.backgroundColor = .secondarySystemBackground
     }
 }

@@ -10,6 +10,13 @@ import Foundation
 
 struct User: Decodable {
     var email: String?
-    var age: String?
     var name: String?
+    static var dietType: String?
+    static var allergensInfo: [String]?
+    static var dailyCalories: Int?
+    static var age: Int?
+    static var goal: String?
+    static var height: Float?
+    static var weight: Float?
+    static var gender: String?
 }

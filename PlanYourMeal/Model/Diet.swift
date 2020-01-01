@@ -9,5 +9,5 @@
 import Foundation
 
 class Diet {
-    static var dietType = ["pecatarian", "vegetarian", "vegan"]
+    static var dietType = ["vegetarian", "vegan"]
 }
