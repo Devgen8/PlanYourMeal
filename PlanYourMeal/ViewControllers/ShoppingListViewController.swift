@@ -20,7 +20,6 @@ class ShoppingListViewController: UIViewController {
     var weekday = ""
     var refreshControl = UIRefreshControl()
     var shoppingItemsStatus = [Int:[Bool]]()
-    var documentNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +60,15 @@ class ShoppingListViewController: UIViewController {
                 return
             }
             if let docs = snapshot?.documents {
-                var indexOfDocument = 0
+                guard let `self` = self else { return }
                 for document in docs {
-                    if let documentName = document.data()["documentName"] as? String, self?.documentNames.count != docs.count {
-                        self?.documentNames.append(documentName)
+                    var indexOfDocument = 0
+                    var documentMealType = document.data()["mealType"] as? String
+                    for mealType in self.mealTypes {
+                        if documentMealType == mealType {
+                            break
+                        }
+                        indexOfDocument += 1
                     }
                     var shoppingListItemsForMeal = [ShoppingListItem]()
                     let ingredientNames = document.data()["ingredientNames"] as? [String]
@@ -72,7 +76,7 @@ class ShoppingListViewController: UIViewController {
                     let ingredientStatus = document.data()["ingredientStatus"] as? [Bool]
                     if let ingredients = ingredientNames {
                         var indexOfIngredient = 0
-                        self?.shoppingItemsStatus[indexOfDocument] = []
+                        self.shoppingItemsStatus[indexOfDocument] = []
                         for ingredientName in ingredients {
                             var shoppingListItem = ShoppingListItem()
                             shoppingListItem.name = ingredientName
@@ -80,11 +84,10 @@ class ShoppingListViewController: UIViewController {
                             shoppingListItem.bought = ingredientStatus?[indexOfIngredient] ?? false
                             shoppingListItemsForMeal.append(shoppingListItem)
                             indexOfIngredient += 1
-                            self?.shoppingItemsStatus[indexOfDocument]?.append(shoppingListItem.bought)
+                            self.shoppingItemsStatus[indexOfDocument]?.append(shoppingListItem.bought)
                         }
                     }
-                    self?.userShoppingItems[indexOfDocument] = shoppingListItemsForMeal
-                    indexOfDocument += 1
+                    self.userShoppingItems[indexOfDocument] = shoppingListItemsForMeal
                 }
             }
             self?.listTableView.reloadData()
@@ -145,7 +148,7 @@ extension ShoppingListViewController: IngredientStatusDelegate {
             userShoppingItems[section]?[row].bought = !boughtStatus
             shoppingItemsStatus[section]?[row] = !boughtStatus
             if let itemsForSectionStatus = shoppingItemsStatus[section] {
-                mealTypesReference.document(weekday).collection("MealTypes").document(documentNames[section]).updateData(["ingredientStatus":itemsForSectionStatus])
+                mealTypesReference.document(weekday).collection("MealTypes").document(mealTypes[section]).updateData(["ingredientStatus":itemsForSectionStatus])
             }
             listTableView.reloadData()
         }

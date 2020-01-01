@@ -17,13 +17,13 @@ import FirebaseFirestore
     
     @IBOutlet weak var readyToGoButton: UIButton!
     
-    var usersAllergensInfo : [String]?
-    
-    var dietType : String?
+    var usersAllergensInfo: [String]?
+    var dietType: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         allergensTableView.dataSource = self
+        allergensTableView.delegate = self
         Design.styleFilledButton(readyToGoButton)
         let cast = presentingViewController as? UserDataViewController
         if cast == nil {
@@ -33,37 +33,26 @@ import FirebaseFirestore
     }
     
     func readAllergensData() {
-        let cast = presentingViewController as? UserDataViewController
-        if cast == nil {
-            let db = Firestore.firestore()
-            //DispatchQueue.main.async {
-                let uid = Auth.auth().currentUser?.uid ?? ""
-                db.collection("/users/\(uid)/Additional info").document("Allergens").getDocument { [unowned self] (snapshot, error) in
-                    if error != nil {
-                        print("Error reading data: \(error?.localizedDescription ?? "Error")")
-                    } else {
-                        self.usersAllergensInfo = snapshot?.data()?["allergens"] as? [String]
-                    }
+        let db = Firestore.firestore()
+        let userId = Auth.auth().currentUser?.uid ?? ""
+            db.collection("/users/\(userId)/Additional info").document("Allergens").getDocument { [weak self] (snapshot, error) in
+                if error != nil {
+                    print(error?.localizedDescription ?? "Error: can not read data about allergens")
+                } else {
+                    self?.usersAllergensInfo = snapshot?.data()?["allergens"] as? [String]
+                    self?.dietType = snapshot?.data()?["dietType"] as? String
                 }
-                db.collection("/users/\(uid)/Additional info").document("Diet").getDocument { [unowned self] (snapshot, error) in
-                    guard (error == nil) else {
-                        print("Error reading data: \(error?.localizedDescription ?? "Error")")
-                        return
-                    }
-                    if let dietType = snapshot?.data()?["dietType"] as? String {
-                        self.dietType = dietType
-                    }
-                }
-            //}
-        }
+                self?.allergensTableView.reloadData()
+            }
     }
     
     func createMealSchedule() {
         if let userId = Auth.auth().currentUser?.uid {
             let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             let mealTypes = ["Breakfast", "Lunch", "Dinner", "Snack"]
+            let recomendedCalories = ["500-600", "600-700", "500-600", "150"]
             for weekday in weekdays {
-                Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).setData(["mealTypes":mealTypes])
+                Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).setData(["mealTypes":mealTypes,"recomendedCalories":recomendedCalories, "waterGlassesNumber":0])
                 for mealType in mealTypes {
                     Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday).collection("MealTypes").document(mealType).setData(["mealType":mealType])
                 }
@@ -73,24 +62,17 @@ import FirebaseFirestore
     
     @IBAction func readyTapped(_ sender: UIButton) {
         let db = Firestore.firestore()
-        db.collection("/users/\(Auth.auth().currentUser!.uid)/Additional info").document("Allergens").setData(["allergens":AllergensTableViewCell.userAllergens]) {(error) in
-                if error != nil {
-                    print(error?.localizedDescription ?? "error")
-                }
-            }
-        if (AllergensTableViewCell.usersDietType != nil) {
-            db.collection("/users/\(Auth.auth().currentUser!.uid)/Additional info").document("Diet").setData(["dietType":AllergensTableViewCell.usersDietType!]) {(error) in
-                if error != nil {
-                    print(error?.localizedDescription ?? "error")
-                }
-            }
-        }
+        db.collection("/users/\(Auth.auth().currentUser!.uid)/Additional info").document("Allergens").setData([
+            "allergens":usersAllergensInfo ?? [String](),
+            "dietType":dietType ?? ""])
         if let _ = presentingViewController as? UserDataViewController {
             createMealSchedule()
             let newVC = TabBarViewController()
             newVC.modalPresentationStyle = .fullScreen
             present(newVC, animated: true, completion: nil)
         } else {
+            User.allergensInfo = usersAllergensInfo
+            User.dietType = dietType
             dismiss(animated: true, completion: nil)
         }
     }
@@ -104,7 +86,7 @@ extension AllergensViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "Diet type"
-        case 1: return "Ingredints you want to have in your diet:"
+        case 1: return "Nutrition preferances:"
         default: return ""
         }
     }
@@ -120,30 +102,42 @@ extension AllergensViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("AllergensTableViewCell", owner: self, options: nil)?.first as! AllergensTableViewCell
         
-        if usersAllergensInfo != nil {
-            usersAllergensInfo! += [(dietType ?? "")]
-        }
-        
         let textForCell = indexPath.section == 0 ? Diet.dietType[indexPath.row] : Allergens.allergens[indexPath.row]
         cell.nameOfAllergen.text = textForCell
+        cell.delegate = self
         
-        print("Index \(indexPath.row) - \(cell.allergenSwitcher.isOn)")
-        
-        let cast = presentingViewController as? UserDataViewController
-        if cast == nil {
-            if usersAllergensInfo?.contains(textForCell) ?? [""].contains(textForCell) {
-                cell.allergenSwitcher.isOn = indexPath.section == 0 ? true : false
-            } else {
-                cell.allergenSwitcher.isOn = indexPath.section == 0 ? false : true
-            }
+        if usersAllergensInfo?.contains(textForCell) ?? false || textForCell == dietType {
+            cell.allergenSwitcher.isOn = true
         } else {
-            if (cell.nameOfAllergen.text == "pecatarian" ||
-                cell.nameOfAllergen.text == "vegan" ||
-                cell.nameOfAllergen.text == "vegetarian") {
-                cell.allergenSwitcher.isOn = false
-            }
+            cell.allergenSwitcher.isOn = false
         }
         
         return cell
+    }
+}
+
+extension AllergensViewController: AllergensInfoChangerDelegate {
+    func updateInfo(of allergen: String, to state: Bool) {
+        if state {
+            if Diet.dietType.contains(allergen) {
+                dietType = allergen
+            } else {
+                if usersAllergensInfo == nil {
+                    usersAllergensInfo = [allergen]
+                } else {
+                    usersAllergensInfo! += [allergen]
+                }
+            }
+        } else {
+            if allergen == dietType {
+                dietType = nil
+            } else {
+                usersAllergensInfo = usersAllergensInfo?.filter({ $0 != allergen })
+                if usersAllergensInfo?.count == 0 {
+                    usersAllergensInfo = nil
+                }
+            }
+        }
+        allergensTableView.reloadData()
     }
 }

@@ -44,7 +44,9 @@ class AccountSettingsViewController: UIViewController {
                 return
             }
             self.emailTextField.text = self.currentUser?.email
-            self.ageTextField.text = snapshot?.data()?["age"] as? String
+            if let age = snapshot?.data()?["age"] as? Int {
+                self.ageTextField.text = "\(age)"
+            }
             self.nameTextField.text = snapshot?.data()?["name"] as? String
         }
     }

@@ -87,7 +87,7 @@ extension PickMealViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? PickMealTableViewCell
         let destinationViewController = RecipeDetailViewController()
-        destinationViewController.recipeFromCollectionView = cell?.recipe
+        //destinationViewController.recipeFromCollectionView = cell?.recipe
         destinationViewController.image = recipeImages[indexPath.row] != nil ? recipeImages[indexPath.row] : #imageLiteral(resourceName: "recipe")
         present(destinationViewController, animated: true, completion: nil)
     }
@@ -96,10 +96,6 @@ extension PickMealViewController: UITableViewDelegate {
 extension PickMealViewController: RecipeOpenerDelegate {
     func addMeal(_ recipe: Recipe?) {
         if recipe != nil {
-            var mealTypeWithOutIndex = ""
-            if mealType != nil {
-                mealTypeWithOutIndex = mealType!.components(separatedBy: CharacterSet.decimalDigits).joined()
-            }
             var ingredientNames = [String]()
             var ingredientWeights = [Float]()
             if let userIngredients = recipe?.ingredients {
@@ -109,14 +105,26 @@ extension PickMealViewController: RecipeOpenerDelegate {
                 }
             }
             if let userId = Auth.auth().currentUser?.uid {
-                Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday ?? "Monday").collection("MealTypes").document(mealType ?? "Lunch").setData([
+                Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday ?? "").collection("MealTypes").document(mealType ?? "").setData([
                     "image":recipe!.image!,
                     "name":recipe!.label!,
-                    "calories":recipe!.calories!,
-                    "mealType":mealTypeWithOutIndex,
+                    "calories":recipe!.calories!/10,
+                    "mealType":mealType ?? "",
                     "ingredientNames":ingredientNames,
                     "ingredientWeights":ingredientWeights,
-                    "documentName":mealType ?? "Lunch"])
+                    "url":recipe?.url ?? ""])
+            }
+        }
+        if let delegateViewController = delegate as? DayDiaryViewController {
+            var mealIndex = 0
+            for vcMealType in delegateViewController.mealTypes {
+                if vcMealType == mealType {
+                    break
+                }
+                mealIndex += 1
+            }
+            if let recipeForVc = recipe {
+                delegateViewController.mealRecipes[mealIndex] = recipeForVc
             }
         }
         delegate?.reloadInfo()
@@ -126,10 +134,23 @@ extension PickMealViewController: RecipeOpenerDelegate {
 
 extension PickMealViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        loadingIndicator.isHidden = false
+//        loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
         self.mealsTableView.isHidden = true
-        let urlString = "https://api.edamam.com/search?q=\(searchText)&app_id=a5d31602&app_key=77acb77520745ac6c97ca539e8b612cb"
+        let editedString = searchText.replacingOccurrences(of: " ", with: "%20")
+//        var healthParameters: [String]?
+//        var healthParametersJoined: String?
+//        if let diet = User.dietType {
+//            healthParameters = [diet]
+//        }
+//        if let allergens = User.allergensInfo {
+//            healthParameters = healthParameters != nil ? healthParameters ?? [] + allergens : allergens
+//        }
+//        healthParametersJoined = healthParameters?.joined(separator: "&health=")
+//        if let joinedString = healthParametersJoined{
+//            healthParametersJoined = "&health=" + joinedString
+//        }
+        let urlString = getUserRelatedUrlString(with: editedString)
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
@@ -138,8 +159,7 @@ extension PickMealViewController: UISearchBarDelegate {
                 self?.searchResponse = searchResponse
                 self?.prepareRecipeImages()
                 self?.mealsTableView.isHidden = true
-                self?.loadingIndicator.isHidden = false
-                self?.loadingIndicator.startAnimating()
+                self?.loadingIndicator.stopAnimating()
                 self?.mealsTableView.reloadData()
                 self?.mealsTableView.isHidden = false
             }
@@ -149,5 +169,22 @@ extension PickMealViewController: UISearchBarDelegate {
             loadingIndicator.stopAnimating()
             mealsTableView.isHidden = true
         }
+    }
+    
+    func getUserRelatedUrlString(with editedString: String) -> String {
+        var healthParameters: [String]?
+        var healthParametersJoined: String?
+        if let diet = User.dietType {
+            healthParameters = [diet]
+        }
+        if let allergens = User.allergensInfo {
+            healthParameters = healthParameters != nil ? healthParameters ?? [] + allergens : allergens
+        }
+        healthParametersJoined = healthParameters?.joined(separator: "&health=")
+        if let joinedString = healthParametersJoined{
+            healthParametersJoined = "&health=" + joinedString
+        }
+        let urlString = "https://api.edamam.com/search?q=\(editedString)&app_id=a5d31602&app_key=77acb77520745ac6c97ca539e8b612cb\(healthParametersJoined ?? "&diet=balanced")"
+        return urlString
     }
 }

@@ -78,6 +78,7 @@
 		24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A0E263234C634B00B02DF2 /* LaunchScreen.storyboard */; };
 		24A0E270234C634B00B02DF2 /* PlanYourMealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E26F234C634B00B02DF2 /* PlanYourMealTests.swift */; };
 		24A0E27B234C634B00B02DF2 /* PlanYourMealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E27A234C634B00B02DF2 /* PlanYourMealUITests.swift */; };
+		24A29D6623B5ECB900A376CF /* GlassActivityStatusPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A29D6523B5ECB900A376CF /* GlassActivityStatusPicker.swift */; };
 		24AD0763239B937300E87E6F /* PickMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0761239B937200E87E6F /* PickMealViewController.swift */; };
 		24AD0764239B937300E87E6F /* PickMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD0762239B937200E87E6F /* PickMealViewController.xib */; };
 		24AD0767239B964700E87E6F /* PickMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */; };
@@ -189,6 +190,7 @@
 		24A0E276234C634B00B02DF2 /* PlanYourMealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanYourMealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A0E27A234C634B00B02DF2 /* PlanYourMealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanYourMealUITests.swift; sourceTree = "<group>"; };
 		24A0E27C234C634B00B02DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24A29D6523B5ECB900A376CF /* GlassActivityStatusPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassActivityStatusPicker.swift; sourceTree = "<group>"; };
 		24AD0761239B937200E87E6F /* PickMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMealViewController.swift; sourceTree = "<group>"; };
 		24AD0762239B937200E87E6F /* PickMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickMealViewController.xib; sourceTree = "<group>"; };
 		24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMealTableViewCell.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				242604F623808B9200277B70 /* TimeVariants.swift */,
 				242604F82381522600277B70 /* NotificationService.swift */,
 				24AD0769239BA95F00E87E6F /* CustomProtocols.swift */,
+				24A29D6523B5ECB900A376CF /* GlassActivityStatusPicker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				242604F423807FA100277B70 /* NotificationTableViewCell.swift in Sources */,
+				24A29D6623B5ECB900A376CF /* GlassActivityStatusPicker.swift in Sources */,
 				244331EA2361DEE100330BA1 /* UserGoalViewController.m in Sources */,
 				244331C3235C392C00330BA1 /* NetworkDataFetcher.swift in Sources */,
 				2421EAAA237C8D48009C5C7F /* Password.swift in Sources */,

@@ -75,8 +75,8 @@
     NSString *pathToDoc = [NSString stringWithFormat:@"/%@/%@/%@",@"users", [FIRAuth auth].currentUser.uid, @"Additional info"];
     [[[_db collectionWithPath:pathToDoc] documentWithPath:@"Body type"] setData:@{
       @"gender": gender,
-      @"height": _heightTextField.text,
-      @"weight": _weightTextField.text
+      @"height": [NSNumber numberWithFloat:[_heightTextField.text floatValue]],
+      @"weight": [NSNumber numberWithFloat:[_weightTextField.text floatValue]]
     } completion:^(NSError * _Nullable error) {
       if (error != nil) {
         NSLog(@"Error writing document: %@", error);

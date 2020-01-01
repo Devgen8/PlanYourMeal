@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DayDiaryViewController" customModule="PlanYourMeal" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="ZMk-65-v52" id="3da-9n-Tlc"/>
                 <outlet property="calendarLabel" destination="UrD-Kq-1IX" id="4Re-8Z-aIo"/>
                 <outlet property="mealsTableView" destination="eNs-U1-tsA" id="RmK-QN-oS3"/>
                 <outlet property="newMealButton" destination="V7D-Vx-PBx" id="fQn-Ui-Yc2"/>
@@ -55,6 +56,10 @@
                         <action selector="autoPickFoodTapped:" destination="-1" eventType="touchUpInside" id="sLG-qX-4e0"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-65-v52">
+                    <rect key="frame" x="197" y="284" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
