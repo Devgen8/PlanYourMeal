@@ -20,16 +20,14 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var notificationLabel: UILabel!
     @IBOutlet weak var timePicker: UIPickerView!
     @IBOutlet weak var tickButton: UIButton!
+    @IBOutlet weak var decorationView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         
         timePicker.dataSource = self
         timePicker.delegate = self
         
-        tickButton.layer.cornerRadius = 15
-        tickButton.layer.masksToBounds = true
-        tickButton.layer.borderWidth = 0
-        tickButton.layer.backgroundColor = UIColor.systemGray.cgColor
+        decorationView.layer.cornerRadius = 20
         
         //notificationLabel.text = "Notify you at: "
     }
@@ -46,7 +44,7 @@ class NotificationTableViewCell: UITableViewCell {
         if let notificationType = notificationLabel.text?.components(separatedBy: " ").first {
             NotificationService.notifyUser(about: notificationType, at: time)
         }
-        sender.layer.backgroundColor = sender.layer.backgroundColor == UIColor.systemGray.cgColor ? UIColor.systemGreen.cgColor : UIColor.systemGray.cgColor
+        sender.imageView?.image = #imageLiteral(resourceName: "checked")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -66,5 +64,9 @@ extension NotificationTableViewCell: UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         print(TimeVariants.timeCases[row])
         return TimeVariants.timeCases[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ceV-Zd-uLR">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ceV-Zd-uLR">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,11 +40,21 @@
                                     <constraint firstItem="yal-io-Kkf" firstAttribute="height" secondItem="csy-GX-R8G" secondAttribute="height" id="uko-c5-fAX"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PlanYourMeal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPp-G5-A4O">
+                                <rect key="frame" x="62" y="113" width="290" height="68"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="YPp-G5-A4O" firstAttribute="top" secondItem="88T-na-Av8" secondAttribute="top" constant="25" id="9lG-ka-c0N"/>
                             <constraint firstItem="88T-na-Av8" firstAttribute="bottom" secondItem="Cdz-Qc-Tll" secondAttribute="bottom" constant="40" id="9sK-hA-5qH"/>
+                            <constraint firstItem="YPp-G5-A4O" firstAttribute="leading" secondItem="88T-na-Av8" secondAttribute="leading" constant="62" id="Y4T-Zr-TmL"/>
                             <constraint firstItem="88T-na-Av8" firstAttribute="trailing" secondItem="Cdz-Qc-Tll" secondAttribute="trailing" constant="40" id="c6f-MD-kYW"/>
+                            <constraint firstItem="YPp-G5-A4O" firstAttribute="centerX" secondItem="88T-na-Av8" secondAttribute="centerX" id="eCz-KU-VT6"/>
+                            <constraint firstItem="88T-na-Av8" firstAttribute="trailing" secondItem="YPp-G5-A4O" secondAttribute="trailing" constant="62" id="f3f-yS-w3G"/>
                             <constraint firstItem="Cdz-Qc-Tll" firstAttribute="leading" secondItem="88T-na-Av8" secondAttribute="leading" constant="40" id="ug6-Lk-Lsc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="88T-na-Av8"/>

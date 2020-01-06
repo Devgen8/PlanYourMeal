@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     var allDaysCalories = [String:Int]()
     var todayCalories = 0 {
         willSet {
-            dailyCaloriesLabel.text = "\(newValue)/\(User.dailyCalories ?? 1800)"
+            dailyCaloriesLabel.text = "\(newValue)/\(User.dailyCalories ?? 1800) kcal"
             if !allDaysCalories.values.contains(newValue) {
                 if let userId = Auth.auth().currentUser?.uid, let dayDiaryVC = currentDayDiaryViewController {
                     Firestore.firestore().collection("users").document(userId).collection("Meals").document(dayDiaryVC.weekday).updateData(["todayCalories":newValue])
@@ -104,11 +104,19 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         drawGlass()
         configurePageViewController()
         checkWaterInfo()
+        setupNavigationBar()
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         tickImageView.alpha = 0
+    }
+    
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     func checkWaterInfo() {
@@ -193,7 +201,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                 guard let `self` = self else { return }
                 if let calories = snapshot?.data()?["dailyCalories"] as? Int {
                     User.dailyCalories = calories
-                    self.dailyCaloriesLabel.text = "\(self.todayCalories)/\(calories)"
+                    self.dailyCaloriesLabel.text = "\(self.todayCalories)/\(calories) kcal"
                 } else {
                     self.calculateUsersDailyCalories()
                 }
@@ -290,17 +298,17 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         
         mealsViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-//        let views: [String : Any] = ["pageView" : mealsViewController.view]
-//
-//        mealsContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|",
-//                                                                       options: NSLayoutConstraint.FormatOptions(rawValue: 0),
-//                                                                       metrics: nil,
-//                                                                       views: views))
-//
-//        mealsContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|",
-//        options: NSLayoutConstraint.FormatOptions(rawValue: 0),
-//        metrics: nil,
-//        views: views))
+        let views: [String : Any] = ["pageView" : mealsViewController.view]
+
+        mealsContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|",
+                                                                       options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                                                                       metrics: nil,
+                                                                       views: views))
+
+        mealsContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|",
+        options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+        metrics: nil,
+        views: views))
         
         
         
@@ -309,6 +317,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         }
         
         mealsViewController.setViewControllers([startingViewController], direction: .forward, animated: true)
+        
+        let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [MealsPageViewController.self])
+        appearance.pageIndicatorTintColor = UIColor.label
+        appearance.currentPageIndicatorTintColor = UIColor.systemGreen
     }
     
     func drawGlass() {
@@ -316,18 +328,18 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         glassView.layer.addSublayer(shape)
         shape.lineWidth = 2
         shape.lineJoin = CAShapeLayerLineJoin.miter
-        shape.strokeColor = UIColor.white.cgColor
+        shape.strokeColor = #colorLiteral(red: 0.8516064547, green: 0.9619499025, blue: 1, alpha: 1)
         shape.fillColor = #colorLiteral(red: 0.6996294856, green: 0.930578053, blue: 0.9303538799, alpha: 1)
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: 45, y: 15))
-        path.addLine(to: CGPoint(x: 45, y: 100))
-        path.addLine(to: CGPoint(x: 75, y: 100))
-        path.addLine(to: CGPoint(x: 75, y: 15))
+        path.move(to: CGPoint(x: 15, y: 10))
+        path.addLine(to: CGPoint(x: 15, y: 95))
+        path.addLine(to: CGPoint(x: 45, y: 95))
+        path.addLine(to: CGPoint(x: 45, y: 10))
         shape.path = path.cgPath
-        let bottom = UIView(frame: CGRect(x: 44, y: 100, width: 33, height: 5))
+        let bottom = UIView(frame: CGRect(x: 13, y: 95, width: 34, height: 5))
         glassView.addSubview(bottom)
-        bottom.backgroundColor = UIColor.white
-        water = UIView(frame: CGRect(x: 45, y: 100, width: 30, height: 0))
+        bottom.backgroundColor = #colorLiteral(red: 0.8516064547, green: 0.9619499025, blue: 1, alpha: 1)
+        water = UIView(frame: CGRect(x: 15, y: 95, width: 30, height: 0))
         water?.backgroundColor = UIColor.blue
         glassView.addSubview(water!)
     }
@@ -420,10 +432,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         let dayDiaryViewController = DayDiaryViewController()
         dayDiaryViewController.positionInPages = index
         dayDiaryViewController.homeViewControllerDelegate = self
-//        if let newWeekday = getWeekdayName(with: index) {
-//            currentPageWeekday = newWeekday
-//        }
-        //currentDayDiaryViewController = dayDiaryViewController
         
         return dayDiaryViewController
     }

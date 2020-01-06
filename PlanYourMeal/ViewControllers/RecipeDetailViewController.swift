@@ -17,6 +17,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var caloriesLabel: UILabel!
     
     @IBOutlet weak var ingredintsTableView: UITableView!
+    @IBOutlet weak var fullRecipeButton: UIButton!
     
     var recipeFromParent: MealDataModel?
     
@@ -25,10 +26,12 @@ class RecipeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ingredintsTableView.dataSource = self
+        ingredintsTableView.delegate = self
+        Design.styleFilledButton(fullRecipeButton)
         recipeName.text = recipeFromParent?.name
         recipePhoto.image = image
         if let calories = recipeFromParent?.calories {
-            caloriesLabel.text = "Calories: \(calories)"
+            caloriesLabel.text = "Calories: \(Int(calories))"
         }
     }
     
@@ -52,5 +55,8 @@ extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate
         cell.measure.text = "g"
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }

@@ -44,5 +44,5 @@ class NotificationService {
         return alert
     }
     
-    static let notificationTypes = ["Breakfast", "Launch", "Dinner", "Snack", "Sleep"]
+    static let notificationTypes = ["Breakfast", "Lunch", "Dinner", "Snack", "Sleep"]
 }

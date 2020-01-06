@@ -24,12 +24,15 @@ class ProfileViewController: UIViewController {
         settingsTableView.register(nibCell, forCellReuseIdentifier: cellIdentifier)
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
-        
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        setupNavigationBar()
     }
     
-    
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
     
 }
 
@@ -79,5 +82,24 @@ extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel()
+        headerLabel.frame = CGRect(x: 15, y: 8, width: 320, height: 30)
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 26)
+        headerLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        headerLabel.textColor = .label
+
+        let headerView = UIView()
+        headerView.backgroundColor = .tertiarySystemBackground
+        headerView.layer.cornerRadius = 8
+        headerView.addSubview(headerLabel)
+
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
     }
 }

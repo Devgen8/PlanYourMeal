@@ -16,38 +16,46 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uu3-WH-ATd">
-                        <rect key="frame" x="255" y="7" width="49" height="31"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWX-eA-h56">
+                        <rect key="frame" x="5" y="5" width="310" height="34"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZJ-RK-HwU">
+                                <rect key="frame" x="5" y="1" width="241" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w9d-ii-0lv">
+                                <rect key="frame" x="256" y="1.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchDidChange:" destination="KGk-i7-Jjw" eventType="valueChanged" id="nGp-Us-b7S"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="31" id="0ZZ-z0-RpT"/>
-                            <constraint firstAttribute="width" constant="47" id="XgI-nO-fuj"/>
+                            <constraint firstItem="RZJ-RK-HwU" firstAttribute="leading" secondItem="NWX-eA-h56" secondAttribute="leading" constant="5" id="8IU-kK-kif"/>
+                            <constraint firstItem="w9d-ii-0lv" firstAttribute="centerY" secondItem="NWX-eA-h56" secondAttribute="centerY" id="AL9-pz-iqL"/>
+                            <constraint firstAttribute="bottom" secondItem="RZJ-RK-HwU" secondAttribute="bottom" constant="1" id="DHt-hF-dMf"/>
+                            <constraint firstAttribute="trailing" secondItem="w9d-ii-0lv" secondAttribute="trailing" constant="5" id="DrH-WX-H5M"/>
+                            <constraint firstItem="RZJ-RK-HwU" firstAttribute="top" secondItem="NWX-eA-h56" secondAttribute="top" constant="1" id="aF5-RI-Mb2"/>
+                            <constraint firstItem="w9d-ii-0lv" firstAttribute="leading" secondItem="RZJ-RK-HwU" secondAttribute="trailing" constant="10" id="mPP-hS-GxA"/>
                         </constraints>
-                        <connections>
-                            <action selector="switchDidChange:" destination="KGk-i7-Jjw" eventType="valueChanged" id="swX-ca-3MY"/>
-                        </connections>
-                    </switch>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woh-pN-a2v">
-                        <rect key="frame" x="5" y="0.0" width="247" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="44" id="AS0-xI-REZ"/>
-                            <constraint firstAttribute="width" constant="247" id="KlY-sq-ic2"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="uu3-WH-ATd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="0pw-iA-RIL"/>
-                    <constraint firstItem="Woh-pN-a2v" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Uyj-9P-3y5"/>
-                    <constraint firstAttribute="trailing" secondItem="uu3-WH-ATd" secondAttribute="trailing" constant="18" id="WlZ-xg-ONI"/>
-                    <constraint firstItem="Woh-pN-a2v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="x6E-8P-YIY"/>
+                    <constraint firstItem="NWX-eA-h56" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="1g1-Mi-b9d"/>
+                    <constraint firstItem="NWX-eA-h56" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="OwA-zM-FeK"/>
+                    <constraint firstAttribute="bottom" secondItem="NWX-eA-h56" secondAttribute="bottom" constant="5" id="PLw-ra-6pF"/>
+                    <constraint firstAttribute="trailing" secondItem="NWX-eA-h56" secondAttribute="trailing" constant="5" id="UwV-Eb-RIH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="allergenSwitcher" destination="uu3-WH-ATd" id="Gi9-dN-GFG"/>
-                <outlet property="nameOfAllergen" destination="Woh-pN-a2v" id="lON-Qa-HMk"/>
+                <outlet property="allergenSwitcher" destination="w9d-ii-0lv" id="Nij-9o-iLh"/>
+                <outlet property="decorationView" destination="NWX-eA-h56" id="fMp-2G-L8W"/>
+                <outlet property="nameOfAllergen" destination="RZJ-RK-HwU" id="OdH-KQ-x6N"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </tableViewCell>

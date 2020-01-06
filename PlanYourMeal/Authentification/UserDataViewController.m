@@ -29,25 +29,23 @@
     [self designTextField:_heightTextField];
     [self designTextField:_weightTextField];
     [self designNextButton:_nextButton];
+    _heightTextField.delegate = self;
+    _weightTextField.delegate = self;
 }
 
 - (void)designNextButton:(UIButton *)button {
     button.layer.borderWidth = 2;
-    button.layer.borderColor = [UIColor blackColor].CGColor;
+    button.layer.borderColor = [UIColor labelColor].CGColor;
     button.layer.cornerRadius = 25.0;
-    button.tintColor = UIColor.blackColor;
+    button.tintColor = UIColor.labelColor;
 }
 
 - (void)designTextField:(UITextField *)textField {
     CALayer * bottomLine = [[CALayer alloc] init];
     bottomLine.frame = CGRectMake(0, textField.frame.size.height - 2, textField.frame.size.width, 2);
-    
     bottomLine.backgroundColor = UIColor.systemGreenColor.CGColor;
-    
     textField.borderStyle = NO;
-    
     [textField.layer addSublayer:bottomLine];
-    
     textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName:UIColor.grayColor}];
 }
 
@@ -85,6 +83,13 @@
       }
     }];
     [self presentViewController:[[AllergensViewController alloc] init] animated:YES completion:nil];
+    
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 @end

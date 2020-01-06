@@ -11,15 +11,14 @@ import UIKit
 class SettingsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var settingNameLabel: UILabel!
+    @IBOutlet weak var decorationView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        decorationView.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

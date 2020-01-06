@@ -19,6 +19,7 @@ class PickMealTableViewCell: UITableViewCell {
     var delegate: RecipeOpenerDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
+        decorationView.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

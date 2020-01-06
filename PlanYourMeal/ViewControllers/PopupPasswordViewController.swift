@@ -32,6 +32,9 @@ class PopupPasswordViewController: UIViewController {
         Design.styleHollowButton(cancelButton)
         Design.styleHollowButton(okButton)
         errorLabel.isHidden = true
+        currentPassTextField.delegate = self
+        newPassTextField.delegate = self
+        confirmPassTextField.delegate = self
         
         view.backgroundColor = UIColor.clear
         view.isOpaque = false
@@ -68,5 +71,12 @@ class PopupPasswordViewController: UIViewController {
         })
         presentingVC.blurView?.removeFromSuperview()
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PopupPasswordViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

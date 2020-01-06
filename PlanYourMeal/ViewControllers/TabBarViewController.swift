@@ -21,21 +21,14 @@ import UIKit
         recipesViewController.tabBarItem = UITabBarItem(title: "", image:  #imageLiteral(resourceName: "recipe").withRenderingMode(.alwaysOriginal), tag: 1)
         recipesViewController.navigationBar.topItem?.title = "Recipes"
         
-        
         let shoppingListViewController = UINavigationController(rootViewController: ShoppingListViewController())
-        shoppingListViewController.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "checklist").withRenderingMode(.alwaysOriginal), tag: 3)
+        shoppingListViewController.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "checklist").withRenderingMode(.alwaysOriginal), tag: 2)
         shoppingListViewController.navigationBar.topItem?.title = "Shopping list"
         
         let profileViewController = UINavigationController(rootViewController: ProfileViewController())
-        profileViewController.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user").withRenderingMode(.alwaysOriginal), tag: 4)
+        profileViewController.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user").withRenderingMode(.alwaysOriginal), tag: 3)
         profileViewController.navigationBar.topItem?.title = "Profile"
         
         viewControllers = [homeViewController, recipesViewController, shoppingListViewController, profileViewController]
-        
-//        let backgroundImage = UIImage()
-//        backgroundImage.withTintColor(.secondarySystemBackground)
-        
-        //tabBar.backgroundImage = backgroundImage
-        tabBar.backgroundColor = .secondarySystemBackground
     }
 }

@@ -15,10 +15,20 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     //@IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var nameOfrecipe: UILabel!
-
+    @IBOutlet weak var decorationView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        image.layer.cornerRadius = 4
+        designDecorationView()
+    }
+    
+    func designDecorationView() {
+        decorationView.layer.cornerRadius = 4
+        decorationView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        decorationView.layer.shadowColor = UIColor.green.cgColor
+        decorationView.layer.shadowRadius = 25
+        decorationView.layer.shadowOpacity = 0.7
     }
     
     func updateAppearanceFor(_ image: UIImage?) {

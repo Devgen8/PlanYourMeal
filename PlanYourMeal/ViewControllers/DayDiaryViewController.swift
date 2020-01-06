@@ -30,6 +30,7 @@ class DayDiaryViewController: UIViewController {
     @IBOutlet weak var calendarLabel: UILabel!
     @IBOutlet weak var mealsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var autoPickButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class DayDiaryViewController: UIViewController {
             
         }
         Design.styleFilledButton(newMealButton)
+        Design.styleFilledButton(autoPickButton)
         getWeekdayMealTypes()
         activityIndicator.hidesWhenStopped = true
         //makeRequestForMeals()
@@ -152,7 +154,7 @@ class DayDiaryViewController: UIViewController {
     func getUserRelatedUrlString(withText editedString: String, calories: String) -> String {
         var healthParameters: [String]?
         var healthParametersJoined: String?
-        if let diet = User.dietType {
+        if let diet = User.dietType, diet != "" {
             healthParameters = [diet]
         }
         if let allergens = User.allergensInfo {
@@ -280,7 +282,7 @@ extension DayDiaryViewController: UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 90
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
