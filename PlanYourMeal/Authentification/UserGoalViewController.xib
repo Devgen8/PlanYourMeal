@@ -31,7 +31,6 @@
                                 <constraint firstAttribute="height" constant="50" id="xx7-Xt-TqK"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Century" family="Century" pointSize="23"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwT-6e-B0Z">
@@ -87,7 +86,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="OXr-ag-E7S" secondAttribute="trailing" constant="40" id="1wo-r9-Vis"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fwB-Gi-8Vj" secondAttribute="trailing" constant="150" id="2g7-zj-Ted"/>

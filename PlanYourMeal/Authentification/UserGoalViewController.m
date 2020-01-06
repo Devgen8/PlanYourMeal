@@ -15,15 +15,10 @@
 
 @interface UserGoalViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *goalButtons;
-
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
-
 @property int goal;
-
 @property FIRFirestore *db;
-
 @end
 
 @implementation UserGoalViewController
@@ -36,10 +31,11 @@
         [self designGoalButton:button];
     }
     [self designNextButton:_nextButton];
+    [self checkUsersGoal];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    if((ProfileViewController *)self.presentingViewController) {
+- (void)checkUsersGoal {
+    if([self.presentingViewController isKindOfClass:[UITabBarController class]]) {
         NSString *pathToDoc = [NSString stringWithFormat:@"/%@/%@/%@",@"users", [FIRAuth auth].currentUser.uid, @"Additional info"];
         FIRDocumentReference *docRef =
             [[self.db collectionWithPath:pathToDoc] documentWithPath:@"Goal"];
@@ -68,9 +64,9 @@
 
 - (void)designNextButton:(UIButton *)button {
     button.layer.borderWidth = 2;
-    button.layer.borderColor = [UIColor blackColor].CGColor;
+    button.layer.borderColor = [UIColor labelColor].CGColor;
     button.layer.cornerRadius = 25.0;
-    button.tintColor = UIColor.blackColor;
+    button.tintColor = UIColor.labelColor;
 }
 - (void)changeBorderOfButton:(int)index1 and:(int)index2 {
     UIButton *button = [_goalButtons objectAtIndex: index1];

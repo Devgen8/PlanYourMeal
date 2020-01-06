@@ -12,10 +12,16 @@ class AllergensTableViewCell: UITableViewCell {
 
     @IBOutlet weak var allergenSwitcher: UISwitch!
     @IBOutlet weak var nameOfAllergen: UILabel!
+    @IBOutlet weak var decorationView: UIView!
     var delegate: AllergensInfoChangerDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        designDecorationView()
+    }
+    
+    func designDecorationView() {
+        decorationView.layer.cornerRadius = 4
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

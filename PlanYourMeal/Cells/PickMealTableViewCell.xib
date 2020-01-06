@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +26,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgd-0J-MEE">
-                                <rect key="frame" x="5" y="22" width="45" height="10"/>
+                                <rect key="frame" x="5" y="22" width="70" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="CV3-Ay-czz"/>
-                                    <constraint firstAttribute="width" constant="45" id="evu-If-wCw"/>
+                                    <constraint firstAttribute="width" constant="70" id="evu-If-wCw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -46,17 +46,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2M-61-EbU">
-                                <rect key="frame" x="53" y="22" width="45" height="10"/>
+                                <rect key="frame" x="78" y="22" width="70" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="cvy-NJ-scU"/>
-                                    <constraint firstAttribute="width" constant="45" id="tz7-j4-hsL"/>
+                                    <constraint firstAttribute="width" constant="70" id="tz7-j4-hsL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZBu-1q-qFV" firstAttribute="leading" secondItem="HZo-Xp-tZz" secondAttribute="trailing" constant="8" id="1xN-eO-Yx5"/>
                             <constraint firstItem="HZo-Xp-tZz" firstAttribute="leading" secondItem="btX-Tc-8C1" secondAttribute="leading" constant="5" id="3gu-yL-VXR"/>

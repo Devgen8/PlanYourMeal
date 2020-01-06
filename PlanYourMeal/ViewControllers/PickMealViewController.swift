@@ -24,6 +24,7 @@ class PickMealViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mealsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var hintLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,7 +80,7 @@ extension PickMealViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 60
     }
 }
 
@@ -88,8 +89,27 @@ extension PickMealViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath) as? PickMealTableViewCell
         let destinationViewController = RecipeDetailViewController()
         //destinationViewController.recipeFromCollectionView = cell?.recipe
+        if let selectedRecipe = cell?.recipe {
+            var recipeForDestVC = MealDataModel(name: selectedRecipe.label, calories: selectedRecipe.calories, url: selectedRecipe.url)
+            let (ingredientNames, ingredientWeights) = getIngredientNames(for: indexPath.row)
+            recipeForDestVC.ingredientNames = ingredientNames
+            recipeForDestVC.ingredientWeights = ingredientWeights
+            destinationViewController.recipeFromParent = recipeForDestVC
+        }
         destinationViewController.image = recipeImages[indexPath.row] != nil ? recipeImages[indexPath.row] : #imageLiteral(resourceName: "recipe")
         present(destinationViewController, animated: true, completion: nil)
+    }
+    
+    func getIngredientNames(for index: Int) -> ([String], [Float]) {
+        var names = [String]()
+        var weights = [Float]()
+        if let ingredients = searchResponse?.hits?[index].recipe?.ingredients {
+            for ingredient in ingredients {
+                names += [ingredient.text ?? ""]
+                weights += [ingredient.weight ?? 0]
+            }
+        }
+        return (names, weights)
     }
 }
 
@@ -136,7 +156,8 @@ extension PickMealViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
-        self.mealsTableView.isHidden = true
+        mealsTableView.isHidden = true
+        hintLabel.isHidden = true
         let editedString = searchText.replacingOccurrences(of: " ", with: "%20")
 //        var healthParameters: [String]?
 //        var healthParametersJoined: String?
@@ -162,19 +183,21 @@ extension PickMealViewController: UISearchBarDelegate {
                 self?.loadingIndicator.stopAnimating()
                 self?.mealsTableView.reloadData()
                 self?.mealsTableView.isHidden = false
+                self?.hintLabel.isHidden = true
             }
         })
         
         if searchText == "" {
             loadingIndicator.stopAnimating()
             mealsTableView.isHidden = true
+            hintLabel.isHidden = false
         }
     }
     
     func getUserRelatedUrlString(with editedString: String) -> String {
         var healthParameters: [String]?
         var healthParametersJoined: String?
-        if let diet = User.dietType {
+        if let diet = User.dietType, diet != "" {
             healthParameters = [diet]
         }
         if let allergens = User.allergensInfo {

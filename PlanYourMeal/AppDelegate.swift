@@ -15,6 +15,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var restrictRotation:UIInterfaceOrientationMask = .portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,21 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             if granted {
                 NotificationService.notifyUser(about: "breakfast", at: 9)
-                NotificationService.notifyUser(about: "launch", at: 14)
+                NotificationService.notifyUser(about: "lunch", at: 14)
                 NotificationService.notifyUser(about: "snack", at: 17)
                 NotificationService.notifyUser(about: "dinner", at: 20)
                 NotificationService.notifyUser(about: "sleep", at: 23)
             }
         }
-        
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().backgroundColor = .clear
-        UINavigationBar.appearance().isTranslucent = true
-        
         FirebaseApp.configure()
         
         return true
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
+    {
+        return self.restrictRotation
     }
 
     // MARK: UISceneSession Lifecycle

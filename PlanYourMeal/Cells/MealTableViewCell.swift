@@ -30,7 +30,8 @@ class MealTableViewCell: UITableViewCell {
     }
     
     func designDecorationView() {
-        decorationView.layer.cornerRadius = 4
+        mealImageView.layer.cornerRadius = 25
+        decorationView.layer.cornerRadius = 25
         decorationView.layer.shadowOffset = CGSize(width: 0, height: 2)
         decorationView.layer.shadowColor = UIColor.green.cgColor
         decorationView.layer.shadowRadius = 8

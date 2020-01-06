@@ -50,6 +50,29 @@ extension NotificationSettingsViewController: UITableViewDataSource {
         default: return ""
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel()
+        headerLabel.frame = CGRect(x: 15, y: 8, width: 320, height: 30)
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 26)
+        headerLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        headerLabel.textColor = .label
+
+        let headerView = UIView()
+        headerView.backgroundColor = .tertiarySystemBackground
+        headerView.layer.cornerRadius = 8
+        headerView.addSubview(headerLabel)
+
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
+    }
 }
 
 extension NotificationSettingsViewController: UITableViewDelegate {

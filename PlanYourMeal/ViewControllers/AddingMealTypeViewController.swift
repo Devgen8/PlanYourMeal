@@ -30,6 +30,8 @@ class AddingMealTypeViewController: UIViewController {
         Design.styleTextField(mealTypeNameTextField)
         Design.styleTextField(caloriesTextField)
         errorLabel.isHidden = true
+        caloriesTextField.delegate = self
+        mealTypeNameTextField.delegate = self
     }
     
     func setUpMealImageView() {
@@ -77,5 +79,12 @@ extension AddingMealTypeViewController: UIImagePickerControllerDelegate, UINavig
         }
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AddingMealTypeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

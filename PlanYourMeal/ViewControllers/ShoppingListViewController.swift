@@ -13,6 +13,7 @@ import FirebaseAuth
 class ShoppingListViewController: UIViewController {
 
     @IBOutlet weak var listTableView: UITableView!
+    @IBOutlet weak var weekdayPicker: UIPickerView!
     
     var userShoppingItems = [Int:[ShoppingListItem]]()
     var mealTypes = [String]()
@@ -26,10 +27,20 @@ class ShoppingListViewController: UIViewController {
         
         listTableView.dataSource = self
         listTableView.delegate = self
+        weekdayPicker.dataSource = self
+        weekdayPicker.delegate = self
         listTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(getMealTypes), for: .valueChanged)
         setUpTodayWeekday()
         getMealTypes()
+        setupNavigationBar()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     func setUpTodayWeekday() {
@@ -128,8 +139,12 @@ extension ShoppingListViewController: UITableViewDataSource {
             cell.checkButton.setImage(nil, for: .normal)
             if itemForCell.bought {
                 cell.checkButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+                cell.decorationView.backgroundColor = .systemGreen
+                cell.decorationView.layer.shadowColor = UIColor.systemGreen.cgColor
             } else {
                 cell.checkButton.setImage(#imageLiteral(resourceName: "cancel"), for: .normal)
+                cell.decorationView.backgroundColor = .systemRed
+                cell.decorationView.layer.shadowColor = UIColor.systemRed.cgColor
             }
         }
         return cell
@@ -138,6 +153,25 @@ extension ShoppingListViewController: UITableViewDataSource {
 
 extension ShoppingListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel()
+        headerLabel.frame = CGRect(x: 15, y: 8, width: 320, height: 30)
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 26)
+        headerLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        headerLabel.textColor = .label
+
+        let headerView = UIView()
+        headerView.backgroundColor = .tertiarySystemBackground
+        headerView.layer.cornerRadius = 8
+        headerView.addSubview(headerLabel)
+
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 45
     }
 }
@@ -177,4 +211,46 @@ extension ShoppingListViewController: IngredientStatusDelegate {
 //    }
     
     
+}
+
+extension ShoppingListViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 7
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        var weekdayName: String?
+        if let date = Calendar.current.date(byAdding: .day, value: row, to: Date()) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            weekdayName = dateFormatter.string(from: date)
+        }
+        return weekdayName ?? ""
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 60
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        weekday = getWeekdayName(with: row) ?? ""
+        userShoppingItems = [Int:[ShoppingListItem]]()
+        shoppingItemsStatus = [Int:[Bool]]()
+        mealTypes = [String]()
+        getMealTypes()
+    }
+    
+    func getWeekdayName(with offset: Int) -> String? {
+        var weekdayName: String?
+        if let date = Calendar.current.date(byAdding: .day, value: offset, to: Date()) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            weekdayName = dateFormatter.string(from: date)
+        }
+        return weekdayName
+    }
 }

@@ -14,9 +14,7 @@ import FirebaseFirestore
 @objc class AllergensViewController: UIViewController {
     
     @IBOutlet weak var allergensTableView: UITableView!
-    
     @IBOutlet weak var readyToGoButton: UIButton!
-    
     var usersAllergensInfo: [String]?
     var dietType: String?
     
@@ -35,15 +33,15 @@ import FirebaseFirestore
     func readAllergensData() {
         let db = Firestore.firestore()
         let userId = Auth.auth().currentUser?.uid ?? ""
-            db.collection("/users/\(userId)/Additional info").document("Allergens").getDocument { [weak self] (snapshot, error) in
-                if error != nil {
-                    print(error?.localizedDescription ?? "Error: can not read data about allergens")
-                } else {
-                    self?.usersAllergensInfo = snapshot?.data()?["allergens"] as? [String]
-                    self?.dietType = snapshot?.data()?["dietType"] as? String
-                }
-                self?.allergensTableView.reloadData()
+        db.collection("/users/\(userId)/Additional info").document("Allergens").getDocument { [weak self] (snapshot, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "Error: can not read data about allergens")
+            } else {
+                self?.usersAllergensInfo = snapshot?.data()?["allergens"] as? [String]
+                self?.dietType = snapshot?.data()?["dietType"] as? String
             }
+            self?.allergensTableView.reloadData()
+        }
     }
     
     func createMealSchedule() {
@@ -86,7 +84,7 @@ extension AllergensViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "Diet type"
-        case 1: return "Nutrition preferances:"
+        case 1: return "Nutrition preferances"
         default: return ""
         }
     }
@@ -97,6 +95,29 @@ extension AllergensViewController: UITableViewDelegate, UITableViewDataSource {
         case 1: return Allergens.allergens.count
         default: return 0
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel()
+        headerLabel.frame = CGRect(x: 15, y: 8, width: 320, height: 30)
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 26)
+        headerLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        headerLabel.textColor = .label
+
+        let headerView = UIView()
+        headerView.backgroundColor = .tertiarySystemBackground
+        headerView.layer.cornerRadius = 8
+        headerView.addSubview(headerLabel)
+
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

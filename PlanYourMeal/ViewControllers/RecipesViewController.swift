@@ -20,6 +20,7 @@ class RecipesViewController: UIViewController {
     let defaultPhoto = "https://www.google.com/search?biw=1440&bih=821&tbm=isch&sa=1&ei=KpqsXYD9IMHnmwXmxr7wCw&q=food&oq=food&gs_l=img.3..0i67j0j0i67l3j0l3j0i67l2.11046.12432..12745...0.0..1.364.716.7j3-1......0....1..gws-wiz-img.....0..0i131.qRMKa9uP2Mc&ved=0ahUKEwiAuo6br6vlAhXB86YKHWajD74Q4dUDCAc&uact=5#imgrc=DOALplamMwZj5M:"
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var hintLabel: UILabel!
     var arrayOfStrings = [String]()
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
@@ -39,6 +40,7 @@ class RecipesViewController: UIViewController {
         
         //cells layout setting
         collectionView.collectionViewLayout = Design.getCellsLayout()
+        setupNavigationBar()
         
         collectionView.reloadData()
     }
@@ -46,9 +48,16 @@ class RecipesViewController: UIViewController {
     private func setupSearchBar() {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self as UISearchBarDelegate
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         searchController.obscuresBackgroundDuringPresentation = false
+    }
+    
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     func loadImage(at index: Int) -> DataLoadOperation? {
@@ -105,9 +114,27 @@ extension RecipesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipeDetailViewController = RecipeDetailViewController()
-        //recipeDetailViewController.recipeFromCollectionView = searchResponse?.hits?[indexPath.row].recipe
+        if let selectedRecipe = searchResponse?.hits?[indexPath.row].recipe {
+            var recipeForDestVC = MealDataModel(name: selectedRecipe.label, calories: (selectedRecipe.calories ?? 0)/10, url: selectedRecipe.url)
+            let (ingredientNames, ingredientWeights) = getIngredientNames(for: indexPath.row)
+            recipeForDestVC.ingredientNames = ingredientNames
+            recipeForDestVC.ingredientWeights = ingredientWeights
+            recipeDetailViewController.recipeFromParent = recipeForDestVC
+        }
         recipeDetailViewController.image = self.cachedImages?[indexPath]
         self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
+    }
+    
+    func getIngredientNames(for index: Int) -> ([String], [Float]) {
+        var names = [String]()
+        var weights = [Float]()
+        if let ingredients = searchResponse?.hits?[index].recipe?.ingredients {
+            for ingredient in ingredients {
+                names += [ingredient.text ?? ""]
+                weights += [ingredient.weight ?? 0]
+            }
+        }
+        return (names, weights)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -146,31 +173,35 @@ extension RecipesViewController: UISearchBarDelegate {
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
         self.collectionView.isHidden = true
-        let editedString = searchText.replacingOccurrences(of: " ", with: "%20")
-        let urlString = getUserRelatedUrlString(with: editedString)
-        
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            self.networkDataFetcher.fetchRecipes(urlString: urlString) { (searchResponse) in
-                guard let searchResponse = searchResponse else { return }
-                self.searchResponse = searchResponse
-                self.collectionView.isHidden = true
-                self.loadingIndicator.isHidden = false
-                self.loadingIndicator.startAnimating()
-                self.collectionView.reloadData()
-                self.collectionView.isHidden = false
-            }
-        })
+        self.hintLabel.isHidden = true
+        if searchText != "" {
+            let editedString = searchText.replacingOccurrences(of: " ", with: "%20")
+            let urlString = getUserRelatedUrlString(with: editedString)
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+                self.networkDataFetcher.fetchRecipes(urlString: urlString) { (searchResponse) in
+                    guard let searchResponse = searchResponse else { return }
+                    self.searchResponse = searchResponse
+                    self.collectionView.isHidden = true
+                    self.loadingIndicator.isHidden = false
+                    self.loadingIndicator.startAnimating()
+                    self.collectionView.reloadData()
+                    self.collectionView.isHidden = false
+                    self.hintLabel.isHidden = true
+                }
+            })
+        }
         if searchText == "" {
             loadingIndicator.stopAnimating()
             collectionView.isHidden = true
+            hintLabel.isHidden = false
         }
     }
     
     func getUserRelatedUrlString(with editedString: String) -> String {
         var healthParameters: [String]?
         var healthParametersJoined: String?
-        if let diet = User.dietType {
+        if let diet = User.dietType, diet != "" {
             healthParameters = [diet]
         }
         if let allergens = User.allergensInfo {
