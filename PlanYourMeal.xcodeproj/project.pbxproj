@@ -12,7 +12,6 @@
 		2421EAA4237ABD03009C5C7F /* AccountSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2421EAA2237ABD03009C5C7F /* AccountSettingsViewController.xib */; };
 		2421EAA7237AC05C009C5C7F /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */; };
 		2421EAA8237AC05C009C5C7F /* NotificationSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */; };
-		2421EAAA237C8D48009C5C7F /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421EAA9237C8D48009C5C7F /* Password.swift */; };
 		242604E8237DDE6600277B70 /* PopupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */; };
 		242604E9237DDE6600277B70 /* PopupPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */; };
 		242604EB237E7D6600277B70 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604EA237E7D6600277B70 /* User.swift */; };
@@ -21,10 +20,16 @@
 		242604F1237F366A00277B70 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604F0237F366900277B70 /* AlertService.swift */; };
 		242604F423807FA100277B70 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604F223807FA000277B70 /* NotificationTableViewCell.swift */; };
 		242604F523807FA100277B70 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 242604F323807FA100277B70 /* NotificationTableViewCell.xib */; };
-		242604F723808B9200277B70 /* TimeVariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604F623808B9200277B70 /* TimeVariants.swift */; };
 		242604F92381522700277B70 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242604F82381522600277B70 /* NotificationService.swift */; };
 		242604FE23853CDA00277B70 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 242604FD23853CDA00277B70 /* HomeViewController.xib */; };
 		242C55D923C314F7003A1D49 /* AllergensModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55D823C314F7003A1D49 /* AllergensModel.swift */; };
+		242C55DB23C32BC7003A1D49 /* CustomDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55DA23C32BC7003A1D49 /* CustomDataTypes.swift */; };
+		242C55DD23C33CFB003A1D49 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55DC23C33CFA003A1D49 /* HomeModel.swift */; };
+		242C55E023C4458E003A1D49 /* DayDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55DF23C4458E003A1D49 /* DayDiaryModel.swift */; };
+		242C55E323C45FBA003A1D49 /* PickMealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55E223C45FBA003A1D49 /* PickMealModel.swift */; };
+		242C55EA23C46C71003A1D49 /* RecipesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55E923C46C71003A1D49 /* RecipesModel.swift */; };
+		242C55ED23C478F3003A1D49 /* ShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55EC23C478F3003A1D49 /* ShoppingListModel.swift */; };
+		242C55F123C48550003A1D49 /* AccountSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C55F023C48550003A1D49 /* AccountSettingsModel.swift */; };
 		244331A923574FFC00330BA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244331A823574FFC00330BA1 /* Main.storyboard */; };
 		244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244331AA2357522500330BA1 /* RecipesViewController.swift */; };
 		244331AD2357522500330BA1 /* RecipesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244331AB2357522500330BA1 /* RecipesViewController.xib */; };
@@ -66,7 +71,6 @@
 		247FF3DF2372A7120098911F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */; };
 		24876C42237A0C6800F2ACEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */; };
 		249380492393F4FC001E8C9A /* MealsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249380472393F4FB001E8C9A /* MealsPageViewController.swift */; };
-		2493804A2393F4FC001E8C9A /* MealsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249380482393F4FB001E8C9A /* MealsPageViewController.xib */; };
 		2493804D2393FB4E001E8C9A /* DayDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */; };
 		2493804E2393FB4E001E8C9A /* DayDiaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */; };
 		24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E255234C634600B02DF2 /* AppDelegate.swift */; };
@@ -76,7 +80,6 @@
 		24A0E265234C634B00B02DF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A0E263234C634B00B02DF2 /* LaunchScreen.storyboard */; };
 		24A0E270234C634B00B02DF2 /* PlanYourMealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E26F234C634B00B02DF2 /* PlanYourMealTests.swift */; };
 		24A0E27B234C634B00B02DF2 /* PlanYourMealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0E27A234C634B00B02DF2 /* PlanYourMealUITests.swift */; };
-		24A29D6623B5ECB900A376CF /* GlassActivityStatusPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A29D6523B5ECB900A376CF /* GlassActivityStatusPicker.swift */; };
 		24AD0763239B937300E87E6F /* PickMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0761239B937200E87E6F /* PickMealViewController.swift */; };
 		24AD0764239B937300E87E6F /* PickMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD0762239B937200E87E6F /* PickMealViewController.xib */; };
 		24AD0767239B964700E87E6F /* PickMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */; };
@@ -114,7 +117,6 @@
 		2421EAA2237ABD03009C5C7F /* AccountSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSettingsViewController.xib; sourceTree = "<group>"; };
 		2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSettingsViewController.xib; sourceTree = "<group>"; };
-		2421EAA9237C8D48009C5C7F /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPasswordViewController.swift; sourceTree = "<group>"; };
 		242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupPasswordViewController.xib; sourceTree = "<group>"; };
 		242604EA237E7D6600277B70 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -123,10 +125,16 @@
 		242604F0237F366900277B70 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		242604F223807FA000277B70 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		242604F323807FA100277B70 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
-		242604F623808B9200277B70 /* TimeVariants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeVariants.swift; sourceTree = "<group>"; };
 		242604F82381522600277B70 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		242604FD23853CDA00277B70 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		242C55D823C314F7003A1D49 /* AllergensModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergensModel.swift; sourceTree = "<group>"; };
+		242C55DA23C32BC7003A1D49 /* CustomDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataTypes.swift; sourceTree = "<group>"; };
+		242C55DC23C33CFA003A1D49 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		242C55DF23C4458E003A1D49 /* DayDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDiaryModel.swift; sourceTree = "<group>"; };
+		242C55E223C45FBA003A1D49 /* PickMealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMealModel.swift; sourceTree = "<group>"; };
+		242C55E923C46C71003A1D49 /* RecipesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesModel.swift; sourceTree = "<group>"; };
+		242C55EC23C478F3003A1D49 /* ShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListModel.swift; sourceTree = "<group>"; };
+		242C55F023C48550003A1D49 /* AccountSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsModel.swift; sourceTree = "<group>"; };
 		244331A823574FFC00330BA1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		244331AA2357522500330BA1 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		244331AB2357522500330BA1 /* RecipesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesViewController.xib; sourceTree = "<group>"; };
@@ -171,7 +179,6 @@
 		247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		249380472393F4FB001E8C9A /* MealsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsPageViewController.swift; sourceTree = "<group>"; };
-		249380482393F4FB001E8C9A /* MealsPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealsPageViewController.xib; sourceTree = "<group>"; };
 		2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDiaryViewController.swift; sourceTree = "<group>"; };
 		2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayDiaryViewController.xib; sourceTree = "<group>"; };
 		24A0E252234C634600B02DF2 /* PlanYourMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanYourMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,7 +194,6 @@
 		24A0E276234C634B00B02DF2 /* PlanYourMealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanYourMealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A0E27A234C634B00B02DF2 /* PlanYourMealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanYourMealUITests.swift; sourceTree = "<group>"; };
 		24A0E27C234C634B00B02DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24A29D6523B5ECB900A376CF /* GlassActivityStatusPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassActivityStatusPicker.swift; sourceTree = "<group>"; };
 		24AD0761239B937200E87E6F /* PickMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMealViewController.swift; sourceTree = "<group>"; };
 		24AD0762239B937200E87E6F /* PickMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickMealViewController.xib; sourceTree = "<group>"; };
 		24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMealTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,67 +242,290 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		244331B62358436400330BA1 /* Cells */ = {
+		242C55DE23C443B1003A1D49 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2467FF37234DAF4D0098C021 /* HomeViewController.swift */,
+				242C55DC23C33CFA003A1D49 /* HomeModel.swift */,
+				242604FD23853CDA00277B70 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		242C55E123C4516D003A1D49 /* DayDiary */ = {
+			isa = PBXGroup;
+			children = (
+				2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */,
+				242C55DF23C4458E003A1D49 /* DayDiaryModel.swift */,
+				2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */,
+			);
+			path = DayDiary;
+			sourceTree = "<group>";
+		};
+		242C55E423C469FD003A1D49 /* PickMeal */ = {
+			isa = PBXGroup;
+			children = (
+				24AD0761239B937200E87E6F /* PickMealViewController.swift */,
+				242C55E223C45FBA003A1D49 /* PickMealModel.swift */,
+				24AD0762239B937200E87E6F /* PickMealViewController.xib */,
+			);
+			path = PickMeal;
+			sourceTree = "<group>";
+		};
+		242C55E523C46A34003A1D49 /* AddingMealType */ = {
+			isa = PBXGroup;
+			children = (
+				24F2A3532394DE8B00F8606D /* AddingMealTypeViewController.swift */,
+				24F2A3542394DE8C00F8606D /* AddingMealTypeViewController.xib */,
+			);
+			path = AddingMealType;
+			sourceTree = "<group>";
+		};
+		242C55E623C46A5C003A1D49 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				244331C6235D867100330BA1 /* RecipeDetailViewController.swift */,
+				244331C7235D867100330BA1 /* RecipeDetailViewController.xib */,
+			);
+			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		242C55EB23C46D06003A1D49 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				244331AA2357522500330BA1 /* RecipesViewController.swift */,
+				242C55E923C46C71003A1D49 /* RecipesModel.swift */,
+				244331AB2357522500330BA1 /* RecipesViewController.xib */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		242C55EE23C48476003A1D49 /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */,
+				242C55EC23C478F3003A1D49 /* ShoppingListModel.swift */,
+				244331B02357530500330BA1 /* ShoppingListViewController.xib */,
+			);
+			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		242C55EF23C484A6003A1D49 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2467FF3F234DECC90098C021 /* ProfileViewController.swift */,
+				244331AE235752E100330BA1 /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		242C55F223C4998B003A1D49 /* AccountSettings */ = {
+			isa = PBXGroup;
+			children = (
+				2421EAA1237ABD03009C5C7F /* AccountSettingsViewController.swift */,
+				242C55F023C48550003A1D49 /* AccountSettingsModel.swift */,
+				2421EAA2237ABD03009C5C7F /* AccountSettingsViewController.xib */,
+			);
+			path = AccountSettings;
+			sourceTree = "<group>";
+		};
+		242C55F323C499E4003A1D49 /* PopupPassword */ = {
+			isa = PBXGroup;
+			children = (
+				242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */,
+				242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */,
+			);
+			path = PopupPassword;
+			sourceTree = "<group>";
+		};
+		242C55F423C49A04003A1D49 /* PopupConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				242604EC237E91A100277B70 /* PopupConfirmViewController.swift */,
+				242604ED237E91A100277B70 /* PopupConfirmViewController.xib */,
+			);
+			path = PopupConfirm;
+			sourceTree = "<group>";
+		};
+		242C55F523C49A87003A1D49 /* NotificationSettings */ = {
+			isa = PBXGroup;
+			children = (
+				2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */,
+				2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */,
+				242604F0237F366900277B70 /* AlertService.swift */,
+				242604F82381522600277B70 /* NotificationService.swift */,
+			);
+			path = NotificationSettings;
+			sourceTree = "<group>";
+		};
+		242C55F623C49B5F003A1D49 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				244331D72360398700330BA1 /* SignUpViewController.swift */,
+				244331D82360398700330BA1 /* SignUpViewController.xib */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		242C55F723C49B7C003A1D49 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				244331DB23603C2A00330BA1 /* SignInViewController.swift */,
+				244331DC23603C2A00330BA1 /* SignInViewController.xib */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		242C55F823C49B8D003A1D49 /* UserGoal */ = {
+			isa = PBXGroup;
+			children = (
+				244331E72361DEE100330BA1 /* UserGoalViewController.h */,
+				244331E82361DEE100330BA1 /* UserGoalViewController.m */,
+				244331E92361DEE100330BA1 /* UserGoalViewController.xib */,
+			);
+			path = UserGoal;
+			sourceTree = "<group>";
+		};
+		242C55F923C49B9E003A1D49 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				244331F02365532A00330BA1 /* UserDataViewController.h */,
+				244331F12365532B00330BA1 /* UserDataViewController.m */,
+				244331F22365532B00330BA1 /* UserDataViewController.xib */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		242C55FA23C49BB4003A1D49 /* Allergens */ = {
+			isa = PBXGroup;
+			children = (
+				244331FA2365EBD900330BA1 /* AllergensViewController.swift */,
+				242C55D823C314F7003A1D49 /* AllergensModel.swift */,
+				244331FB2365EBD900330BA1 /* AllergensViewController.xib */,
+				244331FE2365EFFA00330BA1 /* Allergens.swift */,
+				247FF3D2236AEBDD0098911F /* Diet.swift */,
+			);
+			path = Allergens;
+			sourceTree = "<group>";
+		};
+		242C55FC23C49C4F003A1D49 /* DataStructs */ = {
+			isa = PBXGroup;
+			children = (
+				244331C4235C3CA200330BA1 /* SearchResponse.swift */,
+				242604EA237E7D6600277B70 /* User.swift */,
+				24AD0769239BA95F00E87E6F /* CustomProtocols.swift */,
+				242C55DA23C32BC7003A1D49 /* CustomDataTypes.swift */,
+			);
+			path = DataStructs;
+			sourceTree = "<group>";
+		};
+		242C55FD23C4A3B9003A1D49 /* RecipeCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				244331BC23585D2B00330BA1 /* RecipeCollectionViewCell.swift */,
 				244331BD23585D2B00330BA1 /* RecipeCollectionViewCell.xib */,
+			);
+			path = RecipeCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		242C55FE23C4A3D7003A1D49 /* PickMealTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				24AD0765239B964700E87E6F /* PickMealTableViewCell.swift */,
 				24AD0766239B964700E87E6F /* PickMealTableViewCell.xib */,
+			);
+			path = PickMealTableViewCell;
+			sourceTree = "<group>";
+		};
+		242C55FF23C4A3F3003A1D49 /* IngredientTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				244331CE235D971400330BA1 /* IngredientTableViewCell.swift */,
 				244331CF235D971400330BA1 /* IngredientTableViewCell.xib */,
+			);
+			path = IngredientTableViewCell;
+			sourceTree = "<group>";
+		};
+		242C560023C4A40C003A1D49 /* SettingsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */,
 				247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */,
+			);
+			path = SettingsTableViewCell;
+			sourceTree = "<group>";
+		};
+		242C560123C4A42D003A1D49 /* NotificationTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				242604F223807FA000277B70 /* NotificationTableViewCell.swift */,
 				242604F323807FA100277B70 /* NotificationTableViewCell.xib */,
+			);
+			path = NotificationTableViewCell;
+			sourceTree = "<group>";
+		};
+		242C560223C4A452003A1D49 /* ShoppingListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				244331B8235843D800330BA1 /* ShoppingListTableViewCell.swift */,
 				244331B9235843D800330BA1 /* ShoppingListTableViewCell.xib */,
+			);
+			path = ShoppingListTableViewCell;
+			sourceTree = "<group>";
+		};
+		242C560323C4A46A003A1D49 /* AllergensTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				244332002365F1CF00330BA1 /* AllergensTableViewCell.swift */,
 				244332012365F1CF00330BA1 /* AllergensTableViewCell.xib */,
+			);
+			path = AllergensTableViewCell;
+			sourceTree = "<group>";
+		};
+		242C560423C4A484003A1D49 /* MealTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				24F2A34F2394154600F8606D /* MealTableViewCell.swift */,
 				24F2A3502394154600F8606D /* MealTableViewCell.xib */,
+			);
+			path = MealTableViewCell;
+			sourceTree = "<group>";
+		};
+		244331B62358436400330BA1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				242C55FD23C4A3B9003A1D49 /* RecipeCollectionViewCell */,
+				242C55FE23C4A3D7003A1D49 /* PickMealTableViewCell */,
+				242C55FF23C4A3F3003A1D49 /* IngredientTableViewCell */,
+				242C560023C4A40C003A1D49 /* SettingsTableViewCell */,
+				242C560123C4A42D003A1D49 /* NotificationTableViewCell */,
+				242C560223C4A452003A1D49 /* ShoppingListTableViewCell */,
+				242C560323C4A46A003A1D49 /* AllergensTableViewCell */,
+				242C560423C4A484003A1D49 /* MealTableViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		244331B72358437B00330BA1 /* Model */ = {
+		244331B72358437B00330BA1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				244331C0235C387A00330BA1 /* NetworkReader.swift */,
 				244331C2235C392C00330BA1 /* NetworkDataFetcher.swift */,
-				244331C4235C3CA200330BA1 /* SearchResponse.swift */,
-				2421EAA9237C8D48009C5C7F /* Password.swift */,
 				247FF3D423700FC80098911F /* DataLoadOperation.swift */,
-				244331FE2365EFFA00330BA1 /* Allergens.swift */,
-				242604F0237F366900277B70 /* AlertService.swift */,
-				242604EA237E7D6600277B70 /* User.swift */,
-				247FF3D2236AEBDD0098911F /* Diet.swift */,
-				242604F623808B9200277B70 /* TimeVariants.swift */,
-				242604F82381522600277B70 /* NotificationService.swift */,
-				24AD0769239BA95F00E87E6F /* CustomProtocols.swift */,
-				24A29D6523B5ECB900A376CF /* GlassActivityStatusPicker.swift */,
 			);
-			path = Model;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		244331D22360342E00330BA1 /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
 				244331D32360345F00330BA1 /* LoginViewController.swift */,
-				244331D72360398700330BA1 /* SignUpViewController.swift */,
-				244331D82360398700330BA1 /* SignUpViewController.xib */,
-				244331DB23603C2A00330BA1 /* SignInViewController.swift */,
-				244331DC23603C2A00330BA1 /* SignInViewController.xib */,
-				244331E72361DEE100330BA1 /* UserGoalViewController.h */,
-				244331E82361DEE100330BA1 /* UserGoalViewController.m */,
-				244331E92361DEE100330BA1 /* UserGoalViewController.xib */,
+				242C55F623C49B5F003A1D49 /* SignUp */,
+				242C55F723C49B7C003A1D49 /* SignIn */,
+				242C55F823C49B8D003A1D49 /* UserGoal */,
 				244331E62361DEE000330BA1 /* PlanYourMeal-Bridging-Header.h */,
-				244331F02365532A00330BA1 /* UserDataViewController.h */,
-				244331F12365532B00330BA1 /* UserDataViewController.m */,
-				244331F22365532B00330BA1 /* UserDataViewController.xib */,
-				242C55D823C314F7003A1D49 /* AllergensModel.swift */,
-				244331FA2365EBD900330BA1 /* AllergensViewController.swift */,
-				244331FB2365EBD900330BA1 /* AllergensViewController.xib */,
+				242C55F923C49B9E003A1D49 /* UserData */,
+				242C55FA23C49BB4003A1D49 /* Allergens */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -309,38 +538,25 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
-		2467FF41234DECDF0098C021 /* ViewControllers */ = {
+		2467FF41234DECDF0098C021 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				2467FF42234E60540098C021 /* TabBarViewController.swift */,
-				2467FF37234DAF4D0098C021 /* HomeViewController.swift */,
-				242604FD23853CDA00277B70 /* HomeViewController.xib */,
 				249380472393F4FB001E8C9A /* MealsPageViewController.swift */,
-				249380482393F4FB001E8C9A /* MealsPageViewController.xib */,
-				2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */,
-				2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */,
-				24AD0761239B937200E87E6F /* PickMealViewController.swift */,
-				24AD0762239B937200E87E6F /* PickMealViewController.xib */,
-				24F2A3532394DE8B00F8606D /* AddingMealTypeViewController.swift */,
-				24F2A3542394DE8C00F8606D /* AddingMealTypeViewController.xib */,
-				244331C6235D867100330BA1 /* RecipeDetailViewController.swift */,
-				244331C7235D867100330BA1 /* RecipeDetailViewController.xib */,
-				244331AA2357522500330BA1 /* RecipesViewController.swift */,
-				244331AB2357522500330BA1 /* RecipesViewController.xib */,
-				2467FF3D234DECA40098C021 /* ShoppingListViewController.swift */,
-				244331B02357530500330BA1 /* ShoppingListViewController.xib */,
-				2467FF3F234DECC90098C021 /* ProfileViewController.swift */,
-				244331AE235752E100330BA1 /* ProfileViewController.xib */,
-				2421EAA1237ABD03009C5C7F /* AccountSettingsViewController.swift */,
-				2421EAA2237ABD03009C5C7F /* AccountSettingsViewController.xib */,
-				242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */,
-				242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */,
-				242604EC237E91A100277B70 /* PopupConfirmViewController.swift */,
-				242604ED237E91A100277B70 /* PopupConfirmViewController.xib */,
-				2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */,
-				2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */,
+				242C55DE23C443B1003A1D49 /* Home */,
+				242C55E123C4516D003A1D49 /* DayDiary */,
+				242C55E423C469FD003A1D49 /* PickMeal */,
+				242C55E523C46A34003A1D49 /* AddingMealType */,
+				242C55E623C46A5C003A1D49 /* RecipeDetail */,
+				242C55EB23C46D06003A1D49 /* Recipes */,
+				242C55EE23C48476003A1D49 /* ShoppingList */,
+				242C55EF23C484A6003A1D49 /* Profile */,
+				242C55F223C4998B003A1D49 /* AccountSettings */,
+				242C55F323C499E4003A1D49 /* PopupPassword */,
+				242C55F423C49A04003A1D49 /* PopupConfirm */,
+				242C55F523C49A87003A1D49 /* NotificationSettings */,
 			);
-			path = ViewControllers;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		24A0E249234C634500B02DF2 = {
@@ -374,10 +590,11 @@
 				244331DF23604C1800330BA1 /* Design.swift */,
 				244331E12361784700330BA1 /* Video */,
 				244331D22360342E00330BA1 /* Authentification */,
-				244331B72358437B00330BA1 /* Model */,
+				2467FF41234DECDF0098C021 /* Modules */,
+				244331B72358437B00330BA1 /* Networking */,
+				242C55FC23C49C4F003A1D49 /* DataStructs */,
 				244331B62358436400330BA1 /* Cells */,
 				244331A823574FFC00330BA1 /* Main.storyboard */,
-				2467FF41234DECDF0098C021 /* ViewControllers */,
 				24A0E261234C634B00B02DF2 /* Assets.xcassets */,
 				24A0E263234C634B00B02DF2 /* LaunchScreen.storyboard */,
 				24A0E266234C634B00B02DF2 /* Info.plist */,
@@ -555,7 +772,6 @@
 				2421EAA8237AC05C009C5C7F /* NotificationSettingsViewController.xib in Resources */,
 				2421EAA4237ABD03009C5C7F /* AccountSettingsViewController.xib in Resources */,
 				24AD0768239B964700E87E6F /* PickMealTableViewCell.xib in Resources */,
-				2493804A2393F4FC001E8C9A /* MealsPageViewController.xib in Resources */,
 				242604FE23853CDA00277B70 /* HomeViewController.xib in Resources */,
 				244332032365F1CF00330BA1 /* AllergensTableViewCell.xib in Resources */,
 				24A0E262234C634B00B02DF2 /* Assets.xcassets in Resources */,
@@ -695,13 +911,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242C55E023C4458E003A1D49 /* DayDiaryModel.swift in Sources */,
 				242604F423807FA100277B70 /* NotificationTableViewCell.swift in Sources */,
-				24A29D6623B5ECB900A376CF /* GlassActivityStatusPicker.swift in Sources */,
 				244331EA2361DEE100330BA1 /* UserGoalViewController.m in Sources */,
 				244331C3235C392C00330BA1 /* NetworkDataFetcher.swift in Sources */,
-				2421EAAA237C8D48009C5C7F /* Password.swift in Sources */,
 				244331C1235C387A00330BA1 /* NetworkReader.swift in Sources */,
 				244331BE23585D2B00330BA1 /* RecipeCollectionViewCell.swift in Sources */,
+				242C55DB23C32BC7003A1D49 /* CustomDataTypes.swift in Sources */,
 				2467FF38234DAF4D0098C021 /* HomeViewController.swift in Sources */,
 				24AD0763239B937300E87E6F /* PickMealViewController.swift in Sources */,
 				242604EE237E91A100277B70 /* PopupConfirmViewController.swift in Sources */,
@@ -709,9 +925,11 @@
 				244331D0235D971400330BA1 /* IngredientTableViewCell.swift in Sources */,
 				242604F1237F366A00277B70 /* AlertService.swift in Sources */,
 				244331BA235843D800330BA1 /* ShoppingListTableViewCell.swift in Sources */,
+				242C55F123C48550003A1D49 /* AccountSettingsModel.swift in Sources */,
 				244331D92360398700330BA1 /* SignUpViewController.swift in Sources */,
 				2493804D2393FB4E001E8C9A /* DayDiaryViewController.swift in Sources */,
 				24A0E256234C634600B02DF2 /* AppDelegate.swift in Sources */,
+				242C55E323C45FBA003A1D49 /* PickMealModel.swift in Sources */,
 				244331FC2365EBD900330BA1 /* AllergensViewController.swift in Sources */,
 				244331E023604C1800330BA1 /* Design.swift in Sources */,
 				244332022365F1CF00330BA1 /* AllergensTableViewCell.swift in Sources */,
@@ -719,6 +937,7 @@
 				2421EAA3237ABD03009C5C7F /* AccountSettingsViewController.swift in Sources */,
 				2467FF3E234DECA40098C021 /* ShoppingListViewController.swift in Sources */,
 				2467FF43234E60540098C021 /* TabBarViewController.swift in Sources */,
+				242C55EA23C46C71003A1D49 /* RecipesModel.swift in Sources */,
 				24F2A3512394154600F8606D /* MealTableViewCell.swift in Sources */,
 				249380492393F4FC001E8C9A /* MealsPageViewController.swift in Sources */,
 				244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */,
@@ -729,15 +948,16 @@
 				242604F92381522700277B70 /* NotificationService.swift in Sources */,
 				24AD0767239B964700E87E6F /* PickMealTableViewCell.swift in Sources */,
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
+				242C55ED23C478F3003A1D49 /* ShoppingListModel.swift in Sources */,
 				247FF3D3236AEBDD0098911F /* Diet.swift in Sources */,
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
 				244331F32365532B00330BA1 /* UserDataViewController.m in Sources */,
 				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
 				2421EAA7237AC05C009C5C7F /* NotificationSettingsViewController.swift in Sources */,
+				242C55DD23C33CFB003A1D49 /* HomeModel.swift in Sources */,
 				24F2A3552394DE8C00F8606D /* AddingMealTypeViewController.swift in Sources */,
 				24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */,
 				244331C8235D867100330BA1 /* RecipeDetailViewController.swift in Sources */,
-				242604F723808B9200277B70 /* TimeVariants.swift in Sources */,
 				242C55D923C314F7003A1D49 /* AllergensModel.swift in Sources */,
 				244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */,
 				242604EB237E7D6600277B70 /* User.swift in Sources */,
