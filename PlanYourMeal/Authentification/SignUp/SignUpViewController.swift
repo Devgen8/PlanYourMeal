@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    lazy var signUpModel = SignUpModel(with: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpOutlets()
@@ -40,11 +42,19 @@ class SignUpViewController: UIViewController {
     
     //returns text of error in case of invalidable field
     private func validateFields() -> String? {
+        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            email == "" ||
+            password == "" {
             return "Please fill in all fields."
+        }
+        if !(email?.contains("@") ?? false && email?.contains(".") ?? false) {
+            return "Please, use email format: example@gmail.com"
+        }
+        if password?.count ?? 0 < 8 {
+            return "Password should be at least 8 symbols."
         }
         return nil
     }
@@ -56,35 +66,19 @@ class SignUpViewController: UIViewController {
         } else {
             if
                 let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-                let age = ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+                let age = Int(ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""),
                 let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                 let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
-                Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, err) in
-                    guard let `self` = self else { return }
-                    if err != nil {
-                        self.showError(err?.localizedDescription ?? "Try again later, please")
-                    } else {
-                        let db = Firestore.firestore()
-                        if let registrationResult = result {
-                            db.collection("users").document("\(registrationResult.user.uid)").setData(["name":name,
-                                                                                                       "age":Int(age) ?? 0,
-                                                                                                       "email":email,
-                                                                                                       "uid":registrationResult.user.uid]) {(error) in
-                                                                                                        if error != nil {
-                                                                                                            self.showError("There are some problems with your internet connection. Try again later")
-                                                                                                        }
-                            }
-                        }
-                    }
-                }
+                let userProfile = UserProfile(name: name, age: age, email: email, password: password)
+                signUpModel.createNewUser(userProfile)
             }
+            let newVC = UserGoalViewController()
+            newVC.modalPresentationStyle = .fullScreen
+            present(newVC, animated: true, completion: nil)
         }
-        let newVC = UserGoalViewController()
-        newVC.modalPresentationStyle = .fullScreen
-        present(newVC, animated: true, completion: nil)
     }
     
-    private func showError(_ message: String) {
+    func showError(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1
     }

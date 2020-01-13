@@ -49,9 +49,8 @@
                         <action selector="autoPickFoodTapped:" destination="-1" eventType="touchUpInside" id="sLG-qX-4e0"/>
                     </connections>
                 </button>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-65-v52">
-                    <rect key="frame" x="197" y="284" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-65-v52">
+                    <rect key="frame" x="188.5" y="257" width="37" height="37"/>
                     <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                 </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7D-Vx-PBx">
@@ -69,9 +68,11 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="UrD-Kq-1IX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="42" id="6NY-FQ-bWT"/>
+                <constraint firstItem="ZMk-65-v52" firstAttribute="top" secondItem="UrD-Kq-1IX" secondAttribute="bottom" constant="150" id="9Rs-al-nFH"/>
                 <constraint firstItem="C1A-70-TEZ" firstAttribute="top" secondItem="eNs-U1-tsA" secondAttribute="bottom" constant="3" id="BXF-G6-Ysc"/>
                 <constraint firstItem="eNs-U1-tsA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="D6V-TD-MxU"/>
                 <constraint firstItem="eNs-U1-tsA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SMo-We-Std"/>
+                <constraint firstItem="ZMk-65-v52" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="aLL-h1-jv6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="V7D-Vx-PBx" secondAttribute="trailing" constant="3" id="aew-Wo-3Zy"/>
                 <constraint firstItem="V7D-Vx-PBx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jlA-Sx-iZb"/>
                 <constraint firstItem="UrD-Kq-1IX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="kpq-mY-uTm"/>

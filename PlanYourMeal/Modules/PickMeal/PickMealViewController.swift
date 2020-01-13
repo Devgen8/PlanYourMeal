@@ -95,7 +95,7 @@ extension PickMealViewController: UISearchBarDelegate {
         mealsTableView.isHidden = true
         hintLabel.isHidden = true
         let editedString = searchText.replacingOccurrences(of: " ", with: "%20")
-        let urlString = pickMealModel.getUserRelatedUrlString(with: editedString)
+        let urlString = NetworkingService.getUserRelatedUrlString(with: editedString)
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in

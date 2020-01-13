@@ -37,3 +37,7 @@ protocol TapReciverDelegate {
 protocol AlertSenderDelegate {
     func sendAlert()
 }
+
+protocol ErrorHandlerDelegate {
+    func handleError(error: String)
+}

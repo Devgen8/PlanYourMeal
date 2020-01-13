@@ -15,6 +15,9 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var tickButton: UIButton!
     @IBOutlet weak var decorationView: UIView!
     var delegate: AlertSenderDelegate?
+    var notificationsModel = NotificationsModel()
+    var isChosen = false
+    var time: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,14 +27,25 @@ class NotificationTableViewCell: UITableViewCell {
     }
     
     @IBAction func tickTapped(_ sender: UIButton) {
-        if !NotificationService.isAbleToNotify {
+        guard NotificationService.isAbleToNotify == true else {
+            delegate?.sendAlert()
+            return
+        }
+        if isChosen {
+            if let notificationType = notificationLabel.text?.components(separatedBy: " ").first {
+                notificationsModel.deleteNotificationsData(notificationType: notificationType)
+            }
+            tickButton.setImage(#imageLiteral(resourceName: "cancel"), for: .normal)
+            isChosen = false
+        } else {
             let time = Int(timePicker.selectedRow(inComponent: 0)) + 1
             if let notificationType = notificationLabel.text?.components(separatedBy: " ").first {
                 NotificationService.notifyUser(about: notificationType, at: time)
+                notificationsModel.updateNotificationsData(notificationType: notificationType, time: time)
+                self.time = time
             }
             tickButton.setImage(#imageLiteral(resourceName: "tick"), for: .normal)
-        } else {
-            delegate?.sendAlert()
+            isChosen = true
         }
     }
     
@@ -49,6 +63,15 @@ extension NotificationTableViewCell: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 50
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row + 1 != time {
+            isChosen = false
+            tickButton.setImage(#imageLiteral(resourceName: "cancel"), for: .normal)
+        } else {
+            isChosen = true
+            tickButton.setImage(#imageLiteral(resourceName: "tick"), for: .normal)
+        }
     }
 }
 

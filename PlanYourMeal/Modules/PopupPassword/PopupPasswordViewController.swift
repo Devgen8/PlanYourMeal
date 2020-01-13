@@ -21,6 +21,7 @@ class PopupPasswordViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     var newPassword: String?
+    lazy var popupPasswordModel = PopupPasswordModel(with: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,30 +51,24 @@ class PopupPasswordViewController: UIViewController {
     
     @IBAction func okTapped(_ sender: UIButton) {
         let presentingVC = presentingViewController as! AccountSettingsViewController
-        guard currentPassTextField.text == User.password else {
-            errorLabel.text = "Try again. Your current password is not right"
-            errorLabel.isHidden = false
-            return
+        let oldPassword = User.password
+        popupPasswordModel.updateUsersPassword(currentPassword: currentPassTextField.text ?? "",
+                                               newPassword: newPassTextField.text ?? "",
+                                               confirmPassword: confirmPassTextField.text ?? "")
+        if oldPassword != User.password {
+            var pass = ""
+            for _ in User.password { pass += "•" }
+            presentingVC.passwordButton.setTitle(pass, for: .normal)
+            presentingVC.blurView?.removeFromSuperview()
+            dismiss(animated: true, completion: nil)
         }
-        guard newPassTextField.text == confirmPassTextField.text, newPassTextField.text != "" else {
-            errorLabel.text = "Try again. Your new password don't match with confirmation"
-            errorLabel.isHidden = false
-            return
-        }
-        presentingVC.passwordButton.setTitle(newPassTextField.text, for: .normal)
-        User.password = newPassTextField.text!
-        var pass = ""
-        for _ in User.password { pass += "•" }
-        presentingVC.passwordButton.setTitle(pass, for: .normal)
-        Auth.auth().currentUser?.updatePassword(to: User.password, completion: { (error) in
-            guard error == nil else {
-                self.errorLabel.text = "Something went wrong with password changing..."
-                self.errorLabel.isHidden = false
-                return
-            }
-        })
-        presentingVC.blurView?.removeFromSuperview()
-        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PopupPasswordViewController: ErrorHandlerDelegate {
+    func handleError(error: String) {
+        errorLabel.text = error
+        errorLabel.isHidden = false
     }
 }
 

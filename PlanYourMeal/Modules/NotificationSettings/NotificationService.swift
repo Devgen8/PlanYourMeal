@@ -34,7 +34,7 @@ class NotificationService {
     }
     
     static var isAbleToNotify: Bool {
-        return UIApplication.shared.isRegisteredForRemoteNotifications
+        return !UIApplication.shared.isRegisteredForRemoteNotifications
     }
     
     static func createAlert(title: String, message: String) -> UIAlertController {

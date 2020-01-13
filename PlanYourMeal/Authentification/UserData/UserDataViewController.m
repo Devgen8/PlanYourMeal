@@ -31,6 +31,7 @@
     [self designNextButton:_nextButton];
     _heightTextField.delegate = self;
     _weightTextField.delegate = self;
+    
 }
 
 - (void)designNextButton:(UIButton *)button {
@@ -82,6 +83,7 @@
         NSLog(@"Document successfully written!");
       }
     }];
+    [[[_db collectionWithPath:pathToDoc] documentWithPath:@"Diet"] deleteDocument];
     [self presentViewController:[[AllergensViewController alloc] init] animated:YES completion:nil];
     
     

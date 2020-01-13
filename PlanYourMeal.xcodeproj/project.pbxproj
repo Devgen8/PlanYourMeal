@@ -70,6 +70,13 @@
 		247FF3DE2372A7120098911F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */; };
 		247FF3DF2372A7120098911F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */; };
 		24876C42237A0C6800F2ACEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */; };
+		248F2FAC23CA2639007C98B5 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F2FAB23CA2639007C98B5 /* NetworkingService.swift */; };
+		248F2FAE23CA2D09007C98B5 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F2FAD23CA2D09007C98B5 /* SignUpModel.swift */; };
+		248F2FB023CA3194007C98B5 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F2FAF23CA3194007C98B5 /* SignInModel.swift */; };
+		248F2FB623CB265D007C98B5 /* PopupConfirmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F2FB523CB265D007C98B5 /* PopupConfirmModel.swift */; };
+		248F2FB823CB2870007C98B5 /* PopupPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F2FB723CB2870007C98B5 /* PopupPasswordModel.swift */; };
+		248F2FBA23CB97D0007C98B5 /* NotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F2FB923CB97D0007C98B5 /* NotificationsModel.swift */; };
+		248F2FBC23CBB0B5007C98B5 /* NotificationSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F2FBB23CBB0B5007C98B5 /* NotificationSettingsModel.swift */; };
 		249380492393F4FC001E8C9A /* MealsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249380472393F4FB001E8C9A /* MealsPageViewController.swift */; };
 		2493804D2393FB4E001E8C9A /* DayDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */; };
 		2493804E2393FB4E001E8C9A /* DayDiaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */; };
@@ -178,6 +185,13 @@
 		247FF3DC2372A7120098911F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		247FF3DD2372A7120098911F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		24876C41237A0C6700F2ACEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		248F2FAB23CA2639007C98B5 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		248F2FAD23CA2D09007C98B5 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		248F2FAF23CA3194007C98B5 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		248F2FB523CB265D007C98B5 /* PopupConfirmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupConfirmModel.swift; sourceTree = "<group>"; };
+		248F2FB723CB2870007C98B5 /* PopupPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPasswordModel.swift; sourceTree = "<group>"; };
+		248F2FB923CB97D0007C98B5 /* NotificationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsModel.swift; sourceTree = "<group>"; };
+		248F2FBB23CBB0B5007C98B5 /* NotificationSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsModel.swift; sourceTree = "<group>"; };
 		249380472393F4FB001E8C9A /* MealsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsPageViewController.swift; sourceTree = "<group>"; };
 		2493804B2393FB4E001E8C9A /* DayDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDiaryViewController.swift; sourceTree = "<group>"; };
 		2493804C2393FB4E001E8C9A /* DayDiaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayDiaryViewController.xib; sourceTree = "<group>"; };
@@ -333,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				242604E6237DDE6600277B70 /* PopupPasswordViewController.swift */,
+				248F2FB723CB2870007C98B5 /* PopupPasswordModel.swift */,
 				242604E7237DDE6600277B70 /* PopupPasswordViewController.xib */,
 			);
 			path = PopupPassword;
@@ -342,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				242604EC237E91A100277B70 /* PopupConfirmViewController.swift */,
+				248F2FB523CB265D007C98B5 /* PopupConfirmModel.swift */,
 				242604ED237E91A100277B70 /* PopupConfirmViewController.xib */,
 			);
 			path = PopupConfirm;
@@ -351,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				2421EAA5237AC05C009C5C7F /* NotificationSettingsViewController.swift */,
+				248F2FBB23CBB0B5007C98B5 /* NotificationSettingsModel.swift */,
 				2421EAA6237AC05C009C5C7F /* NotificationSettingsViewController.xib */,
 				242604F0237F366900277B70 /* AlertService.swift */,
 				242604F82381522600277B70 /* NotificationService.swift */,
@@ -362,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				244331D72360398700330BA1 /* SignUpViewController.swift */,
+				248F2FAD23CA2D09007C98B5 /* SignUpModel.swift */,
 				244331D82360398700330BA1 /* SignUpViewController.xib */,
 			);
 			path = SignUp;
@@ -371,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				244331DB23603C2A00330BA1 /* SignInViewController.swift */,
+				248F2FAF23CA3194007C98B5 /* SignInModel.swift */,
 				244331DC23603C2A00330BA1 /* SignInViewController.xib */,
 			);
 			path = SignIn;
@@ -459,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				242604F223807FA000277B70 /* NotificationTableViewCell.swift */,
+				248F2FB923CB97D0007C98B5 /* NotificationsModel.swift */,
 				242604F323807FA100277B70 /* NotificationTableViewCell.xib */,
 			);
 			path = NotificationTableViewCell;
@@ -510,6 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				244331C0235C387A00330BA1 /* NetworkReader.swift */,
+				248F2FAB23CA2639007C98B5 /* NetworkingService.swift */,
 				244331C2235C392C00330BA1 /* NetworkDataFetcher.swift */,
 				247FF3D423700FC80098911F /* DataLoadOperation.swift */,
 			);
@@ -914,6 +935,7 @@
 				242C55E023C4458E003A1D49 /* DayDiaryModel.swift in Sources */,
 				242604F423807FA100277B70 /* NotificationTableViewCell.swift in Sources */,
 				244331EA2361DEE100330BA1 /* UserGoalViewController.m in Sources */,
+				248F2FB823CB2870007C98B5 /* PopupPasswordModel.swift in Sources */,
 				244331C3235C392C00330BA1 /* NetworkDataFetcher.swift in Sources */,
 				244331C1235C387A00330BA1 /* NetworkReader.swift in Sources */,
 				244331BE23585D2B00330BA1 /* RecipeCollectionViewCell.swift in Sources */,
@@ -932,6 +954,7 @@
 				242C55E323C45FBA003A1D49 /* PickMealModel.swift in Sources */,
 				244331FC2365EBD900330BA1 /* AllergensViewController.swift in Sources */,
 				244331E023604C1800330BA1 /* Design.swift in Sources */,
+				248F2FBA23CB97D0007C98B5 /* NotificationsModel.swift in Sources */,
 				244332022365F1CF00330BA1 /* AllergensTableViewCell.swift in Sources */,
 				244331DD23603C2A00330BA1 /* SignInViewController.swift in Sources */,
 				2421EAA3237ABD03009C5C7F /* AccountSettingsViewController.swift in Sources */,
@@ -940,8 +963,10 @@
 				242C55EA23C46C71003A1D49 /* RecipesModel.swift in Sources */,
 				24F2A3512394154600F8606D /* MealTableViewCell.swift in Sources */,
 				249380492393F4FC001E8C9A /* MealsPageViewController.swift in Sources */,
+				248F2FB623CB265D007C98B5 /* PopupConfirmModel.swift in Sources */,
 				244331FF2365EFFA00330BA1 /* Allergens.swift in Sources */,
 				24A0E260234C634600B02DF2 /* PlanYourMeal.xcdatamodeld in Sources */,
+				248F2FAE23CA2D09007C98B5 /* SignUpModel.swift in Sources */,
 				247FF3DE2372A7120098911F /* SettingsTableViewCell.swift in Sources */,
 				247FF3D523700FC90098911F /* DataLoadOperation.swift in Sources */,
 				24AD076A239BA96000E87E6F /* CustomProtocols.swift in Sources */,
@@ -950,17 +975,20 @@
 				2467FF40234DECC90098C021 /* ProfileViewController.swift in Sources */,
 				242C55ED23C478F3003A1D49 /* ShoppingListModel.swift in Sources */,
 				247FF3D3236AEBDD0098911F /* Diet.swift in Sources */,
+				248F2FBC23CBB0B5007C98B5 /* NotificationSettingsModel.swift in Sources */,
 				244331C5235C3CA200330BA1 /* SearchResponse.swift in Sources */,
 				244331F32365532B00330BA1 /* UserDataViewController.m in Sources */,
 				244331D52360345F00330BA1 /* LoginViewController.swift in Sources */,
 				2421EAA7237AC05C009C5C7F /* NotificationSettingsViewController.swift in Sources */,
 				242C55DD23C33CFB003A1D49 /* HomeModel.swift in Sources */,
 				24F2A3552394DE8C00F8606D /* AddingMealTypeViewController.swift in Sources */,
+				248F2FAC23CA2639007C98B5 /* NetworkingService.swift in Sources */,
 				24A0E258234C634600B02DF2 /* SceneDelegate.swift in Sources */,
 				244331C8235D867100330BA1 /* RecipeDetailViewController.swift in Sources */,
 				242C55D923C314F7003A1D49 /* AllergensModel.swift in Sources */,
 				244331AC2357522500330BA1 /* RecipesViewController.swift in Sources */,
 				242604EB237E7D6600277B70 /* User.swift in Sources */,
+				248F2FB023CA3194007C98B5 /* SignInModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
