@@ -109,6 +109,7 @@
         NSLog(@"Document successfully written!");
       }
     }];
+    [[[_db collectionWithPath:pathToDoc] documentWithPath:@"Diet"] deleteDocument];
     if ([self.presentingViewController isKindOfClass:[UITabBarController class]]) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {

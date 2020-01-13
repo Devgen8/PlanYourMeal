@@ -36,6 +36,9 @@ class HomeModel {
                     print(error?.localizedDescription ?? "Error: can not read data about last session")
                     return
                 }
+                if let password = snapshot?.data()?["password"] as? String {
+                    User.password = password
+                }
                 guard let `self` = self else { return }
                 if let lastSessionTimeStamp = snapshot?.data()?["lastSession"] as? Timestamp {
                     let lastSessionDate = lastSessionTimeStamp.dateValue()
@@ -221,6 +224,24 @@ class HomeModel {
                     self?.delegate?.reloadInfo?()
                 }
             }
+        }
+    }
+    
+    func updateUsersCalories(with calories: Int, for day: String) {
+        if let userId = Auth.auth().currentUser?.uid {
+            Firestore.firestore().collection("users").document(userId).collection("Meals").document(day).updateData(["todayCalories":calories])
+        }
+    }
+    
+    func updateUsersWaterGlasses(with glasses: Int, for day: String) {
+        if let userId = Auth.auth().currentUser?.uid {
+            Firestore.firestore().collection("users").document(userId).collection("Meals").document(day).updateData(["waterGlassesNumber":glasses])
+        }
+    }
+    
+    func updatePhotoData(with data: Data) {
+        if let userId = Auth.auth().currentUser?.uid {
+            Storage.storage().reference().child(userId).putData(data)
         }
     }
 }

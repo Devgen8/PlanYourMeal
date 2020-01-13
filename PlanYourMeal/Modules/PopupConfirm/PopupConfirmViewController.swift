@@ -14,6 +14,8 @@ class PopupConfirmViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    var popupConfirmModel = PopupConfirmModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,18 +34,7 @@ class PopupConfirmViewController: UIViewController {
     }
     
     @IBAction func deleteTapped(_ sender: UIButton) {
-        Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).delete { (error) in
-            guard error == nil else {
-                print("Error with deleting users data: ", error?.localizedDescription ?? "")
-                return
-            }
-        }
-        Auth.auth().currentUser?.delete(completion: { (error) in
-            guard error == nil else {
-                print("Error with deleting account: ", error?.localizedDescription ?? "")
-                return
-            }
-        })
+        popupConfirmModel.deleteUser()
         let signUpVC = SignUpViewController()
         signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true, completion: nil)

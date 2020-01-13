@@ -27,3 +27,15 @@ enum GlassActivityStatusPicker {
     case fill
     case empty
 }
+
+struct UserProfile: Decodable {
+    var name: String
+    var age: Int
+    var email: String
+    var password: String
+}
+
+struct DietData: Decodable {
+    var allergens: [String]?
+    var dietType: String?
+}

@@ -16,6 +16,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    lazy var signInModel = SignInModel(with: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpOutlets()
@@ -34,17 +36,7 @@ class SignInViewController: UIViewController {
         if
             let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
             let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
-            Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, err) in
-                guard let `self` = self else { return }
-                if err != nil {
-                    self.errorLabel.text = err?.localizedDescription
-                    self.errorLabel.alpha = 1
-                } else {
-                    let newVC = TabBarViewController()
-                    newVC.modalPresentationStyle = .fullScreen
-                    self.present(newVC, animated: true, completion: nil)
-                }
-            }
+            signInModel.signIn(email: email, password: password)
         }
     }
 }

@@ -65,7 +65,7 @@ class AccountSettingsModel {
     
     func updateUsersAge(with newAge: String) {
         if let user = Auth.auth().currentUser {
-            db.collection("users").document(user.uid).updateData(["age" : newAge]) { (error) in
+            db.collection("users").document(user.uid).updateData(["age" : Int(newAge) ?? 0]) { (error) in
                 guard error == nil else {
                     print("Something went wrong with age changing...")
                     return

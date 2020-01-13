@@ -162,7 +162,7 @@ extension RecipesViewController: UISearchBarDelegate {
         self.hintLabel.isHidden = true
         if searchText != "" {
             let editedString = searchText.replacingOccurrences(of: " ", with: "%20")
-            let urlString = recipesModel.getUserRelatedUrlString(with: editedString)
+            let urlString = NetworkingService.getUserRelatedUrlString(with: editedString)
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
                 self.networkDataFetcher.fetchRecipes(urlString: urlString) { (searchResponse) in

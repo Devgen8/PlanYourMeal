@@ -11,10 +11,15 @@ import UIKit
 class NotificationSettingsViewController: UIViewController {
 
     @IBOutlet weak var notificationsTableView: UITableView!
+    
+    lazy var notificationSettingsModel = NotificationSettingsModel(with: self)
+    var userNotifications = [String:Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationsTableView.dataSource = self
         notificationsTableView.delegate = self
+        notificationSettingsModel.getUsersNotifications()
     }
 }
 
@@ -29,6 +34,12 @@ extension NotificationSettingsViewController: UITableViewDataSource {
         cell.delegate = self
         let notificationType = NotificationService.notificationTypes[indexPath.section]
         cell.notificationLabel.text = "\(notificationType) time is "
+        if let time = userNotifications[notificationType] {
+            cell.isChosen = true
+            cell.tickButton.setImage(#imageLiteral(resourceName: "tick"), for: .normal)
+            cell.timePicker.selectRow(time - 1, inComponent: 0, animated: true)
+            cell.time = time
+        }
         
         return cell
     }
@@ -83,5 +94,12 @@ extension NotificationSettingsViewController: AlertSenderDelegate {
         let message = "Notifications can not be sent to you because we do not have you permission. Please change it in your settings to let us notify you."
         let alert = NotificationService.createAlert(title: title, message: message)
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension NotificationSettingsViewController: DataReloaderDelegate {
+    func reloadInfo() {
+        userNotifications = notificationSettingsModel.userNotifications
+        notificationsTableView.reloadData()
     }
 }

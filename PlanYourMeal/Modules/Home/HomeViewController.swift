@@ -49,8 +49,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     var todayCalories = 0 {
         willSet {
             dailyCaloriesLabel.text = "\(newValue)/\(User.dailyCalories ?? 1800) kcal"
-            if let userId = Auth.auth().currentUser?.uid, let dayDiaryVC = currentDayDiaryViewController {
-                Firestore.firestore().collection("users").document(userId).collection("Meals").document(dayDiaryVC.weekday).updateData(["todayCalories":newValue])
+            if let dayDiaryVC = currentDayDiaryViewController {
+                homeModel.updateUsersCalories(with: newValue, for: dayDiaryVC.weekday)
             }
             if let selectedWeekday = currentDayDiaryViewController?.weekday {
                 allDaysCalories[selectedWeekday] = newValue
@@ -86,9 +86,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
             if allDaysWaterGlasses[currentPageWeekday] != nil,
                 allDaysWaterGlasses[currentPageWeekday] != newValue {
                 allDaysWaterGlasses[currentPageWeekday] = newValue
-                if let userId = Auth.auth().currentUser?.uid {
-                    Firestore.firestore().collection("users").document(userId).collection("Meals").document(currentPageWeekday).updateData(["waterGlassesNumber":newValue])
-                }
+                homeModel.updateUsersWaterGlasses(with: newValue, for: currentPageWeekday)
             }
         }
     }
@@ -232,9 +230,8 @@ extension HomeViewController: UIImagePickerControllerDelegate {
         
         if let selectedImage = selectedImageFromPicker {
             userImageView.image = selectedImage
-            let uploadData = selectedImage.pngData()!
-            if let userId = Auth.auth().currentUser?.uid {
-                Storage.storage().reference().child("\(userId)").putData(uploadData)
+            if let uploadData = selectedImage.pngData() {
+                homeModel.updatePhotoData(with: uploadData)
             }
         }
         
