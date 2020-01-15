@@ -46,8 +46,8 @@ extension PickMealViewController: UITableViewDataSource {
         let recipeForCell = searchResponse?.hits?[indexPath.row].recipe
         
         cell.mealLabel.text = recipeForCell?.label ?? ""
-        cell.caloriesLabel.text = "\(Int(recipeForCell?.calories ?? 0) / 10) kcal"
-        cell.weightLabel.text = "\(Int(recipeForCell?.totalWeight ?? 0) / 10) g"
+        cell.caloriesLabel.text = "\(Int(recipeForCell?.calories ?? 0) / 3) kcal"
+        cell.weightLabel.text = "\(Int(recipeForCell?.totalWeight ?? 0) / 3) g"
         cell.recipe = recipeForCell
         cell.delegate = self
         
@@ -64,7 +64,7 @@ extension PickMealViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath) as? PickMealTableViewCell
         let destinationViewController = RecipeDetailViewController()
         if let selectedRecipe = cell?.recipe {
-            var recipeForDestVC = MealDataModel(name: selectedRecipe.label, calories: (selectedRecipe.calories ?? 0) / 10, url: selectedRecipe.url)
+            var recipeForDestVC = MealDataModel(name: selectedRecipe.label, calories: (selectedRecipe.calories ?? 0) / 3, url: selectedRecipe.url)
             let (ingredientNames, ingredientWeights) = pickMealModel.getIngredientNames(for: indexPath.row)
             recipeForDestVC.ingredientNames = ingredientNames
             recipeForDestVC.ingredientWeights = ingredientWeights

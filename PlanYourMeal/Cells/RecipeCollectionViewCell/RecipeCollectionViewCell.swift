@@ -16,7 +16,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        image.layer.cornerRadius = 4
+        image.layer.cornerRadius = 20
         designDecorationView()
     }
     

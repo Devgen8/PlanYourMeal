@@ -77,7 +77,7 @@ class DayDiaryModel {
                                 ingredientStatus.append(false)
                             }
                             Firestore.firestore().collection("users").document(userId).collection("Meals").document(self?.weekday ?? "").collection("MealTypes").document("\(mealType)").setData([
-                            "calories":(recipe.calories ?? 0)/10,
+                            "calories":(recipe.calories ?? 0)/3,
                             "image":recipe.image ?? "",
                             "ingredientNames":ingredientNames,
                             "ingredientWeights":ingredientWeights,
@@ -87,7 +87,7 @@ class DayDiaryModel {
                             "url":recipe.url ?? ""])
                             indexOfMeal += 1
                             if (indexOfMeal + 1) == self?.mealTypes?.count {
-                                self?.delegate?.reloadInfo?()
+                                self?.delegate?.makeRequestForData?()
                             }
                         }
                     }

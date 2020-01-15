@@ -44,7 +44,9 @@
                         <constraint firstAttribute="width" constant="150" id="fDU-ps-7Jl"/>
                         <constraint firstAttribute="height" constant="50" id="fbq-vN-IQI"/>
                     </constraints>
-                    <state key="normal" title="Auto food picking"/>
+                    <state key="normal" title="Auto food picking">
+                        <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
                     <connections>
                         <action selector="autoPickFoodTapped:" destination="-1" eventType="touchUpInside" id="sLG-qX-4e0"/>
                     </connections>
@@ -59,7 +61,9 @@
                         <constraint firstAttribute="height" constant="50" id="8sF-zh-vUS"/>
                         <constraint firstAttribute="width" constant="100" id="kID-Sl-mM8"/>
                     </constraints>
-                    <state key="normal" title="+ New meal"/>
+                    <state key="normal" title="+ New meal">
+                        <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
                     <connections>
                         <action selector="newMealTapped:" destination="-1" eventType="touchUpInside" id="hGs-Vo-Eyw"/>
                     </connections>

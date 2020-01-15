@@ -109,7 +109,7 @@ extension RecipesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipeDetailViewController = RecipeDetailViewController()
         if let selectedRecipe = searchResponse?.hits?[indexPath.row].recipe {
-            var recipeForDestVC = MealDataModel(name: selectedRecipe.label, calories: (selectedRecipe.calories ?? 0)/10, url: selectedRecipe.url)
+            var recipeForDestVC = MealDataModel(name: selectedRecipe.label, calories: (selectedRecipe.calories ?? 0)/3, url: selectedRecipe.url)
             let (ingredientNames, ingredientWeights) = recipesModel.getIngredientNames(for: indexPath.row)
             recipeForDestVC.ingredientNames = ingredientNames
             recipeForDestVC.ingredientWeights = ingredientWeights
