@@ -56,7 +56,7 @@ class PickMealModel {
             Firestore.firestore().collection("users").document(userId).collection("Meals").document(weekday ?? "").collection("MealTypes").document(mealType ?? "").setData([
                 "image":recipe.image ?? "",
                 "name":recipe.label ?? "",
-                "calories":mealCalories,
+                "calories":mealCalories / 3,
                 "mealType":mealType ?? "",
                 "ingredientNames":ingredientNames,
                 "ingredientWeights":ingredientWeights,

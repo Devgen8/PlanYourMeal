@@ -42,10 +42,10 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewk-rf-dGg">
-                    <rect key="frame" x="125" y="128.5" width="120" height="41"/>
+                    <rect key="frame" x="125" y="128.5" width="137" height="41"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="120" id="6cP-ca-jNP"/>
+                        <constraint firstAttribute="width" constant="137" id="6cP-ca-jNP"/>
                         <constraint firstAttribute="height" constant="41" id="tHw-IZ-qrq"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -82,7 +82,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvO-3h-HTP">
-                    <rect key="frame" x="255" y="98" width="78" height="110"/>
+                    <rect key="frame" x="263" y="98" width="78" height="110"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="110" id="YzI-vf-nv7"/>
@@ -102,7 +102,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="pcb-GK-n0f" secondAttribute="bottom" id="QaW-O1-Dhh"/>
                 <constraint firstItem="Ewk-rf-dGg" firstAttribute="top" secondItem="VAO-mm-AUg" secondAttribute="bottom" constant="10" id="Rin-Qc-fa5"/>
                 <constraint firstItem="pcb-GK-n0f" firstAttribute="top" secondItem="lzZ-mZ-W4e" secondAttribute="bottom" constant="5" id="THl-GN-Usk"/>
-                <constraint firstItem="xvO-3h-HTP" firstAttribute="leading" secondItem="Ewk-rf-dGg" secondAttribute="trailing" constant="10" id="V8E-sG-8bD"/>
+                <constraint firstItem="xvO-3h-HTP" firstAttribute="leading" secondItem="Ewk-rf-dGg" secondAttribute="trailing" constant="1" id="V8E-sG-8bD"/>
                 <constraint firstItem="Q35-2R-HL3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="29" id="Z2J-TM-uWN"/>
                 <constraint firstItem="lzZ-mZ-W4e" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="dEZ-MJ-TfQ"/>
                 <constraint firstItem="13y-wp-oO9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="hZ1-Ir-db7"/>
